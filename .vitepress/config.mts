@@ -6,6 +6,10 @@ export default defineConfig({
   description: "Найдите нужную информацию тут",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local'
+    },
+
     nav: [
       { text: 'Главная', link: '/' },
       { text: 'Поддержка клиентов', link: '/support/' },

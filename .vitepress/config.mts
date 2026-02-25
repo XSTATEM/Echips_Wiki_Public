@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Главная', link: '/' },
       { text: 'Поддержка клиентов', link: '/support/' },
       // Вот наш мостик на закрытую базу:
-      { text: 'Вход для АСЦ 🔒', link: 'https://echips-wiki.pages.dev/' }
+      { text: 'Вход для АСЦ', link: 'https://echips-wiki.pages.dev/' }
     ],
 
     sidebar: [

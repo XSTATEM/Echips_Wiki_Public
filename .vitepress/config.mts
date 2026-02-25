@@ -7,8 +7,10 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Главная', link: '/' },
+      { text: 'Поддержка клиентов', link: '/support/' },
+      // Вот наш мостик на закрытую базу:
+      { text: 'Вход для АСЦ 🔒', link: 'https://echips-wiki.pages.dev/' }
     ],
 
     sidebar: [

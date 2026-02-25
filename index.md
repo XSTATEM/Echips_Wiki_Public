@@ -1,25 +1,21 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Поддержка Echips"
+  text: "Официальная база знаний для клиентов"
+  tagline: Инструкции, гарантия и ответы на частые вопросы
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Найти инструкцию
+      link: /guide/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Условия гарантии
+      link: /warranty/
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Частые вопросы
+    details: Ответы на самые популярные вопросы о наших ноутбуках.
+  - title: Драйверы и ПО
+    details: Где скачать и как установить все необходимые драйверы.
 ---
-

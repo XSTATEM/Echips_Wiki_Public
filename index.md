@@ -4,7 +4,6 @@ title: Поддержка Echips
 ---
 
 <div class="apple-support-container">
-  
   <div class="header-section">
     <div class="main-logo-circle" style="color: var(--echips-coral)">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="main-svg">
@@ -14,13 +13,13 @@ title: Поддержка Echips
     <h1>Поддержка Echips</h1>
     <p class="subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
-
   <div class="product-row">
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="product-svg">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25L5.25 13.5M5.25 13.5L9 9.75M5.25 13.5H21" stroke-opacity="0" /> <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 16.5V3.75a2.25 2.25 0 012.25-2.25h10.5a2.25 2.25 0 012.25 2.25zM19.5 19.5h1.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H21" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25L5.25 13.5M5.25 13.5L9 9.75M5.25 13.5H21" stroke-opacity="0" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 16.5V3.75a2.25 2.25 0 012.25-2.25h10.5a2.25 2.25 0 012.25 2.25zM19.5 19.5h1.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H21" />
         </svg>
       </div>
       <span>Ноутбуки</span>
@@ -50,7 +49,6 @@ title: Поддержка Echips
       <span>Гарантия</span>
     </a>
   </div>
-
   <div class="action-cards-row">
     <a href="/drivers/" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
@@ -61,7 +59,6 @@ title: Поддержка Echips
       <span class="card-title">Скачать драйверы</span>
       <span class="card-link-text">Выбрать модель →</span>
     </a>
-    
     <a href="/guide/windows" class="action-card" style="--accent-color: var(--echips-gold)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
@@ -71,7 +68,6 @@ title: Поддержка Echips
       <span class="card-title">Инструкции и FAQ</span>
       <span class="card-link-text">Найти ответ →</span>
     </a>
-
     <a href="/service/centers" class="action-card" style="--accent-color: var(--echips-red)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
@@ -83,11 +79,10 @@ title: Поддержка Echips
       <span class="card-link-text">Адреса на карте →</span>
     </a>
   </div>
-
 </div>
 
 <style>
-/* ================= ПАЛИТРА (Должна быть та же, что в theme/style.css) ================= */
+/* ================= ПАЛИТРА ================= */
 :root {
   --echips-yellow: #fae155;
   --echips-gold: #d99b28;
@@ -114,7 +109,6 @@ title: Поддержка Echips
 .main-logo-circle {
   width: 80px; height: 80px;
   margin: 0 auto 24px;
-  /* Используем SVG вместо фона */
 }
 .main-svg { width: 100%; height: 100%; stroke-width: 1.2; }
 .header-section h1 {
@@ -161,7 +155,6 @@ title: Поддержка Echips
   border: 1px solid transparent;
   position: relative; overflow: hidden;
 }
-/* Мягкая тень и подсветка при наведении */
 .action-card:hover {
   background: var(--vp-c-bg-alt);
   box-shadow: 0 16px 40px rgba(0,0,0,0.08);
@@ -186,7 +179,7 @@ title: Поддержка Echips
 }
 .action-card:hover .card-link-text { opacity: 1; }
 
-/* ================= АНИМАЦИИ И АДАПТИВ ================= */
+/* ================= АНИМАЦИИ ================= */
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 768px) {

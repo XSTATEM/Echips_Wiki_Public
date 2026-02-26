@@ -21,9 +21,8 @@ title: Поддержка Echips
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container glass-effect">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="product-svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25L5.25 13.5M5.25 13.5L9 9.75M5.25 13.5H21" stroke-opacity="0" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 16.5V3.75a2.25 2.25 0 012.25-2.25h10.5a2.25 2.25 0 012.25 2.25zM19.5 19.5h1.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H21" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.5m6-1.5v1.5m-9 1.5h12a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v9a2.25 2.25 0 002.25 2.25z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 19.5h18M4.5 3.75h15a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-9a2.25 2.25 0 012.25-2.25z" />
         </svg>
       </div>
       <span>Ноутбуки</span>
@@ -31,18 +30,11 @@ title: Поддержка Echips
     <a href="/monoblocks/" class="product-item">
        <div class="product-icon-container glass-effect">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="product-svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.5m6-1.5v1.5m-9 1.5h12a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v9a2.25 2.25 0 002.25 2.25z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75v16.5M15 3.75v16.5M3 9h18M3 15h18" />
         </svg>
       </div>
       <span>Моноблоки</span>
-    </a>
-    <a href="/accessories/" class="product-item">
-       <div class="product-icon-container glass-effect">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="product-svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-        </svg>
-      </div>
-      <span>Аксессуары</span>
     </a>
     <a href="/warranty/" class="product-item">
        <div class="product-icon-container glass-effect">
@@ -64,6 +56,7 @@ title: Поддержка Echips
       <span class="card-title">Скачать драйверы</span>
       <span class="card-link-text">Выбрать модель →</span>
     </a>
+    
     <a href="/guide/windows" class="action-card glass-effect">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
@@ -73,6 +66,7 @@ title: Поддержка Echips
       <span class="card-title">Инструкции и FAQ</span>
       <span class="card-link-text">Найти ответ →</span>
     </a>
+    
     <a href="/service/centers" class="action-card glass-effect">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
@@ -250,7 +244,9 @@ title: Поддержка Echips
   margin-top: 100px;
   padding-top: 60px;
   border-top: 1px solid rgba(128, 128, 128, 0.15);
+  opacity: 0; /* Start invisible for animation */
   animation: fadeSlideUp 1.2s ease forwards;
+  animation-delay: 1.2s; /* Stagger the start of the footer animation */
 }
 .service-title {
   font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);

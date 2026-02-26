@@ -13,6 +13,7 @@ title: Поддержка Echips
     <h1>Поддержка Echips</h1>
     <p class="subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
+
   <div class="product-row">
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container">
@@ -49,6 +50,7 @@ title: Поддержка Echips
       <span>Гарантия</span>
     </a>
   </div>
+
   <div class="action-cards-row">
     <a href="/drivers/" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
@@ -59,7 +61,8 @@ title: Поддержка Echips
       <span class="card-title">Скачать драйверы</span>
       <span class="card-link-text">Выбрать модель →</span>
     </a>
-    <a href="/guide/windows" class="action-card" style="--accent-color: var(--echips-gold)">
+    
+    <a href="/guide/windows" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -68,7 +71,8 @@ title: Поддержка Echips
       <span class="card-title">Инструкции и FAQ</span>
       <span class="card-link-text">Найти ответ →</span>
     </a>
-    <a href="/service/centers" class="action-card" style="--accent-color: var(--echips-red)">
+    
+    <a href="/service/centers" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -79,6 +83,22 @@ title: Поддержка Echips
       <span class="card-link-text">Адреса на карте →</span>
     </a>
   </div>
+
+  <div class="service-footer">
+    <h2 class="service-title">Сервисный департамент Echips</h2>
+    <p class="service-desc">Мы обеспечиваем техническую поддержку высшего уровня для наших партнеров и клиентов.</p>
+    <div class="contacts-row">
+      <div class="contact-block">
+        <h4>Для клиентов</h4>
+        <p>support@echips.ru</p>
+      </div>
+      <div class="contact-block">
+        <h4>Для сервисных центров</h4>
+        <p>service@echips.ru</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <style>
@@ -99,7 +119,7 @@ title: Поддержка Echips
 .apple-support-container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 80px 24px 40px;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -136,30 +156,32 @@ title: Поддержка Echips
 }
 .product-item:hover .product-icon-container { color: var(--echips-blue); }
 .product-svg { width: 64px; height: 64px; stroke-width: 1; }
-
 .product-item span { font-size: 17px; font-weight: 600; }
 
-/* ================= НИЖНИЙ РЯД (КАРТОЧКИ) ================= */
+/* ================= НИЖНИЙ РЯД (КАРТОЧКИ - LIQUID GLASS) ================= */
 .action-cards-row {
   display: flex; justify-content: center; gap: 32px;
   flex-wrap: wrap; animation: fadeSlideUp 1s ease forwards;
 }
 .action-card {
-  background: var(--card-bg);
+  /* Эффект Liquid Glass */
+  background: rgba(128, 128, 128, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(128, 128, 128, 0.12);
   border-radius: 24px;
   padding: 40px 32px;
   width: 300px;
   display: flex; flex-direction: column; align-items: center; text-align: center;
   text-decoration: none !important;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 1px solid transparent;
   position: relative; overflow: hidden;
 }
 .action-card:hover {
-  background: var(--vp-c-bg-alt);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  background: rgba(128, 128, 128, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
   transform: translateY(-8px) scale(1.02);
-  border-color: var(--accent-color);
 }
 
 .card-icon-container {
@@ -179,6 +201,30 @@ title: Поддержка Echips
 }
 .action-card:hover .card-link-text { opacity: 1; }
 
+/* ================= ФУТЕР (СЕРВИСНЫЙ ДЕПАРТАМЕНТ) ================= */
+.service-footer {
+  margin-top: 100px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(128, 128, 128, 0.15);
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+.service-title {
+  font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.service-desc {
+  color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; font-size: 18px;
+}
+.contacts-row {
+  display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+}
+.contact-block h4 {
+  font-size: 16px; margin: 0 0 8px; font-weight: 600; color: var(--text-primary);
+}
+.contact-block p {
+  margin: 0; color: var(--text-secondary); font-size: 16px;
+}
+
 /* ================= АНИМАЦИИ ================= */
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -190,5 +236,6 @@ title: Поддержка Echips
   .product-svg { width: 48px; height: 48px; }
   .product-item span { font-size: 14px; }
   .action-card { width: 100%; max-width: 340px; padding: 30px 24px; }
+  .contacts-row { gap: 32px; flex-direction: column; }
 }
 </style>

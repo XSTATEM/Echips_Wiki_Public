@@ -61,7 +61,6 @@ title: Поддержка Echips
       <span class="card-title">Скачать драйверы</span>
       <span class="card-link-text">Выбрать модель →</span>
     </a>
-    
     <a href="/guide/windows" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">
@@ -71,7 +70,6 @@ title: Поддержка Echips
       <span class="card-title">Инструкции и FAQ</span>
       <span class="card-link-text">Найти ответ →</span>
     </a>
-    
     <a href="/service/centers" class="action-card" style="--accent-color: var(--echips-coral)">
       <div class="card-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="card-svg">

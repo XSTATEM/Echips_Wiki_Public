@@ -1,0 +1,46 @@
+/* .vitepress/theme/style.css */
+
+:root {
+  /* 1. Извлекаем цвета из твоей картинки (примерные HEX-коды) */
+  --echips-yellow: #fae155;
+  --echips-gold: #d99b28;
+  --echips-coral: #f07f65;
+  --echips-red: #ba2f25;
+  --echips-blue: #93d4f5;
+
+  /* 2. Переопределяем главные цвета VitePress (кнопки, ссылки, акценты) */
+  /* Сделаем основным коралловый/красный, а при наведении - золото */
+  --vp-c-brand-1: var(--echips-coral);
+  --vp-c-brand-2: var(--echips-red);
+  --vp-c-brand-3: var(--echips-gold);
+
+  /* 3. Красивый градиент для главного заголовка на стартовой странице */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, var(--echips-red) 30%, var(--echips-yellow));
+}
+
+/* =========================================
+   АНИМАЦИИ ПЕРЕХОДОВ В СТИЛЕ APPLE
+   ========================================= */
+
+/* Современная магия (View Transitions API). 
+   Работает в новых браузерах: страницы будут плавно перетекать друг в друга */
+@view-transition {
+  navigation: auto;
+}
+
+/* Мягкое появление контента при открытии любой статьи */
+.VPDoc, .VPHome {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

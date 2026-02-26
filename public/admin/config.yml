@@ -1,0 +1,101 @@
+backend:
+  name: github
+  repo: XSTATEM/Echips_Wiki_Public
+  branch: main
+  base_url: https://echips-auth.uzakovv41.workers.dev
+
+media_folder: "y/public/images"
+public_folder: "/images"
+
+collections:
+  - name: "partner_docs"
+    label: "Инструкции для АСЦ"
+    folder: "y/partner"
+    create: true
+    fields:
+      - {label: "Заголовок статьи", name: "title", widget: "string"}
+      - {label: "Описание для поиска", name: "description", widget: "text", required: false}
+      # Скрытое поле, чтобы комментарии всегда были включены
+      - {label: "Комментарии", name: "show_comments", widget: "hidden", default: true}
+      
+      - label: "Конструктор контента"
+        name: "blocks"
+        widget: "list"
+        types:
+          - label: "📝 Простой текст"
+            name: "text_block"
+            widget: "object"
+            fields:
+              - {label: "Текст", name: "content", widget: "markdown"}
+
+          - label: "🚀 Шаг инструкции"
+            name: "step_block"
+            widget: "object"
+            fields:
+              - {label: "Заголовок шага", name: "h", widget: "string"}
+              - {label: "Текст шага", name: "text", widget: "markdown"}
+              - {label: "Картинка", name: "image", widget: "image", required: false}
+
+          - label: "⚠️ Важное / Совет"
+            name: "callout_block"
+            widget: "object"
+            fields:
+            - label: "Тип уведомления"
+              name: "type"
+              widget: "select"
+              # Это заставит админку показать меню, а не кнопки
+              display: "select" 
+              options: 
+                - { label: "💡 Совет", value: "tip" }
+                - { label: "ℹ️ Инфо", value: "info" }
+                - { label: "⚠️ Предупреждение", value: "warning" }
+                - { label: "🔥 Опасно", value: "danger" }
+              default: "tip"
+            - {label: "Заголовок (необязательно)", name: "title", widget: "string", required: false}
+            - {label: "Текст совета", name: "content", widget: "markdown"}
+
+          - label: "🎥 Видео (YouTube/Ссылка)"
+            name: "video_block"
+            widget: "object"
+            fields:
+              - {label: "Ссылка на видео", name: "url", widget: "string"}
+              - {label: "Подпись", name: "caption", widget: "string", required: false}
+
+          - label: "📎 Файл для скачивания"
+            name: "file_block"
+            widget: "object"
+            fields:
+              - {label: "Название файла", name: "label", widget: "string"}
+              - {label: "Ссылка или файл", name: "file", widget: "file"}
+
+          - label: "📊 Таблица"
+            name: "table_block"
+            widget: "object"
+            fields:
+              - {label: "Заголовок таблицы", name: "caption", widget: "string", required: false}
+              - {label: "Данные (Markdown формат)", name: "table_data", widget: "markdown", help: "Создайте таблицу здесь или скопируйте из Excel"}
+
+          - label: "🖼️ Галерея изображений"
+            name: "gallery_block"
+            widget: "object"
+            fields:
+              - label: "Фотографии"
+                name: "images"
+                widget: "list"
+                fields:
+                  - {label: "Изображение", name: "url", widget: "image"}
+                  - {label: "Подпись", name: "alt", widget: "string", required: false}
+
+          - label: "🔘 Кнопка-ссылка"
+            name: "button_block"
+            widget: "object"
+            fields:
+              - {label: "Текст на кнопке", name: "text", widget: "string"}
+              - {label: "Ссылка", name: "link", widget: "string"}
+              - label: "Цвет"
+                name: "color"
+                widget: "select"
+                options: ["brand", "alt", "sponsor"]
+                default: "brand"
+
+      - {label: "Весь текст (Markdown)", name: "body", widget: "markdown", required: false}

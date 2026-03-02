@@ -249,7 +249,7 @@ onMounted(() => {
 /* ================= НИЖНИЙ РЯД ================= */
 .action-cards-row {
   display: flex; justify-content: center; gap: 32px;
-  flex-wrap: wrap; animation: fadeSlideUp 1s ease forwards;
+  flex-wrap: wrap; animation: fadeSlideUp 0.6s ease forwards;
 }
 .action-card {
   border-radius: 28px;

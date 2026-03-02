@@ -164,6 +164,7 @@ onMounted(() => {
 }
 
 /* ================= УЛУЧШЕННЫЙ LIQUID GLASS EFFECT + MOUSE GLOW ================= */
+/* ================= УЛУЧШЕННЫЙ LIQUID GLASS EFFECT + MOUSE GLOW ================= */
 .glass-effect {
   position: relative;
   overflow: hidden;
@@ -174,7 +175,19 @@ onMounted(() => {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Фикс дерганной анимации: видеокарта и точные тайминги */
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.5s ease, 
+              background 0.5s ease;
+}
+
+.glass-effect:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 48px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 /* СЛОЙ МАТОВОГО СВЕЧЕНИЯ */
@@ -211,13 +224,15 @@ onMounted(() => {
   width: 44px;
   height: 44px;
   object-fit: contain;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: scale(1) translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .custom-icon-large {
   width: 56px;
   height: 56px;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  transform: scale(1) translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* ================= ВЕРХНИЙ РЯД ================= */
@@ -249,7 +264,7 @@ onMounted(() => {
 /* ================= НИЖНИЙ РЯД ================= */
 .action-cards-row {
   display: flex; justify-content: center; gap: 32px;
-  flex-wrap: wrap; animation: fadeSlideUp 2s ease forwards;
+  flex-wrap: wrap; animation: fadeSlideUp 1s ease forwards;
 }
 .action-card {
   border-radius: 28px;
@@ -257,24 +272,21 @@ onMounted(() => {
   width: 300px;
   display: flex; flex-direction: column; align-items: center; text-align: center;
   text-decoration: none !important;
+  /* Базовая позиция, чтобы не было резкого скачка при наведении */
+  transform: translateY(0);
 }
 .action-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  /* Оставили только мягкий подъем (эффект левитации) */
+  transform: translateY(-8px);
 }
 
 .card-icon-container {
   margin-bottom: 24px;
 }
-.action-card:hover .custom-icon-large { transform: scale(1.1); }
-
-.card-title {
-  font-size: 21px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);
+.action-card:hover .custom-icon-large { 
+  /* Иконка внутри карточки эффектно тянется к курсору */
+  transform: scale(1.1) translateY(-4px); 
 }
-.card-link-text {
-  font-size: 15px; color: var(--echips-blue); font-weight: 500;
-  opacity: 0.8; transition: opacity 0.2s ease;
-}
-.action-card:hover .card-link-text { opacity: 1; }
 
 /* ================= ФУТЕР ================= */
 .service-footer {

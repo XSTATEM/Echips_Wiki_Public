@@ -223,7 +223,7 @@ onMounted(() => {
 /* ================= ВЕРХНИЙ РЯД ================= */
 .product-row {
   display: flex; justify-content: center; gap: 40px; margin-bottom: 100px;
-  flex-wrap: wrap; animation: fadeSlideUp 0.8s ease forwards;
+  flex-wrap: wrap; animation: fadeSlideUp 2s ease forwards;
 }
 .product-item {
   display: flex; flex-direction: column; align-items: center;
@@ -249,7 +249,7 @@ onMounted(() => {
 /* ================= НИЖНИЙ РЯД ================= */
 .action-cards-row {
   display: flex; justify-content: center; gap: 32px;
-  flex-wrap: wrap; animation: fadeSlideUp 0.6s ease forwards;
+  flex-wrap: wrap; animation: fadeSlideUp 2s ease forwards;
 }
 .action-card {
   border-radius: 28px;

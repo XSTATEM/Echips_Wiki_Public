@@ -31,8 +31,7 @@ onMounted(() => {
     <p class="subtitle">Выберите серию вашего ноутбука Echips для поиска драйверов, BIOS и сервисных инструкций.</p>
   </div>
 
-  <div class="laptop-grid">
-    
+  <div class="laptop-grid">  
     <a href="/laptops/arctic/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
@@ -43,7 +42,6 @@ onMounted(() => {
         <span class="card-link-text">Смотреть модели →</span>
       </div>
     </a>
-
     <a href="/laptops/hot/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
@@ -54,7 +52,6 @@ onMounted(() => {
         <span class="card-link-text">Смотреть модели →</span>
       </div>
     </a>
-
     <a href="/laptops/taganay/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
@@ -65,7 +62,6 @@ onMounted(() => {
         <span class="card-link-text">Смотреть модели →</span>
       </div>
     </a>
-
     <a href="/laptops/fusion/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
@@ -76,7 +72,6 @@ onMounted(() => {
         <span class="card-link-text">Смотреть модели →</span>
       </div>
     </a>
-
     <a href="/laptops/atlant/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
@@ -87,7 +82,6 @@ onMounted(() => {
         <span class="card-link-text">Смотреть модели →</span>
       </div>
     </a>
-
     <a href="/laptops/rush/" class="laptop-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">

@@ -44,12 +44,10 @@ const activeTab = ref('drivers')
     </button>
   </div>
 
-  <div class="tabs-content">
-    
+  <div class="tabs-content"> 
     <div v-show="activeTab === 'drivers'" class="tab-pane fade-in">
       <h3>Загрузка драйверов (Windows 11)</h3>
       <p class="pane-desc">Выберите артикул вашего ноутбука (указан на нижней крышке устройства).</p>
-      
       <table class="apple-table">
         <thead>
           <tr>
@@ -87,7 +85,6 @@ const activeTab = ref('drivers')
         </tbody>
       </table>
     </div>
-
     <div v-show="activeTab === 'manuals'" class="tab-pane fade-in">
       <h3>Руководства пользователя</h3>
       <ul class="manual-list">
@@ -114,7 +111,6 @@ const activeTab = ref('drivers')
         </li>
       </ul>
     </div>
-
     <div v-show="activeTab === 'service'" class="tab-pane fade-in">
       <div class="service-warning">
         <span class="warning-icon">⚠️</span>
@@ -123,7 +119,6 @@ const activeTab = ref('drivers')
           <p>Некомпетентное вмешательство в компонентную базу лишает устройство гарантии производителя.</p>
         </div>
       </div>
-
       <table class="apple-table">
         <thead>
           <tr>

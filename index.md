@@ -94,11 +94,12 @@ onMounted(() => {
 </div>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
 /* УБИВАЕМ СТАНДАРТНЫЕ СТИЛИ VITEPRESS */
 :deep(.vp-doc a) { text-decoration: none !important; border: none !important; }
 :deep(.vp-doc h1), :deep(.vp-doc h2), :deep(.vp-doc h3) { border: none !important; margin: 0; padding: 0; }
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
+
 
 .echips-wrapper {
   --e-yellow: #FFB800;

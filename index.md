@@ -98,6 +98,8 @@ onMounted(() => {
 :deep(.vp-doc a) { text-decoration: none !important; border: none !important; }
 :deep(.vp-doc h1), :deep(.vp-doc h2), :deep(.vp-doc h3) { border: none !important; margin: 0; padding: 0; }
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
+
 .echips-wrapper {
   --e-yellow: #FFB800;
   --e-orange: #FF4500;
@@ -107,7 +109,8 @@ onMounted(() => {
   
   max-width: 1100px; margin: 0 auto; padding: 60px 20px;
   position: relative; overflow: hidden;
-  text-align: center; font-family: -apple-system, system-ui, sans-serif;
+  text-align: center;
+  font-family: 'Manrope', sans-serif !important;
 }
 
 /* ФОНОВЫЕ ПЯТНА (ЛАМПОВЫЕ) */
@@ -118,8 +121,17 @@ onMounted(() => {
 /* ШАПКА */
 .main-header { margin-bottom: 60px; }
 .hero-logo { width: 70px; margin: 0 auto 20px; display: block; }
-.hero-title { font-size: 52px; font-weight: 800; color: var(--e-white); letter-spacing: -0.02em; }
-.hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; }
+
+.hero-title { 
+  font-size: 52px; 
+  font-weight: 800; 
+  color: var(--e-white); 
+  letter-spacing: -0.04em; /* Сделали заголовок чуть плотнее и стильнее */
+}
+
+.hero-subtitle, .label, .card-h, .btn-yellow, .f-item p {
+  font-family: 'Manrope', sans-serif !important;
+}
 
 /* ОБЩЕЕ СТЕКЛО */
 .glass-effect {

@@ -35,7 +35,6 @@ onMounted(() => {
   <div class="search-container">
     <div class="search-bar glass-effect">
       <div class="mouse-glow"></div>
-      <span class="search-icon">🔍</span>
       <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
     </div>
   </div>

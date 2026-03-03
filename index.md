@@ -3,26 +3,21 @@ layout: home
 title: Поддержка Echips
 ---
 
-<script setup>
-import { onMounted } from 'vue'
 
-onMounted(() => {
-  if (typeof window !== 'undefined') {
-    // Слушаем движение мыши только внутри нашего контейнера
-    document.addEventListener('mousemove', (e) => {
-      const target = e.target.closest('.glass-effect');
-      if (!target) return; // Если мышка не на карточке - ничего не делаем
-      
-      const rect = target.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      target.style.setProperty('--mouse-x', `${x}px`);
-      target.style.setProperty('--mouse-y', `${y}px`);
+<script setup>
+if (typeof window !== 'undefined') {
+  window.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.glass-effect');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      // Высчитываем позицию мыши и передаем в CSS
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
     });
-  }
-})
+  });
+}
 </script>
+
 
 <div class="apple-support-container">
   <div class="ambient-glow bulb-glow-top"></div>
@@ -118,12 +113,19 @@ onMounted(() => {
   border-bottom: none !important;
 }
 /* ================= ПАЛИТРА "ЛАМПА НАКАЛИВАНИЯ" ================= */
+/* ================= ФИРМЕННАЯ ПАЛИТРА ECHIPS ================= */
 :root {
-  --bulb-main: #FF9E00;     
-  --bulb-light: #FFC266;    
+  --echips-yellow: #FFB800;     /* Тепло-желтый */
+  --echips-orangered: #FF4500;  /* Оранжево-красный */
+  --echips-gray: #8E8E93;       /* Серый */
   --text-primary: var(--vp-c-text-1);
   --text-secondary: var(--vp-c-text-2);
 }
+
+/* ФОНОВЫЕ ПЯТНА */
+.ambient-glow { position: absolute; border-radius: 50%; filter: blur(130px); z-index: -1; pointer-events: none; }
+.bulb-glow-top { width: 450px; height: 450px; background: var(--echips-orangered); top: 5%; left: 10%; opacity: 0.12; }
+.bulb-glow-bottom { width: 400px; height: 400px; background: var(--echips-yellow); bottom: 15%; right: 5%; opacity: 0.12; }
 
 /* ================= ОБЩИЙ КОНТЕЙНЕР ================= */
 .apple-support-container {
@@ -176,9 +178,8 @@ onMounted(() => {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; 
   pointer-events: none; z-index: 0;
-  background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 158, 0, 0.25), transparent 60%);
+  background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 60%);
 }
-.glass-effect:hover .glow-overlay { opacity: 1; }
 
 .glass-effect:hover {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -202,7 +203,7 @@ onMounted(() => {
 .product-icon-container { width: 88px; height: 88px; border-radius: 24px; display: flex; justify-content: center; align-items: center; margin: 0 auto 16px; }
 .product-item span { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s; border: none; }
 .product-item:hover .product-icon-container { transform: translateY(-8px); }
-.product-item:hover span { color: var(--bulb-main); }
+.product-item:hover span { color: var(--echips-orangered); }
 
 /* ================= НИЖНИЙ РЯД ================= */
 .action-cards-row { 
@@ -222,12 +223,15 @@ onMounted(() => {
 
 /* ТЕПЛЫЕ КНОПКИ-ССЫЛКИ */
 .card-link-text { 
-  font-size: 15px; color: var(--bulb-main); font-weight: 600; 
-  background: rgba(255, 158, 0, 0.05); padding: 8px 20px; border-radius: 20px;
+  font-size: 15px; color: var(--text-primary); font-weight: 600; 
+  background: rgba(142, 142, 147, 0.15); /* Серая подложка */
+  padding: 8px 20px; border-radius: 20px;
   transition: all 0.3s ease; border: none;
 }
 .action-card:hover .card-link-text { 
-  background: rgba(255, 158, 0, 0.15); transform: translateY(-2px);
+  background: var(--echips-yellow); /* Становится тепло-желтой */
+  color: #000 !important; /* Черный текст для контраста */
+  transform: translateY(-2px);
 }
 
 /* ================= ФУТЕР ================= */

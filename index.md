@@ -31,7 +31,18 @@ onMounted(() => {
     <h1 class="hero-title">Поддержка Echips</h1>
     <p class="hero-subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
-
+<div class="search-container">
+  <div class="search-bar glass-effect">
+    <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
+  </div>
+  <div class="popular-tags">
+    <span class="tag-label">Часто ищут:</span>
+    <a href="/laptops/hot/" class="tag">Hot</a>
+    <a href="/laptops/arctic/" class="tag">Arctic</a>
+    <a href="/laptops/fusion/" class="tag">Fusion</a>
+    <a href="/laptops/taganay/" class="tag">Taganay</a>
+  </div>
+</div>
   <div class="icon-row">
     <a href="/laptops/" class="icon-card-link">
       <div class="icon-box glass-effect">

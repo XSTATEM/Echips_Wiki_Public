@@ -109,7 +109,7 @@ onMounted(() => {
 :root {
   --bulb-main: #FF9E00;     /* Насыщенный янтарный/вольфрамовый */
   --bulb-light: #FFC266;    /* Мягкий светлый желтый */
-  --bulb-glow: rgba(255, 158, 0, 0.18); /* Полупрозрачный для мышки */
+  --bulb-glow: rgba(255, 158, 0, 0.25); /* Теплый свет для мышки */
   --text-primary: var(--vp-c-text-1);
   --text-secondary: var(--vp-c-text-2);
 }
@@ -126,16 +126,16 @@ onMounted(() => {
   display: block !important; width: 100% !important; text-align: center !important;
   margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important;
 }
-.strict-center-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+.strict-center-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; width: 100% !important; }
 
 /* ================= ФОНОВОЕ СВЕЧЕНИЕ ================= */
 .ambient-glow { position: absolute; border-radius: 50%; filter: blur(130px); z-index: -1; pointer-events: none; }
 .bulb-glow-top {
-  width: 450px; height: 450px; background: var(--bulb-light);
+  width: 450px; height: 450px; background: var(--bulb-light) !important;
   top: 5%; left: 10%; opacity: 0.12;
 }
 .bulb-glow-bottom {
-  width: 400px; height: 400px; background: var(--bulb-main);
+  width: 400px; height: 400px; background: var(--bulb-main) !important;
   bottom: 15%; right: 5%; opacity: 0.08;
 }
 
@@ -166,12 +166,8 @@ onMounted(() => {
 .glow-overlay {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   border-radius: inherit; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
-  /* ТЕПЛЫЙ СВЕТ ОТ КУРСОРА */
-  background: radial-gradient(
-    circle 280px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    var(--bulb-glow),
-    transparent 70%
-  );
+  /* ПРАВИЛЬНЫЙ СИНТАКСИС ДЛЯ СВЕЧЕНИЯ */
+  background: radial-gradient(circle 280px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 158, 0, 0.25), transparent 70%) !important;
 }
 .glass-effect:hover .glow-overlay { opacity: 1; }
 .glass-effect:hover {
@@ -186,23 +182,31 @@ onMounted(() => {
 .custom-icon { width: 44px; height: 44px; object-fit: contain; transform: scale(1) translateZ(0); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); margin: 0 auto; display: block; }
 .custom-icon-large { width: 56px; height: 56px; object-fit: contain; transform: scale(1) translateZ(0); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); margin: 0 auto; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1)); }
 
-/* ================= ВЕРХНИЙ РЯД ================= */
-.product-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 0.1s; opacity: 0; }
-.product-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none !important; color: var(--text-primary) !important; transition: all 0.3s ease; width: 100px; }
-.product-icon-container { width: 88px; height: 88px; border-radius: 24px; display: flex; justify-content: center; align-items: center; margin: 0 auto 16px; }
+/* ================= ВЕРХНИЙ РЯД (ЖЕСТКАЯ ЛИНИЯ) ================= */
+.product-row { 
+  display: flex !important; flex-direction: row !important; justify-content: center !important; 
+  align-items: center !important; gap: 40px !important; margin-bottom: 80px !important; 
+  flex-wrap: wrap !important; animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 0.1s; opacity: 0; 
+}
+.product-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; color: var(--text-primary) !important; transition: all 0.3s ease; width: 100px !important; }
+.product-icon-container { width: 88px !important; height: 88px !important; border-radius: 24px !important; display: flex !important; justify-content: center !important; align-items: center !important; margin: 0 auto 16px !important; }
 .product-item span { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s; }
 .product-item:hover .product-icon-container { transform: translateY(-8px) scale(1.03); }
 .product-item:hover span { color: var(--bulb-main); }
 
-/* ================= НИЖНИЙ РЯД ================= */
-.action-cards-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 0.2s; opacity: 0; }
+/* ================= НИЖНИЙ РЯД (ЖЕСТКАЯ ЛИНИЯ) ================= */
+.action-cards-row { 
+  display: flex !important; flex-direction: row !important; justify-content: center !important; 
+  align-items: stretch !important; gap: 32px !important; flex-wrap: wrap !important; 
+  animation: fadeSlideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 0.2s; opacity: 0; 
+}
 .action-card {
-  border-radius: 32px; padding: 48px 32px; width: 320px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: 32px !important; padding: 48px 32px !important; width: 320px !important;
+  display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;
   text-decoration: none !important; transform: translateY(0);
 }
 .action-card:hover { transform: translateY(-8px); }
-.card-icon-container { margin-bottom: 28px; width: 100%; display: flex; justify-content: center; }
+.card-icon-container { margin-bottom: 28px !important; width: 100% !important; display: flex !important; justify-content: center !important; }
 .action-card:hover .custom-icon-large { transform: scale(1.08) translateY(-4px); }
 .card-title { font-size: 22px; font-weight: 700; margin-bottom: 16px !important; color: var(--text-primary); letter-spacing: -0.01em; }
 
@@ -232,10 +236,10 @@ onMounted(() => {
   .gradient-text { font-size: 40px; }
   .ambient-glow { filter: blur(80px); }
   .bulb-glow-top, .bulb-glow-bottom { width: 250px; height: 250px; }
-  .product-row { gap: 20px; }
-  .product-icon-container { width: 64px; height: 64px; border-radius: 18px; }
+  .product-row { gap: 20px !important; }
+  .product-icon-container { width: 64px !important; height: 64px !important; border-radius: 18px !important; }
   .custom-icon { width: 32px; height: 32px; }
-  .action-card { width: 100%; max-width: 340px; padding: 40px 24px; border-radius: 28px; }
+  .action-card { width: 100% !important; max-width: 340px !important; padding: 40px 24px !important; border-radius: 28px !important; }
   .contacts-row { gap: 32px; flex-direction: column; }
 }
 </style>

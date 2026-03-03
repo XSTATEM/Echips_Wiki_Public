@@ -150,9 +150,14 @@ onMounted(() => {
 }
 
 .glow-overlay {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; opacity: 0;
-  transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
-  background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(92, 187, 240, 0.12), transparent 70%);
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
+  /* ЖЕСТКО ЗАДАЕМ ТЕПЛЫЙ СВЕТ НАПРЯМУЮ, БЕЗ ПЕРЕМЕННЫХ */
+  background: radial-gradient(
+    circle 280px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 158, 0, 0.25) !important,
+    transparent 70%
+  ) !important;
 }
 .glass-effect:hover .glow-overlay { opacity: 1; }
 .content-wrapper { position: relative; z-index: 1; }

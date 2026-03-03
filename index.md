@@ -6,16 +6,13 @@ title: Поддержка Echips
 <script setup>
 import { onMounted } from 'vue'
 
-// Этот код VitePress запустит только когда страничка полностью загрузится
 onMounted(() => {
   document.addEventListener('mousemove', (e) => {
     const target = e.target.closest('.glass-effect');
     if (!target) return;
-    
     const rect = target.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
     target.style.setProperty('--mouse-x', `${x}px`);
     target.style.setProperty('--mouse-y', `${y}px`);
   });
@@ -25,7 +22,6 @@ onMounted(() => {
 <div class="apple-support-container">
   <div class="ambient-glow glow-coral"></div>
   <div class="ambient-glow glow-blue"></div>
-
   <div class="header-section">
     <div class="main-logo-circle">
       <img src="/images/main-logo.png" alt="Echips Logo" class="main-img" onerror="this.style.display='none'">
@@ -33,12 +29,11 @@ onMounted(() => {
     <h1>Поддержка Echips</h1>
     <p class="subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
-
   <div class="product-row">
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container glass-effect">
         <div class="glow-overlay"></div>
-        <img src="/images/icon-laptop.webp" alt="Ноутбуки" class="custom-icon">
+        <img src="/images/icon-laptop.png" alt="Ноутбуки" class="custom-icon">
       </div>
       <span>Ноутбуки</span>
     </a>
@@ -57,9 +52,8 @@ onMounted(() => {
       <span>Гарантия</span>
     </a>
   </div>
-
   <div class="action-cards-row">
-    <a href="/drivers/" class="action-card glass-effect">
+    <a href="/laptops/" class="action-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
@@ -73,7 +67,7 @@ onMounted(() => {
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
-          <img src="/images/icon-faq.webp" alt="Инструкции" class="custom-icon-large">
+          <img src="/images/icon-faq.png" alt="Инструкции" class="custom-icon-large">
         </div>
         <span class="card-title">Инструкции и FAQ</span>
         <span class="card-link-text">Найти ответ →</span>
@@ -90,7 +84,6 @@ onMounted(() => {
       </div>
     </a>
   </div>
-
   <div class="service-footer">
     <h2 class="service-title">Сервисный департамент Echips</h2>
     <p class="service-desc">Мы обеспечиваем техническую поддержку высшего уровня для наших партнеров и клиентов.</p>
@@ -105,7 +98,6 @@ onMounted(() => {
       </div>
     </div>
   </div>
-
 </div>
 
 <style>
@@ -160,10 +152,9 @@ onMounted(() => {
   margin-bottom: 16px; color: var(--text-primary);
 }
 .subtitle {
-  font-size: 24px; line-height: 1.3; color: var(--text-secondary); font-weight: 400;
+  font-size: 24px; line-height: 1.3; color: var(--text-secondary); font-weight: 400; margin: 0;
 }
 
-/* ================= УЛУЧШЕННЫЙ LIQUID GLASS EFFECT + MOUSE GLOW ================= */
 /* ================= УЛУЧШЕННЫЙ LIQUID GLASS EFFECT + MOUSE GLOW ================= */
 .glass-effect {
   position: relative;
@@ -175,22 +166,11 @@ onMounted(() => {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  
-  /* Фикс дерганной анимации: видеокарта и точные тайминги */
   transform: translateZ(0);
   will-change: transform, box-shadow;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.5s ease, 
-              background 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, background 0.5s ease;
 }
 
-.glass-effect:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 20px 48px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-/* СЛОЙ МАТОВОГО СВЕЧЕНИЯ */
 .glow-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -199,9 +179,10 @@ onMounted(() => {
   transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 0;
+  /* Вот здесь возвращаем теплый желтый цвет (RGB 255, 200, 50) */
   background: radial-gradient(
     circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(240, 127, 101, 0.15),
+    rgba(255, 200, 50, 0.15),
     transparent 70%
   );
 }
@@ -211,7 +192,7 @@ onMounted(() => {
 .glass-effect:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 48px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .content-wrapper, .custom-icon, .custom-icon-large {
@@ -221,16 +202,12 @@ onMounted(() => {
 
 /* ================= СТИЛИ ДЛЯ ТВОИХ PNG ИКОНОК ================= */
 .custom-icon {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
+  width: 44px; height: 44px; object-fit: contain;
   transform: scale(1) translateZ(0);
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .custom-icon-large {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
+  width: 56px; height: 56px; object-fit: contain;
   transform: scale(1) translateZ(0);
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -238,7 +215,7 @@ onMounted(() => {
 /* ================= ВЕРХНИЙ РЯД ================= */
 .product-row {
   display: flex; justify-content: center; gap: 40px; margin-bottom: 100px;
-  flex-wrap: wrap; animation: fadeSlideUp 2s ease forwards;
+  flex-wrap: wrap; animation: fadeSlideUp 0.8s ease forwards;
 }
 .product-item {
   display: flex; flex-direction: column; align-items: center;
@@ -246,11 +223,9 @@ onMounted(() => {
   transition: all 0.3s ease;
 }
 .product-icon-container {
-  width: 88px; height: 88px;
-  border-radius: 22px; 
+  width: 88px; height: 88px; border-radius: 22px; 
   display: flex; justify-content: center; align-items: center;
   margin-bottom: 16px;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .product-item span { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
 
@@ -267,16 +242,12 @@ onMounted(() => {
   flex-wrap: wrap; animation: fadeSlideUp 1s ease forwards;
 }
 .action-card {
-  border-radius: 28px;
-  padding: 40px 32px;
-  width: 300px;
+  border-radius: 28px; padding: 40px 32px; width: 300px;
   display: flex; flex-direction: column; align-items: center; text-align: center;
   text-decoration: none !important;
-  /* Базовая позиция, чтобы не было резкого скачка при наведении */
   transform: translateY(0);
 }
 .action-card:hover {
-  /* Оставили только мягкий подъем (эффект левитации) */
   transform: translateY(-8px);
 }
 
@@ -284,14 +255,21 @@ onMounted(() => {
   margin-bottom: 24px;
 }
 .action-card:hover .custom-icon-large { 
-  /* Иконка внутри карточки эффектно тянется к курсору */
   transform: scale(1.1) translateY(-4px); 
 }
 
+.card-title {
+  font-size: 21px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);
+}
+.card-link-text {
+  font-size: 15px; color: var(--echips-blue); font-weight: 500;
+  opacity: 0.8; transition: opacity 0.2s ease;
+}
+.action-card:hover .card-link-text { opacity: 1; }
+
 /* ================= ФУТЕР ================= */
 .service-footer {
-  margin-top: 100px;
-  padding-top: 60px;
+  margin-top: 100px; padding-top: 60px;
   border-top: 1px solid rgba(128, 128, 128, 0.15);
   opacity: 0; 
   animation: fadeSlideUp 1.2s ease forwards;

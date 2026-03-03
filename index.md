@@ -191,8 +191,6 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.05) !important;
 }
 
-.search-icon { margin-right: 15px; opacity: 0.6; font-size: 20px; }
-
 .search-input {
   background: transparent;
   border: none;

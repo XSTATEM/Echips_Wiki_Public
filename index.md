@@ -6,23 +6,6 @@ title: Поддержка Echips
 <script setup>
 import { onMounted } from 'vue'
 
-const searchQuery = ref('')
-
-const modelsBase = [
-  { name: 'Echips Arctic', sku: 'F156UL-H', link: '/laptops/arctic/' },
-  { name: 'Echips Hot', sku: 'XPS15U57-1', link: '/laptops/hot/' },
-  { name: 'Echips Fusion', sku: 'V156HT-H', link: '/laptops/fusion/' },
-  { name: 'Echips Taganay', sku: 'NB156D', link: '/laptops/taganay/' },
-  { name: 'Echips Atlant', sku: 'BM156UL-X', link: '/laptops/atlant/' },
-]
-
-const filteredModels = computed(() => {
-  const q = searchQuery.value.toLowerCase()
-  return modelsBase.filter(m => 
-    m.name.toLowerCase().includes(q) || m.sku.toLowerCase().includes(q)
-  )
-})
-
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('mousemove', (e) => {
@@ -49,24 +32,11 @@ onMounted(() => {
     <p class="hero-subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
 
-  <div class="search-section">
+  <div class="search-container">
     <div class="search-bar glass-effect">
       <div class="mouse-glow"></div>
-      <input 
-        type="text" 
-        v-model="searchQuery" 
-        placeholder="Введите модель (напр. Hot или Arctic)..." 
-        class="search-input" 
-      />
-    </div>
-    <div v-if="searchQuery.length > 1" class="search-results glass-effect fade-in">
-      <div v-if="filteredModels.length > 0">
-        <a v-for="item in filteredModels" :key="item.sku" :href="item.link" class="result-item">
-          <span class="res-name">{{ item.name }}</span>
-          <span class="res-sku">{{ item.sku }}</span>
-        </a>
-      </div>
-      <div v-else class="no-results">Модель не найдена...</div>
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
     </div>
   </div>
 
@@ -206,49 +176,28 @@ onMounted(() => {
   animation: fadeSlideUp 0.8s ease forwards;
 }
 
-.search-section {
-  width: 100%; max-width: 600px; margin: 0 auto 60px;
-  position: relative; z-index: 10;
-}
-
 .search-bar {
   width: 100%;
   max-width: 600px;
   height: 56px;
   border-radius: 28px;
   display: flex;
-  margin-bottom: 15px;
   align-items: center;
-  padding: 0 20px; background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 0 20px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05) !important;
 }
+
 
 .search-input {
-  background: transparent; border: none; outline: none;
-  width: 100%; color: var(--e-white); font-size: 17px;
+  background: transparent;
+  border: none;
+  color: var(--e-white);
+  font-size: 16px;
+  width: 100%;
+  outline: none;
   font-family: 'Montserrat', sans-serif;
 }
-
-.search-results {
-  position: absolute; top: 70px; left: 0; right: 0;
-  border-radius: 20px; padding: 15px;
-  background: rgba(20, 20, 20, 0.8) !important;
-}
-
-.result-item {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 20px; border-radius: 12px;
-  color: var(--e-white) !important; transition: background 0.3s;
-  text-decoration: none !important;
-}
-
-.result-item:hover { background: rgba(255, 184, 0, 0.15); }
-
-.res-name { font-weight: 600; color: var(--e-yellow); }
-.res-sku { font-size: 12px; opacity: 0.6; font-family: monospace; }
-.no-results { padding: 10px; color: var(--e-gray); font-size: 14px; }
-
-:deep(a) { text-decoration: none !important; border: none !important; }
 
 .search-input::placeholder { color: var(--e-gray); opacity: 0.5; }
 

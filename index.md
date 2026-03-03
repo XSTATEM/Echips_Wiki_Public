@@ -8,15 +8,17 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
+    // Слушаем движение мыши только внутри нашего контейнера
     document.addEventListener('mousemove', (e) => {
-      const cards = document.querySelectorAll('.glass-effect');
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
+      const target = e.target.closest('.glass-effect');
+      if (!target) return; // Если мышка не на карточке - ничего не делаем
+      
+      const rect = target.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      target.style.setProperty('--mouse-x', `${x}px`);
+      target.style.setProperty('--mouse-y', `${y}px`);
     });
   }
 })
@@ -108,6 +110,13 @@ onMounted(() => {
 </div>
 
 <style>
+
+  /* Жестко убиваем подчеркивания VitePress */
+.apple-support-container a, 
+.apple-support-container a:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
 /* ================= ПАЛИТРА "ЛАМПА НАКАЛИВАНИЯ" ================= */
 :root {
   --bulb-main: #FF9E00;     

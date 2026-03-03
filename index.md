@@ -7,7 +7,6 @@ title: Поддержка Echips
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  // Проверяем, что мы в браузере (чтобы не сломать сборку VitePress)
   if (typeof window !== 'undefined') {
     document.addEventListener('mousemove', (e) => {
       const cards = document.querySelectorAll('.glass-effect');
@@ -29,7 +28,7 @@ onMounted(() => {
 
   <div class="header-section">
     <div class="main-logo-circle">
-      <img src="/images/main-logo.png" alt="Echips Logo" class="main-img" onerror="this.style.display='none'">
+      <img src="/images/main-logo.png" alt="Echips Logo" class="main-img" />
     </div>
     <h1 class="gradient-text">Поддержка Echips</h1>
     <p class="subtitle">Официальные драйверы, инструкции и сервис.</p>
@@ -39,21 +38,21 @@ onMounted(() => {
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container glass-effect">
         <div class="glow-overlay"></div>
-        <img src="/images/icon-laptop.webp" alt="Ноутбуки" class="custom-icon">
+        <img src="/images/icon-laptop.webp" alt="Ноутбуки" class="custom-icon" />
       </div>
       <span class="centered-text">Ноутбуки</span>
     </a>
     <a href="/monoblocks/" class="product-item">
        <div class="product-icon-container glass-effect">
         <div class="glow-overlay"></div>
-        <img src="/images/icon-monoblock.png" alt="Моноблоки" class="custom-icon">
+        <img src="/images/icon-monoblock.png" alt="Моноблоки" class="custom-icon" />
       </div>
       <span class="centered-text">Моноблоки</span>
     </a>
     <a href="/warranty/" class="product-item">
        <div class="product-icon-container glass-effect">
         <div class="glow-overlay"></div>
-        <img src="/images/icon-warranty.png" alt="Гарантия" class="custom-icon">
+        <img src="/images/icon-warranty.png" alt="Гарантия" class="custom-icon" />
       </div>
       <span class="centered-text">Гарантия</span>
     </a>
@@ -64,30 +63,30 @@ onMounted(() => {
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
-          <img src="/images/icon-drivers.png" alt="Драйверы" class="custom-icon-large">
+          <img src="/images/icon-drivers.png" alt="Драйверы" class="custom-icon-large" />
         </div>
         <span class="card-title centered-text">Скачать драйверы</span>
-        <span class="card-link-text centered-text">Выбрать модель →</span>
+        <span class="card-link-text centered-text">Выбрать модель &rarr;</span>
       </div>
     </a>
     <a href="/guide/windows" class="action-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
-          <img src="/images/icon-faq.webp alt="Инструкции" class="custom-icon-large">
+          <img src="/images/icon-faq.webp" alt="Инструкции" class="custom-icon-large" />
         </div>
         <span class="card-title centered-text">Инструкции и FAQ</span>
-        <span class="card-link-text centered-text">Найти ответ →</span>
+        <span class="card-link-text centered-text">Найти ответ &rarr;</span>
       </div>
     </a>
     <a href="/service/centers" class="action-card glass-effect">
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
-          <img src="/images/icon-service.png" alt="АСЦ" class="custom-icon-large">
+          <img src="/images/icon-service.png" alt="АСЦ" class="custom-icon-large" />
         </div>
         <span class="card-title centered-text">Найти сервис (АСЦ)</span>
-        <span class="card-link-text centered-text">Адреса на карте →</span>
+        <span class="card-link-text centered-text">Адреса на карте &rarr;</span>
       </div>
     </a>
   </div>
@@ -119,7 +118,6 @@ onMounted(() => {
 
 /* ================= ОБЩИЙ КОНТЕЙНЕР ================= */
 .apple-support-container {
-  /* Расширили контейнер, чтобы карточки влезли в одну линию */
   max-width: 1200px; 
   margin: 0 auto; 
   padding: 80px 24px 40px;
@@ -165,7 +163,6 @@ onMounted(() => {
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, border 0.4s ease;
 }
 
-/* ЧИСТЫЙ КОД ТЕПЛОГО СВЕЧЕНИЯ */
 .glow-overlay {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; 

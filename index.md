@@ -161,8 +161,8 @@ onMounted(() => {
 /* ВЕРХНИЙ РЯД */
 .icon-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; }
 .icon-card-link { text-decoration: none !important; color: var(--e-white) !important; display: flex; flex-direction: column; align-items: center; width: 110px; }
-.icon-box { width: 85px; height: 85px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-.img-icon { width: 40px; height: 40px; object-fit: contain; position: relative; z-index: 1; }
+.icon-box { width: 95px; height: 95px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.img-icon { width: 50px; height: 50px; object-fit: contain; position: relative; z-index: 1; }
 .label { font-size: 15px; font-weight: 600; transition: color 0.3s; }
 .icon-card-link:hover .label { color: var(--e-orange); }
 
@@ -222,7 +222,7 @@ onMounted(() => {
 .action-grid { display: flex; flex-direction: row; justify-content: center; gap: 25px; }
 .big-card { flex: 1; max-width: 320px; border-radius: 30px; padding: 40px 20px; text-decoration: none !important; }
 .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-.img-large { width: 55px; height: 55px; margin-bottom: 20px; }
+.img-large { width: 70px; height: 70px; margin-bottom: 20px; }
 .card-h { font-size: 22px; font-weight: 700; color: var(--e-white); margin-bottom: 15px !important; }
 
 /* КНОПКА (СЕРАЯ -> ЖЕЛТАЯ) */

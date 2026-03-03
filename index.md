@@ -222,7 +222,7 @@ onMounted(() => {
 .action-grid { display: flex; flex-direction: row; justify-content: center; gap: 25px; }
 .big-card { flex: 1; max-width: 320px; border-radius: 30px; padding: 40px 20px; text-decoration: none !important; }
 .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-.img-large { width: 70px; height: 70px; margin-bottom: 20px; }
+.img-large { width: 120px; height: 120px; margin-bottom: 20px; }
 .card-h { font-size: 22px; font-weight: 700; color: var(--e-white); margin-bottom: 15px !important; }
 
 /* КНОПКА (СЕРАЯ -> ЖЕЛТАЯ) */

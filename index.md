@@ -33,7 +33,7 @@ onMounted(() => {
     <a href="/laptops/" class="product-item">
       <div class="product-icon-container glass-effect">
         <div class="glow-overlay"></div>
-        <img src="/images/icon-laptop.png" alt="Ноутбуки" class="custom-icon">
+        <img src="/images/icon-laptop.webp" alt="Ноутбуки" class="custom-icon">
       </div>
       <span>Ноутбуки</span>
     </a>
@@ -67,7 +67,7 @@ onMounted(() => {
       <div class="glow-overlay"></div>
       <div class="content-wrapper">
         <div class="card-icon-container">
-          <img src="/images/icon-faq.png" alt="Инструкции" class="custom-icon-large">
+          <img src="/images/icon-faq.webp" alt="Инструкции" class="custom-icon-large">
         </div>
         <span class="card-title">Инструкции и FAQ</span>
         <span class="card-link-text">Найти ответ →</span>

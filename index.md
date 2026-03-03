@@ -3,252 +3,176 @@ layout: home
 title: Поддержка Echips
 ---
 
-
 <script setup>
-if (typeof window !== 'undefined') {
-  window.addEventListener('mousemove', (e) => {
-    const cards = document.querySelectorAll('.glass-effect');
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      // Высчитываем позицию мыши и передаем в CSS
-      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('mousemove', (e) => {
+      const cards = document.querySelectorAll('.glass-effect');
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
     });
-  });
-}
+  }
+})
 </script>
 
+<div class="echips-wrapper">
+  <div class="bg-glow top-glow"></div>
+  <div class="bg-glow bottom-glow"></div>
 
-<div class="apple-support-container">
-  <div class="ambient-glow bulb-glow-top"></div>
-  <div class="ambient-glow bulb-glow-bottom"></div>
-
-  <div class="header-section">
-    <div class="main-logo-circle">
-      <img src="/images/main-logo.png" alt="Echips Logo" class="main-img" />
+  <div class="main-header">
+    <div class="logo-area">
+      <img src="/images/main-logo.png" alt="Echips" class="hero-logo" />
     </div>
-    <h1 class="gradient-text">Поддержка Echips</h1>
-    <p class="subtitle">Официальные драйверы, инструкции и сервис.</p>
+    <h1 class="hero-title">Поддержка Echips</h1>
+    <p class="hero-subtitle">Официальные драйверы, инструкции и сервис.</p>
   </div>
 
-  <div class="product-row">
-    <a href="/laptops/" class="product-item">
-      <div class="product-icon-container glass-effect">
-        <div class="glow-overlay"></div>
-        <img src="/images/icon-laptop.webp" alt="Ноутбуки" class="custom-icon" />
+  <div class="icon-row">
+    <a href="/laptops/" class="icon-card-link">
+      <div class="icon-box glass-effect">
+        <div class="mouse-glow"></div>
+        <img src="/images/icon-laptop.webp" alt="Laptops" class="img-icon" />
       </div>
-      <span class="centered-text">Ноутбуки</span>
+      <span class="label">Ноутбуки</span>
     </a>
-    <a href="/monoblocks/" class="product-item">
-       <div class="product-icon-container glass-effect">
-        <div class="glow-overlay"></div>
-        <img src="/images/icon-monoblock.png" alt="Моноблоки" class="custom-icon" />
+    <a href="/monoblocks/" class="icon-card-link">
+      <div class="icon-box glass-effect">
+        <div class="mouse-glow"></div>
+        <img src="/images/icon-monoblock.png" alt="AIO" class="img-icon" />
       </div>
-      <span class="centered-text">Моноблоки</span>
+      <span class="label">Моноблоки</span>
     </a>
-    <a href="/warranty/" class="product-item">
-       <div class="product-icon-container glass-effect">
-        <div class="glow-overlay"></div>
-        <img src="/images/icon-warranty.png" alt="Гарантия" class="custom-icon" />
+    <a href="/warranty/" class="icon-card-link">
+      <div class="icon-box glass-effect">
+        <div class="mouse-glow"></div>
+        <img src="/images/icon-warranty.png" alt="Warranty" class="img-icon" />
       </div>
-      <span class="centered-text">Гарантия</span>
+      <span class="label">Гарантия</span>
     </a>
   </div>
 
-  <div class="action-cards-row">
-    <a href="/laptops/" class="action-card glass-effect">
-      <div class="glow-overlay"></div>
-      <div class="content-wrapper">
-        <div class="card-icon-container">
-          <img src="/images/icon-drivers.png" alt="Драйверы" class="custom-icon-large" />
-        </div>
-        <span class="card-title centered-text">Скачать драйверы</span>
-        <span class="card-link-text centered-text">Выбрать модель &rarr;</span>
+  <div class="action-grid">
+    <a href="/laptops/" class="big-card glass-effect">
+      <div class="mouse-glow"></div>
+      <div class="card-inner">
+        <img src="/images/icon-drivers.png" alt="Drivers" class="img-large" />
+        <h3 class="card-h">Скачать драйверы</h3>
+        <span class="btn-yellow">Выбрать модель &rarr;</span>
       </div>
     </a>
-    <a href="/guide/windows" class="action-card glass-effect">
-      <div class="glow-overlay"></div>
-      <div class="content-wrapper">
-        <div class="card-icon-container">
-          <img src="/images/icon-faq.webp" alt="Инструкции" class="custom-icon-large" />
-        </div>
-        <span class="card-title centered-text">Инструкции и FAQ</span>
-        <span class="card-link-text centered-text">Найти ответ &rarr;</span>
+    <a href="/guide/windows" class="big-card glass-effect">
+      <div class="mouse-glow"></div>
+      <div class="card-inner">
+        <img src="/images/icon-faq.webp" alt="FAQ" class="img-large" />
+        <h3 class="card-h">Инструкции и FAQ</h3>
+        <span class="btn-yellow">Найти ответ &rarr;</span>
       </div>
     </a>
-    <a href="/service/centers" class="action-card glass-effect">
-      <div class="glow-overlay"></div>
-      <div class="content-wrapper">
-        <div class="card-icon-container">
-          <img src="/images/icon-service.png" alt="АСЦ" class="custom-icon-large" />
-        </div>
-        <span class="card-title centered-text">Найти сервис (АСЦ)</span>
-        <span class="card-link-text centered-text">Адреса на карте &rarr;</span>
+    <a href="/service/centers" class="big-card glass-effect">
+      <div class="mouse-glow"></div>
+      <div class="card-inner">
+        <img src="/images/icon-service.png" alt="ASC" class="img-large" />
+        <h3 class="card-h">Найти сервис (АСЦ)</h3>
+        <span class="btn-yellow">Адреса на карте &rarr;</span>
       </div>
     </a>
   </div>
 
-  <div class="service-footer">
-    <h2 class="service-title centered-text">Сервисный департамент Echips</h2>
-    <p class="service-desc centered-text">Мы обеспечиваем техническую поддержку высшего уровня для наших партнеров и клиентов.</p>
-    <div class="contacts-row">
-      <div class="contact-block">
-        <h4 class="centered-text">Для клиентов</h4>
-        <p class="centered-text">support@echips.ru</p>
-      </div>
-      <div class="contact-block">
-        <h4 class="centered-text">Для сервисных центров</h4>
-        <p class="centered-text">service@echips.ru</p>
-      </div>
+  <div class="footer-contacts">
+    <h2 class="f-title">Сервисный департамент Echips</h2>
+    <p class="f-desc">Мы обеспечиваем техническую поддержку высшего уровня.</p>
+    <div class="f-grid">
+      <div class="f-item"><h4>Для клиентов</h4><p>support@echips.ru</p></div>
+      <div class="f-item"><h4>Для сервисов</h4><p>service@echips.ru</p></div>
     </div>
   </div>
 </div>
 
-<style>
+<style scoped>
+/* УБИВАЕМ СТАНДАРТНЫЕ СТИЛИ VITEPRESS */
+:deep(.vp-doc a) { text-decoration: none !important; border: none !important; }
+:deep(.vp-doc h1), :deep(.vp-doc h2), :deep(.vp-doc h3) { border: none !important; margin: 0; padding: 0; }
 
-  /* Жестко убиваем подчеркивания VitePress */
-.apple-support-container a, 
-.apple-support-container a:hover {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-/* ================= ПАЛИТРА "ЛАМПА НАКАЛИВАНИЯ" ================= */
-/* ================= ФИРМЕННАЯ ПАЛИТРА ECHIPS ================= */
-:root {
-  --echips-yellow: #FFB800;     /* Тепло-желтый */
-  --echips-orangered: #FF4500;  /* Оранжево-красный */
-  --echips-gray: #8E8E93;       /* Серый */
-  --text-primary: var(--vp-c-text-1);
-  --text-secondary: var(--vp-c-text-2);
-}
-
-/* ФОНОВЫЕ ПЯТНА */
-.ambient-glow { position: absolute; border-radius: 50%; filter: blur(130px); z-index: -1; pointer-events: none; }
-.bulb-glow-top { width: 450px; height: 450px; background: var(--echips-orangered); top: 5%; left: 10%; opacity: 0.12; }
-.bulb-glow-bottom { width: 400px; height: 400px; background: var(--echips-yellow); bottom: 15%; right: 5%; opacity: 0.12; }
-
-/* ================= ОБЩИЙ КОНТЕЙНЕР ================= */
-.apple-support-container {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 80px 24px 40px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  position: relative; 
-  overflow: hidden;
-}
-
-/* ================= ЦЕНТРИРОВАНИЕ ТЕКСТА ================= */
-.centered-text {
-  display: block; width: 100%; text-align: center; margin: 0; padding: 0;
-}
-.content-wrapper { 
-  display: flex; flex-direction: column; align-items: center; width: 100%; 
-}
-
-/* ================= ФОНОВОЕ СВЕЧЕНИЕ ================= */
-.ambient-glow { position: absolute; border-radius: 50%; filter: blur(130px); z-index: -1; pointer-events: none; }
-.bulb-glow-top { width: 450px; height: 450px; background: var(--bulb-light); top: 5%; left: 10%; opacity: 0.12; }
-.bulb-glow-bottom { width: 400px; height: 400px; background: var(--bulb-main); bottom: 15%; right: 5%; opacity: 0.08; }
-
-/* ================= ШАПКА ================= */
-.header-section { margin-bottom: 70px; animation: fadeSlideUp 0.8s ease forwards; display: flex; flex-direction: column; align-items: center; }
-.main-logo-circle { width: 72px; height: 72px; margin: 0 auto 24px; display: flex; justify-content: center; }
-.main-img { width: 100%; height: 100%; object-fit: contain; }
-.gradient-text {
-  font-size: 56px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; text-align: center; border: none;
-  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.subtitle { font-size: 22px; line-height: 1.4; color: var(--text-secondary); font-weight: 400; margin: 0; text-align: center; }
-
-/* ================= ПРЕМИАЛЬНОЕ СТЕКЛО ================= */
-.glass-effect {
+.echips-wrapper {
+  --e-yellow: #FFB800;
+  --e-orange: #FF4500;
+  --e-gray: #8E8E93;
+  --e-white: var(--vp-c-text-1);
+  --e-desc: var(--vp-c-text-2);
+  
+  max-width: 1100px; margin: 0 auto; padding: 60px 20px;
   position: relative; overflow: hidden;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.08); 
-  border-top: 1px solid rgba(255, 255, 255, 0.15); 
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
-  transform: translateZ(0); will-change: transform, box-shadow;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, border 0.4s ease;
+  text-align: center; font-family: -apple-system, system-ui, sans-serif;
 }
 
-.glow-overlay {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; 
-  pointer-events: none; z-index: 0;
-  background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 60%);
+/* ФОНОВЫЕ ПЯТНА (ЛАМПОВЫЕ) */
+.bg-glow { position: absolute; border-radius: 50%; filter: blur(100px); z-index: -1; pointer-events: none; opacity: 0.15; }
+.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -5%; left: 10%; }
+.bottom-glow { width: 400px; height: 400px; background: var(--e-yellow); bottom: 10%; right: 5%; }
+
+/* ШАПКА */
+.main-header { margin-bottom: 60px; }
+.hero-logo { width: 70px; margin: 0 auto 20px; display: block; }
+.hero-title { font-size: 52px; font-weight: 800; color: var(--e-white); letter-spacing: -0.02em; }
+.hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; }
+
+/* ОБЩЕЕ СТЕКЛО */
+.glass-effect {
+  position: relative; overflow: hidden; background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.4s ease;
 }
 
-.glass-effect:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 24px 56px 0 rgba(0, 0, 0, 0.2);
+/* СВЕЧЕНИЕ МЫШИ (ТЕПЛО-ЖЕЛТОЕ) */
+.mouse-glow {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
+  transition: opacity 0.4s ease; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.25), transparent 70%);
 }
+.glass-effect:hover .mouse-glow { opacity: 1; }
+.glass-effect:hover { transform: translateY(-5px); border-top: 1px solid rgba(255, 255, 255, 0.3); }
 
-.content-wrapper, .custom-icon, .custom-icon-large { position: relative; z-index: 1; pointer-events: none; }
+/* ВЕРХНИЙ РЯД */
+.icon-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; }
+.icon-card-link { text-decoration: none !important; color: var(--e-white) !important; display: flex; flex-direction: column; align-items: center; width: 110px; }
+.icon-box { width: 85px; height: 85px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.img-icon { width: 40px; height: 40px; object-fit: contain; position: relative; z-index: 1; }
+.label { font-size: 15px; font-weight: 600; transition: color 0.3s; }
+.icon-card-link:hover .label { color: var(--e-orange); }
 
-/* ================= ИКОНКИ ================= */
-.custom-icon { width: 44px; height: 44px; object-fit: contain; transition: transform 0.4s ease; margin: 0 auto; display: block; }
-.custom-icon-large { width: 56px; height: 56px; object-fit: contain; transition: transform 0.4s ease; margin: 0 auto; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1)); }
+/* НИЖНИЙ РЯД (ЖЕСТКО В ЛИНИЮ) */
+.action-grid { display: flex; flex-direction: row; justify-content: center; gap: 25px; }
+.big-card { flex: 1; max-width: 320px; border-radius: 30px; padding: 40px 20px; text-decoration: none !important; }
+.card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.img-large { width: 55px; height: 55px; margin-bottom: 20px; }
+.card-h { font-size: 22px; font-weight: 700; color: var(--e-white); margin-bottom: 15px !important; }
 
-/* ================= ВЕРХНИЙ РЯД ================= */
-.product-row { 
-  display: flex; flex-direction: row; justify-content: center; align-items: center; 
-  gap: 40px; margin-bottom: 80px; flex-wrap: nowrap; 
-  animation: fadeSlideUp 0.8s ease forwards; animation-delay: 0.1s; opacity: 0; 
+/* КНОПКА (СЕРАЯ -> ЖЕЛТАЯ) */
+.btn-yellow {
+  font-size: 14px; font-weight: 700; color: var(--e-white);
+  background: rgba(142, 142, 147, 0.15); padding: 10px 22px; border-radius: 20px;
+  transition: all 0.3s ease;
 }
-.product-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: var(--text-primary); transition: all 0.3s ease; width: 120px; }
-.product-icon-container { width: 88px; height: 88px; border-radius: 24px; display: flex; justify-content: center; align-items: center; margin: 0 auto 16px; }
-.product-item span { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s; border: none; }
-.product-item:hover .product-icon-container { transform: translateY(-8px); }
-.product-item:hover span { color: var(--echips-orangered); }
+.big-card:hover .btn-yellow { background: var(--e-yellow); color: #000 !important; }
 
-/* ================= НИЖНИЙ РЯД ================= */
-.action-cards-row { 
-  display: flex; flex-direction: row; justify-content: center; 
-  gap: 32px; flex-wrap: nowrap; width: 100%;
-  animation: fadeSlideUp 0.8s ease forwards; animation-delay: 0.2s; opacity: 0; 
-}
-.action-card {
-  border-radius: 32px; padding: 48px 32px; flex: 1; max-width: 320px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-decoration: none; transform: translateY(0);
-}
-.action-card:hover { transform: translateY(-8px); }
-.card-icon-container { margin-bottom: 28px; width: 100%; display: flex; justify-content: center; }
-.action-card:hover .custom-icon-large { transform: scale(1.08) translateY(-4px); }
-.card-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; color: var(--text-primary); border: none; }
+/* ФУТЕР */
+.footer-contacts { margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+.f-title { font-size: 26px; font-weight: 700; color: var(--e-white); margin-bottom: 10px !important; }
+.f-desc { color: var(--e-desc); margin-bottom: 30px; }
+.f-grid { display: flex; justify-content: center; gap: 50px; }
+.f-item h4 { font-size: 12px; text-transform: uppercase; color: var(--e-gray); margin-bottom: 5px !important; letter-spacing: 1px; }
+.f-item p { font-size: 18px; font-weight: 600; color: var(--e-white); }
 
-/* ТЕПЛЫЕ КНОПКИ-ССЫЛКИ */
-.card-link-text { 
-  font-size: 15px; color: var(--text-primary); font-weight: 600; 
-  background: rgba(142, 142, 147, 0.15); /* Серая подложка */
-  padding: 8px 20px; border-radius: 20px;
-  transition: all 0.3s ease; border: none;
-}
-.action-card:hover .card-link-text { 
-  background: var(--echips-yellow); /* Становится тепло-желтой */
-  color: #000 !important; /* Черный текст для контраста */
-  transform: translateY(-2px);
-}
-
-/* ================= ФУТЕР ================= */
-.service-footer { margin-top: 100px; padding-top: 60px; border-top: 1px solid rgba(128, 128, 128, 0.15); opacity: 0; animation: fadeSlideUp 1s ease forwards; animation-delay: 0.4s; display: flex; flex-direction: column; align-items: center; }
-.service-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); border: none; }
-.service-desc { color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; font-size: 16px; line-height: 1.5; }
-.contacts-row { display: flex; justify-content: center; gap: 64px; flex-wrap: nowrap; width: 100%; }
-.contact-block { display: flex; flex-direction: column; align-items: center; }
-.contact-block h4 { font-size: 13px; margin: 0 0 8px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; border: none; }
-.contact-block p { margin: 0; color: var(--text-primary); font-size: 18px; font-weight: 500; border: none; }
-
-@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
-/* ================= МОБИЛЬНАЯ ВЕРСИЯ ================= */
-@media (max-width: 900px) {
-  .product-row, .action-cards-row, .contacts-row { flex-wrap: wrap; }
-  .apple-support-container { padding: 40px 20px; }
-  .action-card { max-width: 100%; width: 100%; flex: none; }
+/* МОБИЛКИ */
+@media (max-width: 800px) {
+  .icon-row, .action-grid, .f-grid { flex-wrap: wrap; }
+  .action-grid { flex-direction: column; align-items: center; }
+  .big-card { width: 100%; max-width: 350px; }
 }
 </style>

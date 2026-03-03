@@ -170,6 +170,59 @@ onMounted(() => {
 .label { font-size: 15px; font-weight: 600; transition: color 0.3s; }
 .icon-card-link:hover .label { color: var(--e-orange); }
 
+/* ПОИСКОВАЯ СТРОКА */
+.search-container {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  height: 56px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.search-icon { margin-right: 15px; opacity: 0.6; font-size: 20px; }
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: var(--e-white);
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-input::placeholder { color: var(--e-gray); opacity: 0.5; }
+
+/* ТЕГИ */
+.popular-tags { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.tag-label { font-size: 13px; color: var(--e-gray); font-weight: 500; }
+.tag {
+  font-size: 13px;
+  color: var(--e-white);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 14px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tag:hover {
+  background: var(--e-yellow);
+  color: #000;
+  transform: translateY(-2px);
+}
+
 /* НИЖНИЙ РЯД (ЖЕСТКО В ЛИНИЮ) */
 .action-grid { display: flex; flex-direction: row; justify-content: center; gap: 25px; }
 .big-card { flex: 1; max-width: 320px; border-radius: 30px; padding: 40px 20px; text-decoration: none !important; }

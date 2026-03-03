@@ -43,7 +43,7 @@ onMounted(() => {
     <a href="/laptops/" class="icon-card-link">
       <div class="icon-box glass-effect">
         <div class="mouse-glow"></div>
-        <img src="/images/icon-laptop.webp" alt="Laptops" class="img-icon" />
+        <img src="/images/icon-laptop.png" alt="Laptops" class="img-icon" />
       </div>
       <span class="label">Ноутбуки</span>
     </a>
@@ -75,7 +75,7 @@ onMounted(() => {
     <a href="/guide/windows" class="big-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
-        <img src="/images/icon-faq.webp" alt="FAQ" class="img-large" />
+        <img src="/images/icon-faq.png" alt="FAQ" class="img-large" />
         <h3 class="card-h">Инструкции и FAQ</h3>
         <span class="btn-yellow">Найти ответ &rarr;</span>
       </div>

@@ -221,10 +221,9 @@ html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
 .mouse-glow {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
-  /* Делаем свет очень прозрачным, чтобы он не перекрывал фон */
-  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 100%);
+  background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 100%);
 }
-html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 100%); }
+html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 100%); }
 
 /* Включаем прозрачность свечения для всех карточек при наведении */
 .big-card:hover .mouse-glow,

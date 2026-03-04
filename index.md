@@ -104,8 +104,18 @@ onMounted(() => {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 /* ================= ГЛОБАЛЬНЫЙ СБРОС ================= */
-:deep(.vp-doc a) { text-decoration: none !important; border: none !important; }
-:deep(.vp-doc h1), :deep(.vp-doc h2), :deep(.vp-doc h3) { border: none !important; margin: 0; padding: 0; }
+.echips-wrapper a,
+.echips-wrapper a:hover,
+.echips-wrapper a:focus,
+.echips-wrapper a:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+.echips-wrapper h1, .echips-wrapper h2, .echips-wrapper h3 { 
+  border: none !important; margin: 0; padding: 0; 
+}
 
 /* ================= БАЗА ================= */
 .echips-wrapper {
@@ -138,6 +148,7 @@ html.dark .bottom-glow { opacity: 0.1; }
 /* ================= ПОИСК ================= */
 .search-section { width: 100%; max-width: 600px; margin: 0 auto 60px; position: relative; z-index: 10; }
 .search-bar {
+  position: relative; overflow: hidden;
   height: 56px; border-radius: 28px; display: flex; align-items: center; padding: 0 24px;
   background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
   box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;
@@ -151,6 +162,7 @@ html.dark .bottom-glow { opacity: 0.1; }
 .icon-row { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; margin-top: 50px !important; }
 .icon-card-link { display: flex; flex-direction: column; align-items: center; width: 100px; cursor: pointer; }
 .icon-box { 
+  position: relative; overflow: hidden;
   width: 80px; height: 80px; border-radius: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
   background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -158,7 +170,6 @@ html.dark .bottom-glow { opacity: 0.1; }
 .img-icon { width: 36px; height: 36px; object-fit: contain; opacity: 0.8; transition: transform 0.3s; }
 html.dark .img-icon { filter: invert(1); opacity: 0.9; }
 .label { font-size: 14px; font-weight: 600; color: var(--e-text); transition: color 0.3s; 
-          text-decoration: none !important;
           border-bottom: none !important;
           box-shadow: none !important;}
 
@@ -207,7 +218,13 @@ html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 50%);
 }
 html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 50%); }
-.big-card:hover .mouse-glow { opacity: 1; }
+/* Включаем прозрачность свечения для всех карточек при наведении */
+.big-card:hover .mouse-glow,
+.icon-card-link:hover .mouse-glow,
+.search-bar:hover .mouse-glow,
+.search-bar:focus-within .mouse-glow { 
+  opacity: 1; 
+}
 
 /* ================= ФУТЕР ================= */
 .footer-contacts { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--vp-c-divider); }

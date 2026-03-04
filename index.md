@@ -133,11 +133,11 @@ onMounted(() => {
 
 /* ================= ФОН (ОЧЕНЬ МЯГКИЙ) ================= */
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
-.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.05; }
-.bottom-glow { width: 500px; height: 500px; background: var(--e-yellow); bottom: 0; right: -5%; opacity: 0.05; }
+.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.15; } /* Увеличена непрозрачность */
+.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; } /* Увеличена непрозрачность */
 
-html.dark .top-glow { opacity: 0.1; }
-html.dark .bottom-glow { opacity: 0.1; }
+html.dark .top-glow { opacity: 0.25; }
+html.dark .bottom-glow { opacity: 0.3; }
 
 /* ================= ШАПКА ================= */
 .main-header { margin-bottom: 50px; }
@@ -215,9 +215,9 @@ html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
   /* Делаем свет очень прозрачным, чтобы он не перекрывал фон */
-  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 0%);
+  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 80%);
 }
-html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 50%); }
+html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 80%); }
 
 /* Включаем прозрачность свечения для всех карточек при наведении */
 .big-card:hover .mouse-glow,

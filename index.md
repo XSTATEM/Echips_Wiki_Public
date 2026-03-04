@@ -101,183 +101,122 @@ onMounted(() => {
 </div>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
-/* УБИВАЕМ СТАНДАРТНЫЕ СТИЛИ VITEPRESS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ================= ГЛОБАЛЬНЫЙ СБРОС ================= */
 :deep(.vp-doc a) { text-decoration: none !important; border: none !important; }
 :deep(.vp-doc h1), :deep(.vp-doc h2), :deep(.vp-doc h3) { border: none !important; margin: 0; padding: 0; }
 
-
-
+/* ================= БАЗА ================= */
 .echips-wrapper {
   --e-yellow: #FFB800;
   --e-orange: #FF4500;
   --e-gray: #8E8E93;
-  --e-white: var(--vp-c-text-1);
+  --e-text: var(--vp-c-text-1);
   --e-desc: var(--vp-c-text-2);
   
   max-width: 1100px; margin: 0 auto; padding: 60px 20px;
   position: relative; overflow: hidden;
-  text-align: center;
-  font-family: 'Manrope', sans-serif !important;
+  text-align: center; 
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-/* ФОНОВЫЕ ПЯТНА (ЛАМПОВЫЕ) */
-.bg-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; pointer-events: none; }
-.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -5%; left: 10%; opacity: 0.04; }
-.bottom-glow { width: 400px; height: 400px; background: var(--e-yellow); bottom: 10%; right: 5%; opacity: 0.08; }
+/* ================= ФОН (ОЧЕНЬ МЯГКИЙ) ================= */
+.bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
+.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.05; }
+.bottom-glow { width: 500px; height: 500px; background: var(--e-yellow); bottom: 0; right: -5%; opacity: 0.05; }
 
-html.dark .top-glow { opacity: 0.12; }
-html.dark .bottom-glow { opacity: 0.15; }
+html.dark .top-glow { opacity: 0.1; }
+html.dark .bottom-glow { opacity: 0.1; }
 
-/* ШАПКА */
-.main-header { margin-bottom: 60px; }
-.hero-logo { width: 200px; margin: 0 auto 20px; display: block; }
+/* ================= ШАПКА ================= */
+.main-header { margin-bottom: 50px; }
+.hero-logo { width: 64px; margin: 0 auto 20px; display: block; }
+.hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; }
+.hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 
-.hero-title { 
-  font-size: 52px; 
-  font-weight: 800; 
-  color: var(--e-white); 
-  letter-spacing: -0.04em; /* Сделали заголовок чуть плотнее и стильнее */
+/* ================= ПОИСК ================= */
+.search-section { width: 100%; max-width: 600px; margin: 0 auto 60px; position: relative; z-index: 10; }
+.search-bar {
+  height: 56px; border-radius: 28px; display: flex; align-items: center; padding: 0 24px;
+  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;
+}
+.search-bar:focus-within { border-color: var(--e-yellow); box-shadow: 0 8px 30px rgba(255, 184, 0, 0.1); }
+.search-icon { font-size: 18px; margin-right: 12px; opacity: 0.5; }
+.search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
+.search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
+
+/* ================= ВЕРХНИЕ ИКОНКИ ================= */
+.icon-row { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; }
+.icon-card-link { display: flex; flex-direction: column; align-items: center; width: 100px; cursor: pointer; }
+.icon-box { 
+  width: 80px; height: 80px; border-radius: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.img-icon { width: 36px; height: 36px; object-fit: contain; opacity: 0.8; transition: transform 0.3s; }
+html.dark .img-icon { filter: invert(1); opacity: 0.9; }
+.label { font-size: 14px; font-weight: 600; color: var(--e-text); transition: color 0.3s; }
+
+.icon-card-link:hover .icon-box { transform: translateY(-4px); border-color: var(--e-gray); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+.icon-card-link:hover .img-icon { transform: scale(1.1); opacity: 1; }
+
+/* ================= НИЖНИЕ ПЛАШКИ (ИДЕАЛЬНЫЕ ПРОПОРЦИИ) ================= */
+.action-grid { display: flex; flex-direction: row; justify-content: center; gap: 24px; }
+.big-card { 
+  position: relative; flex: 1; max-width: 320px; min-height: 280px; 
+  padding: 40px 24px; border-radius: 28px;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); overflow: hidden;
+}
+.card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: space-between; pointer-events: none; }
+
+/* Иконки на плашках */
+.img-large { height: 64px; width: auto; margin-top: 10px; opacity: 0.85; transition: transform 0.4s ease; }
+html.dark .img-large { filter: invert(1); opacity: 0.95; }
+.card-h { font-size: 20px; font-weight: 700; color: var(--e-text); margin: 20px 0 !important; text-align: center; }
+
+/* КНОПКА (ТЕПЕРЬ АККУРАТНАЯ) */
+.btn-yellow {
+  font-size: 14px; font-weight: 600; color: var(--e-text);
+  background: var(--vp-c-default-soft); padding: 10px 24px; border-radius: 20px;
+  transition: all 0.3s ease; display: inline-block; pointer-events: auto;
 }
 
-.hero-subtitle, .label, .card-h, .btn-yellow, .f-item p {
-  font-family: 'Manrope', sans-serif !important;
-}
+/* ================= ЭФФЕКТЫ ПРИ НАВЕДЕНИИ ================= */
+/* 1. Карточка приподнимается */
+.big-card:hover { transform: translateY(-6px); border-color: rgba(255, 184, 0, 0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
 
-/* ОБЩЕЕ СТЕКЛО */
-.glass-effect {
-  position: relative; overflow: hidden;
-  /* Используем цвета темы, делая их на 40% прозрачными */
-  background: color-mix(in srgb, var(--vp-c-bg-soft) 60%, transparent);
-  backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
-  border: 1px solid var(--vp-c-divider); 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); 
-  transition: transform 0.4s ease, border-color 0.4s ease;
-}
+/* 2. Иконка чуть увеличивается */
+.big-card:hover .img-large { transform: scale(1.08); opacity: 1; }
 
-html.dark .glass-effect {
-  background: rgba(30, 30, 30, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+/* 3. Кнопка загорается */
+.big-card:hover .btn-yellow { background: var(--e-yellow); color: #000 !important; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3); }
 
-.glass-effect:hover { 
-  transform: translateY(-4px); 
-  border-color: var(--e-yellow); 
-}
-
-/* СПАСАЕМ ИКОНКИ В ТЕМНОЙ ТЕМЕ */
-html.dark .img-icon, 
-html.dark .img-large,
-html.dark .search-icon {
-  filter: invert(1) opacity(0.85);
-}
-
-/* СВЕЧЕНИЕ МЫШИ (ТЕПЛО-ЖЕЛТОЕ) */
+/* 4. УСПОКОЕННОЕ СВЕЧЕНИЕ МЫШИ */
 .mouse-glow {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
-  transition: opacity 0.4s ease; pointer-events: none; z-index: 0;
-  background: radial-gradient(circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.25), transparent 70%);
+  transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
+  /* Делаем свет очень прозрачным, чтобы он не перекрывал фон */
+  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 50%);
 }
-.glass-effect:hover .mouse-glow { opacity: 1; }
-.glass-effect:hover { transform: translateY(-5px); border-top: 1px solid rgba(255, 255, 255, 0.3); }
+html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 50%); }
+.big-card:hover .mouse-glow { opacity: 1; }
 
-/* ВЕРХНИЙ РЯД */
-.icon-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; }
-.icon-card-link { text-decoration: none !important; color: var(--e-white) !important; display: flex; flex-direction: column; align-items: center; width: 110px; }
-.icon-box { width: 95px; height: 95px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-.img-icon { width: 50px; height: 50px; object-fit: contain; position: relative; z-index: 1; }
-.label { font-size: 15px; font-weight: 600; transition: color 0.3s; }
-.icon-card-link:hover .label { color: var(--e-orange); }
+/* ================= ФУТЕР ================= */
+.footer-contacts { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--vp-c-divider); }
+.f-title { font-size: 24px; font-weight: 700; color: var(--e-text); margin-bottom: 8px !important; }
+.f-desc { color: var(--e-desc); margin-bottom: 30px; font-weight: 500; }
+.f-grid { display: flex; justify-content: center; gap: 60px; }
+.f-item h4 { font-size: 12px; text-transform: uppercase; color: var(--e-gray); margin-bottom: 6px !important; letter-spacing: 1px; font-weight: 700; }
+.f-item p { font-size: 16px; font-weight: 600; color: var(--e-text); }
 
-/* ПОИСКОВАЯ СТРОКА */
-.search-container {
-  margin-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeSlideUp 0.8s ease forwards;
-}
-
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  height: 56px;
-  border-radius: 28px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.05) !important;
-}
-
-
-.search-input {
-  background: transparent;
-  border: none;
-  color: var(--e-white);
-  font-size: 16px;
-  width: 100%;
-  outline: none;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.search-input::placeholder { color: var(--e-gray); opacity: 0.5; }
-
-/* ТЕГИ */
-.popular-tags { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
-.tag-label { font-size: 13px; color: var(--e-gray); font-weight: 500; }
-.tag {
-  font-size: 13px;
-  color: var(--e-white);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px 14px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.tag:hover {
-  background: var(--e-yellow);
-  color: #000;
-  transform: translateY(-2px);
-}
-
-/* НИЖНИЙ РЯД (ЖЕСТКО В ЛИНИЮ) */
-.action-grid { display: flex; flex-direction: row; justify-content: center; gap: 25px; }
-.big-card { flex: 1; max-width: 320px; border-radius: 30px; padding: 40px 20px; text-decoration: none !important; }
-.card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-.img-large { width: 120px; height: 120px; margin-bottom: 20px; }
-.card-h { font-size: 22px; font-weight: 700; color: var(--e-white); margin-bottom: 15px !important; }
-
-/* КНОПКА (СЕРАЯ -> ЖЕЛТАЯ) */
-/* КНОПКИ */
-.btn-yellow {
-  font-size: 14px; font-weight: 600; 
-  color: var(--vp-c-text-1); /* Текст адаптируется под тему */
-  background: var(--vp-c-default-soft); /* Мягкий фон под тему */
-  padding: 10px 24px; border-radius: 20px;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.big-card:hover .btn-yellow { 
-  background: var(--e-yellow); 
-  color: #000 !important; 
-}
-
-/* ФУТЕР */
-.footer-contacts { margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
-.f-title { font-size: 26px; font-weight: 700; color: var(--e-white); margin-bottom: 10px !important; }
-.f-desc { color: var(--e-desc); margin-bottom: 30px; }
-.f-grid { display: flex; justify-content: center; gap: 50px; }
-.f-item h4 { font-size: 12px; text-transform: uppercase; color: var(--e-gray); margin-bottom: 5px !important; letter-spacing: 1px; }
-.f-item p { font-size: 18px; font-weight: 600; color: var(--e-white); }
-
-/* МОБИЛКИ */
 @media (max-width: 800px) {
-  .icon-row, .action-grid, .f-grid { flex-wrap: wrap; }
   .action-grid { flex-direction: column; align-items: center; }
-  .big-card { width: 100%; max-width: 350px; }
+  .big-card { width: 100%; min-height: 240px; }
+  .f-grid { flex-direction: column; gap: 30px; }
 }
 </style>

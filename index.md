@@ -131,7 +131,7 @@ html.dark .bottom-glow { opacity: 0.1; }
 
 /* ================= ШАПКА ================= */
 .main-header { margin-bottom: 50px; }
-.hero-logo { width: 64px; margin: 0 auto 20px; display: block; }
+.hero-logo { width: 180px; margin: 0 auto 20px; display: block; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 
@@ -148,7 +148,7 @@ html.dark .bottom-glow { opacity: 0.1; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
 
 /* ================= ВЕРХНИЕ ИКОНКИ ================= */
-.icon-row { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; }
+.icon-row { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; margin-top: 50px !important; }
 .icon-card-link { display: flex; flex-direction: column; align-items: center; width: 100px; cursor: pointer; }
 .icon-box { 
   width: 80px; height: 80px; border-radius: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
@@ -157,7 +157,10 @@ html.dark .bottom-glow { opacity: 0.1; }
 }
 .img-icon { width: 36px; height: 36px; object-fit: contain; opacity: 0.8; transition: transform 0.3s; }
 html.dark .img-icon { filter: invert(1); opacity: 0.9; }
-.label { font-size: 14px; font-weight: 600; color: var(--e-text); transition: color 0.3s; }
+.label { font-size: 14px; font-weight: 600; color: var(--e-text); transition: color 0.3s; 
+          text-decoration: none !important;
+          border-bottom: none !important;
+          box-shadow: none !important;}
 
 .icon-card-link:hover .icon-box { transform: translateY(-4px); border-color: var(--e-gray); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
 .icon-card-link:hover .img-icon { transform: scale(1.1); opacity: 1; }

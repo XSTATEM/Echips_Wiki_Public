@@ -122,9 +122,12 @@ onMounted(() => {
 }
 
 /* ФОНОВЫЕ ПЯТНА (ЛАМПОВЫЕ) */
-.bg-glow { position: absolute; border-radius: 50%; filter: blur(100px); z-index: -1; pointer-events: none; opacity: 0.15; }
-.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -5%; left: 10%; }
-.bottom-glow { width: 400px; height: 400px; background: var(--e-yellow); bottom: 10%; right: 5%; }
+.bg-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; pointer-events: none; }
+.top-glow { width: 400px; height: 400px; background: var(--e-orange); top: -5%; left: 10%; opacity: 0.04; }
+.bottom-glow { width: 400px; height: 400px; background: var(--e-yellow); bottom: 10%; right: 5%; opacity: 0.08; }
+
+html.dark .top-glow { opacity: 0.12; }
+html.dark .bottom-glow { opacity: 0.15; }
 
 /* ШАПКА */
 .main-header { margin-bottom: 60px; }
@@ -143,10 +146,32 @@ onMounted(() => {
 
 /* ОБЩЕЕ СТЕКЛО */
 .glass-effect {
-  position: relative; overflow: hidden; background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+  /* Используем цвета темы, делая их на 40% прозрачными */
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 60%, transparent);
+  backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--vp-c-divider); 
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); 
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+html.dark .glass-effect {
+  background: rgba(30, 30, 30, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glass-effect:hover { 
+  transform: translateY(-4px); 
+  border-color: var(--e-yellow); 
+}
+
+/* СПАСАЕМ ИКОНКИ В ТЕМНОЙ ТЕМЕ */
+html.dark .img-icon, 
+html.dark .img-large,
+html.dark .search-icon {
+  filter: invert(1) opacity(0.85);
 }
 
 /* СВЕЧЕНИЕ МЫШИ (ТЕПЛО-ЖЕЛТОЕ) */
@@ -226,12 +251,20 @@ onMounted(() => {
 .card-h { font-size: 22px; font-weight: 700; color: var(--e-white); margin-bottom: 15px !important; }
 
 /* КНОПКА (СЕРАЯ -> ЖЕЛТАЯ) */
+/* КНОПКИ */
 .btn-yellow {
-  font-size: 14px; font-weight: 700; color: var(--e-white);
-  background: rgba(142, 142, 147, 0.15); padding: 10px 22px; border-radius: 20px;
+  font-size: 14px; font-weight: 600; 
+  color: var(--vp-c-text-1); /* Текст адаптируется под тему */
+  background: var(--vp-c-default-soft); /* Мягкий фон под тему */
+  padding: 10px 24px; border-radius: 20px;
   transition: all 0.3s ease;
+  display: inline-block;
 }
-.big-card:hover .btn-yellow { background: var(--e-yellow); color: #000 !important; }
+
+.big-card:hover .btn-yellow { 
+  background: var(--e-yellow); 
+  color: #000 !important; 
+}
 
 /* ФУТЕР */
 .footer-contacts { margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }

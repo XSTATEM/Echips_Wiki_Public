@@ -131,7 +131,7 @@ html.dark .bottom-glow { opacity: 0.15; }
 
 /* ШАПКА */
 .main-header { margin-bottom: 60px; }
-.hero-logo { width: 70px; margin: 0 auto 20px; display: block; }
+.hero-logo { width: 200px; margin: 0 auto 20px; display: block; }
 
 .hero-title { 
   font-size: 52px; 

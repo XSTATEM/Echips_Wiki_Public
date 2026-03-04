@@ -176,7 +176,7 @@ html.dark .img-icon { filter: invert(1); opacity: 0.9; }
 .icon-card-link:hover .icon-box { transform: translateY(-4px); border-color: var(--e-gray); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
 .icon-card-link:hover .img-icon { transform: scale(1.1); opacity: 1; }
 
-/* ================= НИЖНИЕ ПЛАШКИ (ИДЕАЛЬНЫЕ ПРОПОРЦИИ) ================= */
+/* ================= НИЖНИЕ ПЛАШК ================= */
 .action-grid { display: flex; flex-direction: row; justify-content: center; gap: 24px; }
 .big-card { 
   position: relative; flex: 1; max-width: 320px; min-height: 280px; 
@@ -192,7 +192,7 @@ html.dark .img-icon { filter: invert(1); opacity: 0.9; }
 html.dark .img-large { filter: invert(1); opacity: 0.95; }
 .card-h { font-size: 20px; font-weight: 700; color: var(--e-text); margin: 20px 0 !important; text-align: center; }
 
-/* КНОПКА (ТЕПЕРЬ АККУРАТНАЯ) */
+/* КНОПКА */
 .btn-yellow {
   font-size: 14px; font-weight: 600; color: var(--e-text);
   background: var(--vp-c-default-soft); padding: 10px 24px; border-radius: 20px;
@@ -215,9 +215,10 @@ html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
   /* Делаем свет очень прозрачным, чтобы он не перекрывал фон */
-  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 50%);
+  background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.08), transparent 0%);
 }
 html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.12), transparent 50%); }
+
 /* Включаем прозрачность свечения для всех карточек при наведении */
 .big-card:hover .mouse-glow,
 .icon-card-link:hover .mouse-glow,

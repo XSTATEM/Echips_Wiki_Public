@@ -144,6 +144,7 @@ html.dark .bottom-glow { opacity: 0.2; }
 .hero-logo { width: 180px; margin: 0 auto 20px; display: block; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
+html.dark .hero-logo { filter: invert(1); opacity: 0.9; }
 
 /* ================= ПОИСК ================= */
 .search-section { width: 100%; max-width: 600px; margin: 0 auto 60px; position: relative; z-index: 10; }

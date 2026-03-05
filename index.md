@@ -126,7 +126,7 @@ onMounted(() => {
   --e-desc: var(--vp-c-text-2);
   
   max-width: 1100px; margin: 0 auto; padding: 60px 20px;
-  position: relative; overflow: hidden;
+  position: relative; 
   text-align: center; 
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -254,4 +254,32 @@ html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-
   .big-card { width: 100%; min-height: 240px; }
   .f-grid { flex-direction: column; gap: 30px; }
 }
+
+/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ (ВСТАВИТЬ В КОНЕЦ) ================= */
+
+/* 1. Исправляем горизонтальную прокрутку из-за выходящих BG пятен */
+html, body {
+  overflow-x: hidden !important; 
+}
+
+/* 2. Делаем верхний бар "жидким стеклом" */
+:deep(.VPNavBar) {
+  background-color: transparent !important; /* Убираем сплошной фон */
+  backdrop-filter: blur(25px) !important; /* Добавляем размытие */
+  -webkit-backdrop-filter: blur(25px) !important;
+  border-bottom: 1px solid var(--vp-c-divider) !important; /* Тонкая граница */
+}
+
+/* Исправление цвета для темной темы навигации */
+html.dark :deep(.VPNavBar) {
+  background-color: rgba(30, 30, 30, 0.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Гарантируем, что заголовок "Поддержка Echips" не обрезается */
+.hero-title {
+  position: relative;
+  z-index: 2;
+}
+
 </style>

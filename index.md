@@ -133,11 +133,11 @@ onMounted(() => {
 
 /* ================= ФОН (ОЧЕНЬ МЯГКИЙ) ================= */
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
-.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.15; } /* Увеличена непрозрачность */
+.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; } /* Увеличена непрозрачность */
 .bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; } /* Увеличена непрозрачность */
 
 html.dark .top-glow { opacity: 0.25; }
-html.dark .bottom-glow { opacity: 0.3; }
+html.dark .bottom-glow { opacity: 0.5; }
 
 /* ================= ШАПКА ================= */
 .main-header { margin-bottom: 50px; }

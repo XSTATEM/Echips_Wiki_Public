@@ -150,10 +150,14 @@ html.dark .bottom-glow { opacity: 0.3; }
 .search-bar {
   position: relative; overflow: hidden;
   height: 56px; border-radius: 28px; display: flex; align-items: center; padding: 0 24px;
-  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft); 
+  /* Видимая рамка для светлой темы */
+  border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;
 }
-.search-bar:focus-within { border-color: var(--e-yellow); box-shadow: 0 8px 30px rgba(255, 184, 0, 0.1); }
+html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
+.search-bar:focus-within { border-color: var(--e-yellow) !important; box-shadow: 0 8px 30px rgba(255, 184, 0, 0.1); }
+
 .search-icon { font-size: 18px; margin-right: 12px; opacity: 0.5; }
 .search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
@@ -164,9 +168,13 @@ html.dark .bottom-glow { opacity: 0.3; }
 .icon-box { 
   position: relative; overflow: hidden;
   width: 80px; height: 80px; border-radius: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
-  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft); 
+  /* Видимая рамка для светлой темы */
+  border: 1px solid rgba(128, 130, 133, 0.25) !important;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+html.dark .icon-box { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
+
 .img-icon { width: 36px; height: 36px; object-fit: contain; opacity: 0.8; transition: transform 0.3s; }
 html.dark .img-icon { filter: invert(1); opacity: 0.9; }
 .label { font-size: 14px; font-weight: 600; color: var(--e-text); transition: color 0.3s; 
@@ -183,16 +191,16 @@ html.dark .img-icon { filter: invert(1); opacity: 0.9; }
   padding: 40px 24px; border-radius: 28px;
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   background: var(--vp-c-bg-soft); 
-  border: 1px solid var(--vp-c-divider) !important;
+  /* Жестко заданная красивая рамка и тень для светлой темы */
+  border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); overflow: hidden;
 }
-.card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: space-between; pointer-events: none; }
-
 html.dark .big-card {
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3) !important;
 }
+.card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: space-between; pointer-events: none; }
 
 /* Иконки на плашках */
 .img-large { height: 64px; width: auto; margin-top: 10px; opacity: 0.85; transition: transform 0.4s ease; }
@@ -221,9 +229,9 @@ html.dark .big-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
 .mouse-glow {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
-  background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 100%);
+  background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.8), transparent 100%);
 }
-html.dark .mouse-glow { background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.3), transparent 100%); }
+html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.8), transparent 100%); }
 
 /* Включаем прозрачность свечения для всех карточек при наведении */
 .big-card:hover .mouse-glow,

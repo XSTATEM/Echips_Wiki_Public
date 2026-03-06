@@ -129,7 +129,7 @@ html.dark .bottom-glow { opacity: 0.2; }
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   background: var(--vp-c-bg-soft); 
   border: 1px solid rgba(128, 130, 133, 0.25) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+  
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); overflow: hidden;
 }
 

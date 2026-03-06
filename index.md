@@ -91,7 +91,7 @@ onMounted(() => {
   </div>
 
   <div class="footer-contacts">
-    <h2 class="f-title">Сервисный департамент Echips</h2>
+    <h2 class="f-title">Сервисный департамент Echips 0.1</h2>
     <p class="f-desc">Мы обеспечиваем техническую поддержку высшего уровня.</p>
     <div class="f-grid">
       <div class="f-item"><h4>Для клиентов</h4><p>support@echips.ru</p></div>

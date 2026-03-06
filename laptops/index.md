@@ -41,7 +41,6 @@ onMounted(() => {
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    
     <a href="/laptops/hot/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
@@ -52,7 +51,6 @@ onMounted(() => {
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    
     <a href="/laptops/taganay/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
@@ -63,7 +61,6 @@ onMounted(() => {
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    
     <a href="/laptops/fusion/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
@@ -74,7 +71,6 @@ onMounted(() => {
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    
     <a href="/laptops/atlant/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
@@ -85,7 +81,6 @@ onMounted(() => {
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    
     <a href="/laptops/rush/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">

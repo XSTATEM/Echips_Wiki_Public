@@ -99,3 +99,36 @@ collections:
                 default: "brand"
 
       - {label: "Весь текст (Markdown)", name: "body", widget: "markdown", required: false}
+
+  - name: "pages"
+    label: "Управление страницами"
+    files:
+      - label: "Сервисные центры (АСЦ)"
+        name: "service_centers"
+        # Укажи точный путь к файлу. Если у тебя все файлы лежат в папке y/, 
+        # то путь будет "y/service/centers.md"
+        file: "service/centers.md" 
+        fields:
+          - {label: "Заголовок страницы", name: "title", widget: "string"}
+          - {label: "Отключить боковую панель", name: "sidebar", widget: "boolean", default: false}
+          
+          # Тот самый блок для добавления сервисов
+          - label: "Список сервисных центров"
+            name: "centers"
+            widget: "list"
+            fields:
+              - {label: "Город", name: "city", widget: "string"}
+              - {label: "Название", name: "name", widget: "string"}
+              - label: "Тип"
+                name: "type"
+                widget: "select"
+                options: ["Основной", "Партнер", "Приемный пункт"]
+                default: "Основной"
+              - {label: "Адрес", name: "address", widget: "string"}
+              - {label: "Телефон", name: "phone", widget: "string"}
+              - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
+              - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
+              - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
+          
+          # Скрываем код самой страницы, чтобы случайно его не стереть в редакторе
+          - {label: "Системный код (не трогать)", name: "body", widget: "markdown", required: false}  

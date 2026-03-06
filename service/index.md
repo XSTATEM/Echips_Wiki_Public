@@ -10,6 +10,8 @@ centers:
     address: "Карла Маркса, 63"
     phone: "8 (347) 251-85-98"
     map: "https://yandex.ru/maps/-/CHcQ6DLK"
+    lat: 
+    lng:
     
   - city: "Челябинск"
     name: "Ечипс"
@@ -17,6 +19,8 @@ centers:
     address: "Северная, 56 (п. Шершни)"
     phone: "8 (951) 255 7555"
     map: "https://yandex.ru/maps/-/CDR45JO7"
+    lat: 
+    lng:
     
   - city: "Москва"
     name: "Smart-service"
@@ -24,6 +28,8 @@ centers:
     address: "Ткацкая, 5, стр.3"
     phone: "8 (495) 921-11-88"
     map: "https://yandex.ru/maps/-/CDR45RIU"
+    lat: 
+    lng:
     
   - city: "Абакан"
     name: "Notebook сервис+"
@@ -31,6 +37,8 @@ centers:
     address: "ул. Стофато, д. 5д"
     phone: "8 (3902) 32-99-33"
     map: "https://yandex.ru/maps/-/CHX0zVl-"
+    lat: 
+    lng:
 ---
 
 <script setup>
@@ -40,13 +48,68 @@ import { useData } from 'vitepress'
 // VitePress сам достает данные из шапки файла
 const { frontmatter } = useData()
 const searchQuery = ref('')
+const userLat = ref(null)
+const userLng = ref(null)
+const geoError = ref('')
+const isLocating = ref(false)
+
+// Формула расчета расстояния
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  if (!lat1 || !lon1 || !lat2 || !lon2) return null;
+  const R = 6371; 
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return (R * c).toFixed(1);
+}
+
+// Запрос координат у браузера
+const findNearest = () => {
+  if (!navigator.geolocation) {
+    geoError.value = "Геолокация не поддерживается";
+    return;
+  }
+  isLocating.value = true;
+  geoError.value = '';
+  searchQuery.value = ''; 
+  
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      userLat.value = position.coords.latitude;
+      userLng.value = position.coords.longitude;
+      isLocating.value = false;
+    },
+    (error) => {
+      isLocating.value = false;
+      geoError.value = "Не удалось определить местоположение.";
+    }
+  );
+}
 
 // Умный поиск работает с данными из шапки
 const filteredCenters = computed(() => {
-  const allCenters = frontmatter.value.centers || []
+  let allCenters = frontmatter.value.centers || []
+  
+  let centersWithDistance = allCenters.map(c => {
+    return { ...c, distance: calculateDistance(userLat.value, userLng.value, c.lat, c.lng) }
+  });
+
   const q = searchQuery.value.toLowerCase().trim()
-  if (!q) return allCenters 
-  return allCenters.filter(c => c.city.toLowerCase().includes(q))
+  if (q) {
+    userLat.value = null; userLng.value = null;
+    return centersWithDistance.filter(c => c.city.toLowerCase().includes(q))
+  }
+
+  if (userLat.value && userLng.value) {
+    return centersWithDistance
+      .filter(c => c.distance !== null)
+      .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance))
+  }
+
+  return centersWithDistance
 })
 </script>
 
@@ -62,9 +125,13 @@ const filteredCenters = computed(() => {
 
   <div class="search-section">
     <div class="search-bar glass-effect">
-      <span class="search-icon">📍</span>
       <input type="text" v-model="searchQuery" placeholder="Введите ваш город..." class="search-input" />
+      <button @click="findNearest" class="geo-btn" :disabled="isLocating" title="Найти ближайший ко мне">
+        <span v-if="isLocating" class="spinner">⏳</span>
+        <span v-else>Рядом со мной</span>
+      </button>
     </div>
+    <div v-if="geoError" class="geo-error">{{ geoError }}</div>
   </div>
 
   <div class="centers-grid" v-if="filteredCenters.length > 0">
@@ -72,6 +139,9 @@ const filteredCenters = computed(() => {
       <div class="card-header">
         <h3 class="city-name">{{ center.city }}</h3>
         <span class="badge" :class="{'badge-partner': center.type === 'Партнер'}">{{ center.type }}</span>
+      </div>
+      <div v-if="center.distance" class="distance-badge">
+        ~ {{ center.distance }} км от вас
       </div>
       <h4 class="center-name">{{ center.name }}</h4>
       <div class="center-details">
@@ -205,5 +275,23 @@ html, body { overflow-x: hidden !important; }
 }
 html.dark :deep(.VPNavBar) {
   background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* КНОПКА ГЕОЛОКАЦИИ */
+.geo-btn {
+  background: rgba(142, 142, 147, 0.15); color: var(--e-text);
+  border-radius: 20px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+  cursor: pointer; transition: all 0.3s ease; white-space: nowrap; margin-left: 10px;
+}
+.geo-btn:hover:not(:disabled) { background: var(--e-yellow); color: #000; }
+.geo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.geo-error { color: var(--e-orange); font-size: 13px; text-align: center; margin-top: 10px; font-weight: 500; }
+.spinner { display: inline-block; animation: spin 1.5s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ */
+.distance-badge {
+  display: inline-block; margin-bottom: 15px; font-size: 13px; font-weight: 700; color: var(--e-orange);
+  background: rgba(255, 69, 0, 0.1); padding: 4px 12px; border-radius: 10px;
 }
 </style>

@@ -80,7 +80,7 @@ onMounted(() => {
         <span class="btn-yellow">Найти ответ &rarr;</span>
       </div>
     </a>
-    <a href="/service/centers" class="big-card glass-effect">
+    <a href="/service" class="big-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <img src="/images/icon-service.png" alt="ASC" class="img-large" />

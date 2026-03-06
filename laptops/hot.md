@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Серия Echips Hot
+sidebar: false
 ---
 
 <script setup>

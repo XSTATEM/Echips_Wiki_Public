@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Ноутбуки Echips
+title: Моноблоки Echips
 sidebar: false
 ---
 
@@ -27,68 +27,38 @@ onMounted(() => {
 
   <div class="main-header">
     <a href="/" class="back-link">← На главную</a>
-    <h1 class="hero-title">Линейки ноутбуков</h1>
-    <p class="hero-subtitle">Выберите серию вашего ноутбука Echips для поиска драйверов, BIOS и сервисных инструкций.</p>
+    <h1 class="hero-title">Линейки моноблоков</h1>
+    <p class="hero-subtitle">Выберите серию вашего моноблока Echips для поиска драйверов и сервисных инструкций.</p>
   </div>
 
   <div class="laptop-grid">  
-    <a href="/laptops/arctic/" class="laptop-card glass-effect">
+    <a href="/monoblocks/series-24/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <div class="laptop-image-container">
-          <img src="/images/laptop-arctic.png" alt="Echips Arctic" class="laptop-img" onerror="this.style.display='none'">
+          <img src="/images/aio-24.png" alt="Echips 24" class="laptop-img" onerror="this.style.display='none'">
         </div>
-        <h2 class="card-h">Arctic</h2>
+        <h2 class="card-h">Серия 24"</h2>
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    <a href="/laptops/hot/" class="laptop-card glass-effect">
+    <a href="/monoblocks/series-27/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <div class="laptop-image-container">
-          <img src="/images/laptop-hot.png" alt="Echips Hot" class="laptop-img" onerror="this.style.display='none'">
+          <img src="/images/aio-23.png" alt="Echips 27" class="laptop-img" onerror="this.style.display='none'">
         </div>
-        <h2 class="card-h">Hot</h2>
+        <h2 class="card-h">Серия 23"</h2>
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
-    <a href="/laptops/taganay/" class="laptop-card glass-effect">
+    <a href="/monoblocks/pro/" class="laptop-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <div class="laptop-image-container">
-          <img src="/images/laptop-taganay.png" alt="Echips Taganay" class="laptop-img" onerror="this.style.display='none'">
+          <img src="/images/aio-pro.png" alt="Echips Pro" class="laptop-img" onerror="this.style.display='none'">
         </div>
-        <h2 class="card-h">Taganay</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/fusion/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-fusion.png" alt="Echips Fusion" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Fusion</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/atlant/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-atlant.png" alt="Echips Atlant" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Atlant</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/rush/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-rush.png" alt="Echips Rush" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Rush</h2>
+        <h2 class="card-h">K1-серия</h2>
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
@@ -126,10 +96,10 @@ onMounted(() => {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* ================= ФОН (КАК НА ГЛАВНОЙ) ================= */
+/* ================= ФОН ================= */
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
 .top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; } 
-.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.45; } 
+.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; } 
 
 html.dark .top-glow { opacity: 0.45; }
 html.dark .bottom-glow { opacity: 0.2; }
@@ -144,7 +114,7 @@ html.dark .bottom-glow { opacity: 0.2; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; position: relative; z-index: 2; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 
-/* ================= СЕТКА НОУТБУКОВ ================= */
+/* ================= СЕТКА (ОТ НОУТБУКОВ) ================= */
 .laptop-grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -152,13 +122,12 @@ html.dark .bottom-glow { opacity: 0.2; }
   animation: fadeSlideUp 0.8s ease forwards;
 }
 
-/* ================= КАРТОЧКА НОУТБУКА ================= */
+/* ================= КАРТОЧКА ================= */
 .laptop-card { 
   position: relative; 
   padding: 40px 24px; border-radius: 28px;
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   background: var(--vp-c-bg-soft); 
-  /* Рамка и тень для светлой темы */
   border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); overflow: hidden;
@@ -171,7 +140,7 @@ html.dark .laptop-card {
 
 .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: space-between; pointer-events: none; }
 
-/* Картинка ноутбука (НЕ инвертируем в темной теме) */
+/* Картинка моноблока */
 .laptop-image-container { height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
 .laptop-img { 
   max-width: 90%; max-height: 100%; object-fit: contain; 
@@ -188,24 +157,18 @@ html.dark .laptop-card {
 }
 
 /* ================= ЭФФЕКТЫ ПРИ НАВЕДЕНИИ ================= */
-/* 1. Карточка приподнимается */
 .laptop-card:hover { transform: translateY(-8px); border-color: rgba(255, 184, 0, 0.3) !important; box-shadow: 0 16px 40px rgba(0,0,0,0.06) !important; }
 html.dark .laptop-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2) !important; }
-
-/* 2. Ноутбук слегка всплывает */
 .laptop-card:hover .laptop-img { transform: scale(1.08) translateY(-6px); }
-
-/* 3. Кнопка загорается */
 .laptop-card:hover .btn-yellow { background: var(--e-yellow); color: #000 !important; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3); }
 
-/* 4. УСПОКОЕННОЕ СВЕЧЕНИЕ МЫШИ */
+/* СВЕЧЕНИЕ МЫШИ */
 .mouse-glow {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
   background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.8), transparent 100%);
 }
 html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.8), transparent 100%); }
-
 .laptop-card:hover .mouse-glow { opacity: 1; }
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
@@ -215,7 +178,7 @@ html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-
   .laptop-grid { grid-template-columns: 1fr; }
 }
 
-/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ (Из главной страницы) ================= */
+/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= */
 html, body { overflow-x: hidden !important; }
 
 :deep(.VPNavBar) {
@@ -224,7 +187,6 @@ html, body { overflow-x: hidden !important; }
   -webkit-backdrop-filter: blur(25px) !important;
   border-bottom: 1px solid var(--vp-c-divider) !important; 
 }
-
 html.dark :deep(.VPNavBar) {
   background-color: rgba(30, 30, 30, 0.4) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;

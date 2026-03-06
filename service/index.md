@@ -10,8 +10,8 @@ centers:
     address: "Карла Маркса, 63"
     phone: "8 (347) 251-85-98"
     map: "https://yandex.ru/maps/-/CHcQ6DLK"
-    lat: 
-    lng:
+    lat: 54.737174
+    lng: 55.961765
     
   - city: "Челябинск"
     name: "Ечипс"
@@ -19,8 +19,8 @@ centers:
     address: "Северная, 56 (п. Шершни)"
     phone: "8 (951) 255 7555"
     map: "https://yandex.ru/maps/-/CDR45JO7"
-    lat: 
-    lng:
+    lat: 55.156801
+    lng: 61.300108
     
   - city: "Москва"
     name: "Smart-service"
@@ -28,8 +28,8 @@ centers:
     address: "Ткацкая, 5, стр.3"
     phone: "8 (495) 921-11-88"
     map: "https://yandex.ru/maps/-/CDR45RIU"
-    lat: 
-    lng:
+    lat: 55.738582
+    lng: 37.623772
     
   - city: "Абакан"
     name: "Notebook сервис+"

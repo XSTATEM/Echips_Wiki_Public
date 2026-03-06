@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ноутбуки Echips
+sidebar: false
 ---
 
 <script setup>

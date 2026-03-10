@@ -2,43 +2,63 @@
 layout: page
 title: Сервисные центры (АСЦ)
 sidebar: false
-# ВОТ ТВОЯ БАЗА ДАННЫХ ДЛЯ РЕДАКТОРА
 centers:
-  - city: "Уфа"
-    name: "Меморек"
-    type: "Основной"
-    address: "Карла Маркса, 63"
-    phone: "8 (347) 251-85-98"
-    map: "https://yandex.ru/maps/-/CHcQ6DLK"
+  - city: Уфа
+    name: Меморек
+    type: Основной
+    address: Карла Маркса, 63
+    phone: 8 (347) 251-85-98
+    map: https://yandex.ru/maps/-/CHcQ6DLK
     lat: 54.737174
     lng: 55.961765
-    
-  - city: "Челябинск"
-    name: "Ечипс"
-    type: "Основной"
-    address: "Северная, 56 (п. Шершни)"
-    phone: "8 (951) 255 7555"
-    map: "https://yandex.ru/maps/-/CDR45JO7"
+  - city: Челябинск
+    name: Ечипс
+    type: Основной
+    address: Северная, 56 (п. Шершни)
+    phone: 8 (951) 255 7555
+    map: https://yandex.ru/maps/-/CDR45JO7
     lat: 55.156801
     lng: 61.300108
-    
-  - city: "Москва"
-    name: "Smart-service"
-    type: "Основной"
-    address: "Ткацкая, 5, стр.3"
-    phone: "8 (495) 921-11-88"
-    map: "https://yandex.ru/maps/-/CDR45RIU"
+  - city: Москва
+    name: Smart-service
+    type: Основной
+    address: Ткацкая, 5, стр.3
+    phone: 8 (495) 921-11-88
+    map: https://yandex.ru/maps/-/CDR45RIU
     lat: 55.738582
     lng: 37.623772
-    
-  - city: "Абакан"
-    name: "Notebook сервис+"
-    type: "Партнер"
-    address: "ул. Стофато, д. 5д"
-    phone: "8 (3902) 32-99-33"
-    map: "https://yandex.ru/maps/-/CHX0zVl-"
-    lat: 
-    lng:
+  - city: Абакан
+    name: Notebook сервис+
+    type: Партнер
+    address: ул. Стофато, д. 5д
+    phone: 8 (3902) 32-99-33
+    map: https://yandex.ru/maps/-/CHX0zVl-
+    lat: null
+    lng: null
+  - city: Ростов-на-Дону
+    name: Антей-сервис
+    type: Основной
+    address: 344010, г. Ростов-на-Дону, пр. Соколова, 85/3, литер А
+    phone: 8 (863) 318-00-20; 8 (863) 290-47-02
+    map: https://yandex.ru/maps/-/CDR45Z66
+    lat: 39.715472
+    lng: 47.235107
+  - city: Новосибирск
+    name: Микротех
+    type: Основной
+    address: Дуси Ковальчук, 238
+    phone: 8 (383) 244-58-48
+    map: https://yandex.ru/maps/-/CDVEbP1z
+    lat: 82.898042
+    lng: 55.052758
+  - city: Екатеринбург
+    name: ЕКЦ
+    type: Основной
+    address: 8 марта, 158, оф. 103
+    phone: 8 (343) 383-08-08
+    map: https://yandex.ru/maps/-/CDbHn8nA
+    lat: 60.609705
+    lng: 56.807527
 ---
 
 <script setup>
@@ -56,14 +76,14 @@ const isLocating = ref(false)
 // Формула расчета расстояния
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (!lat1 || !lon1 || !lat2 || !lon2) return null;
-  const R = 6371; 
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-            Math.sin(dLon/2) * Math.sin(dLon/2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  return (R * c).toFixed(1);
+  const R = 6371;
+  const dLat = (lat2 - lat1) \* Math.PI / 180;
+  const dLon = (lon2 - lon1) \* Math.PI / 180;
+  const a = Math.sin(dLat/2) \* Math.sin(dLat/2) +
+            Math.cos(lat1 \* Math.PI / 180) \* Math.cos(lat2 \* Math.PI / 180) \*
+            Math.sin(dLon/2) \* Math.sin(dLon/2);
+  const c = 2 \* Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return (R \* c).toFixed(1);
 }
 
 // Запрос координат у браузера
@@ -74,8 +94,8 @@ const findNearest = () => {
   }
   isLocating.value = true;
   geoError.value = '';
-  searchQuery.value = ''; 
-  
+  searchQuery.value = '';
+
   navigator.geolocation.getCurrentPosition(
     (position) => {
       userLat.value = position.coords.latitude;
@@ -92,7 +112,7 @@ const findNearest = () => {
 // Умный поиск работает с данными из шапки
 const filteredCenters = computed(() => {
   let allCenters = frontmatter.value.centers || []
-  
+
   let centersWithDistance = allCenters.map(c => {
     return { ...c, distance: calculateDistance(userLat.value, userLng.value, c.lat, c.lng) }
   });
@@ -141,7 +161,7 @@ const filteredCenters = computed(() => {
         <span class="badge" :class="{'badge-partner': center.type === 'Партнер'}">{{ center.type }}</span>
       </div>
       <div v-if="center.distance" class="distance-badge">
-        ~ {{ center.distance }} км от вас
+        \~ {{ center.distance }} км от вас
       </div>
       <h4 class="center-name">{{ center.name }}</h4>
       <div class="center-details">
@@ -153,7 +173,7 @@ const filteredCenters = computed(() => {
       </div>
     </div>
   </div>
-  
+
   <div v-else class="no-results glass-effect">
     <p>К сожалению, в этом городе пока нет нашего сервисного центра.</p>
     <a href="mailto:service@echips.ru" class="contact-link">Напишите нам: service@echips.ru</a>
@@ -163,7 +183,7 @@ const filteredCenters = computed(() => {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* ================= ГЛОБАЛЬНЫЙ СБРОС ================= */
+/\* ================= ГЛОБАЛЬНЫЙ СБРОС ================= \*/
 .echips-wrapper a.back-link,
 .echips-wrapper a.btn-yellow,
 .echips-wrapper a.contact-link {
@@ -171,47 +191,47 @@ const filteredCenters = computed(() => {
   border-bottom: none !important;
   box-shadow: none !important;
 }
-.echips-wrapper h1, .echips-wrapper h2, .echips-wrapper h3, .echips-wrapper h4 { 
-  border: none !important; margin: 0; padding: 0; 
+.echips-wrapper h1, .echips-wrapper h2, .echips-wrapper h3, .echips-wrapper h4 {
+  border: none !important; margin: 0; padding: 0;
 }
 
-/* ================= БАЗА ================= */
+/\* ================= БАЗА ================= \*/
 .echips-wrapper {
   --e-yellow: #FFB800;
   --e-orange: #FF4500;
   --e-gray: #8E8E93;
   --e-text: var(--vp-c-text-1);
   --e-desc: var(--vp-c-text-2);
-  
+
   max-width: 1100px; margin: 0 auto; padding: 60px 20px 80px;
-  position: relative; 
+  position: relative;
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* ================= ФОН ================= */
+/\* ================= ФОН ================= \*/
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
-.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; } 
-.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; } 
+.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; }
+.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; }
 
 html.dark .top-glow { opacity: 0.45; }
 html.dark .bottom-glow { opacity: 0.2; }
 
-/* ================= ШАПКА ================= */
+/\* ================= ШАПКА ================= \*/
 .main-header { margin-bottom: 50px; text-align: center; animation: fadeSlideUp 0.6s ease forwards; }
-.back-link { 
-  display: inline-block; margin-bottom: 24px; color: var(--e-gray); 
+.back-link {
+  display: inline-block; margin-bottom: 24px; color: var(--e-gray);
   font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;
 }
 .back-link:hover { color: var(--e-yellow) !important; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; position: relative; z-index: 2; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 
-/* ================= ПОИСК ================= */
+/\* ================= ПОИСК ================= \*/
 .search-section { width: 100%; max-width: 600px; margin: 0 auto 40px; position: relative; z-index: 10; animation: fadeSlideUp 0.7s ease forwards; }
 .search-bar {
   position: relative; overflow: hidden;
   height: 56px; border-radius: 28px; display: flex; align-items: center; padding: 0 24px;
-  background: var(--vp-c-bg-soft); 
+  background: var(--vp-c-bg-soft);
   border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: all 0.3s ease;
 }
@@ -221,7 +241,7 @@ html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
 .search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
 
-/* ================= СЕТКА СЕРВИСОВ ================= */
+/\* ================= СЕТКА СЕРВИСОВ ================= \*/
 .centers-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
   animation: fadeSlideUp 0.8s ease forwards;
@@ -229,7 +249,7 @@ html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
 
 .center-card {
   padding: 30px 24px; border-radius: 24px;
-  background: var(--vp-c-bg-soft); 
+  background: var(--vp-c-bg-soft);
   border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05) !important;
   transition: all 0.4s ease; display: flex; flex-direction: column;
@@ -242,9 +262,9 @@ html.dark .center-card {
 
 .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .city-name { font-size: 22px; font-weight: 800; color: var(--e-text); }
-.badge { 
+.badge {
   font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
-  padding: 4px 10px; border-radius: 12px; background: rgba(255, 184, 0, 0.15); color: var(--e-yellow); 
+  padding: 4px 10px; border-radius: 12px; background: rgba(255, 184, 0, 0.15); color: var(--e-yellow);
 }
 .badge-partner { background: rgba(142, 142, 147, 0.15); color: var(--e-gray); }
 
@@ -260,24 +280,24 @@ html.dark .center-card {
 }
 .center-card:hover .btn-yellow { background: var(--e-yellow) !important; color: #000 !important; }
 
-/* Нет результатов */
+/\* Нет результатов \*/
 .no-results { text-align: center; padding: 40px; border-radius: 24px; border: 1px solid rgba(128, 130, 133, 0.25) !important; }
 .no-results p { font-size: 18px; color: var(--e-desc); margin-bottom: 15px; }
 .contact-link { color: var(--e-yellow) !important; font-weight: 600; font-size: 16px; }
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= */
+/\* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= \*/
 html, body { overflow-x: hidden !important; }
 :deep(.VPNavBar) {
-  background-color: transparent !important; backdrop-filter: blur(25px) !important; 
-  -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; 
+  background-color: transparent !important; backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important;
 }
 html.dark :deep(.VPNavBar) {
   background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* КНОПКА ГЕОЛОКАЦИИ */
+/\* КНОПКА ГЕОЛОКАЦИИ \*/
 .geo-btn {
   background: rgba(142, 142, 147, 0.15); color: var(--e-text);
   border-radius: 20px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif;
@@ -289,7 +309,7 @@ html.dark :deep(.VPNavBar) {
 .spinner { display: inline-block; animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ */
+/\* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ \*/
 .distance-badge {
   display: inline-block; margin-bottom: 15px; font-size: 13px; font-weight: 700; color: var(--e-orange);
   background: rgba(255, 69, 0, 0.1); padding: 4px 12px; border-radius: 10px;

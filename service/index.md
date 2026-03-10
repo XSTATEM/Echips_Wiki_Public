@@ -5,10 +5,10 @@ sidebar: false
 ---
 
 <script setup>
-import { ref, computed } from 'vue'
+// ВОТ ЗДЕСЬ ДОБАВИЛИ onMounted, ЧТОБЫ КАРТА ЗАГРУЖАЛАСЬ
+import { ref, computed, onMounted } from 'vue'
 import db from './centers.json'
 
-// VitePress сам достает данные из шапки файла
 const searchQuery = ref('')
 const userLat = ref(null)
 const userLng = ref(null)
@@ -16,7 +16,6 @@ const geoError = ref('')
 const isLocating = ref(false)
 let mapInstance = null
 
-// Формула расчета расстояния
 // Формула расчета расстояния
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (!lat1 || !lon1 || !lat2 || !lon2) return null;
@@ -33,7 +32,6 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 onMounted(() => {
   if (typeof window !== 'undefined') {
     const script = document.createElement('script');
-    // Загружаем API Яндекс.Карт
     script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
     script.onload = () => {
       ymaps.ready(initYandexMap);
@@ -43,10 +41,9 @@ onMounted(() => {
 })
 
 const initYandexMap = () => {
-  // Создаем карту в блоке с id="ymap"
   mapInstance = new ymaps.Map('ymap', {
-    center: [55.751574, 37.573856], // По умолчанию показываем Москву/Россию
-    zoom: 4, // Отдаление, чтобы было видно всю страну
+    center: [55.751574, 37.573856],
+    zoom: 4, 
     controls: ['zoomControl', 'fullscreenControl']
   });
   const allCenters = db.centers || [];
@@ -57,14 +54,13 @@ const initYandexMap = () => {
         balloonContentBody: `${center.city}, ${center.address}<br><br>📞 ${center.phone}`,
         hintContent: center.city
       }, {
-        preset: 'islands#yellowDotIcon' // Желтая иконка под стиль Echips
+        preset: 'islands#yellowDotIcon'
       });
       mapInstance.geoObjects.add(placemark);
     }
   });
 }
 
-// Запрос координат у браузера
 const findNearest = () => {
   if (!navigator.geolocation) {
     geoError.value = "Геолокация не поддерживается";
@@ -83,11 +79,10 @@ const findNearest = () => {
       if (mapInstance) {
         mapInstance.setCenter([userLat.value, userLng.value], 11, {
             checkZoomRange: true,
-            duration: 1000 // Анимация полета (1 секунда)
+            duration: 1000
         });
       }
     },
-
     (error) => {
       isLocating.value = false;
       geoError.value = "Не удалось определить местоположение.";
@@ -95,9 +90,7 @@ const findNearest = () => {
   );
 }
 
-// Умный поиск работает с данными из шапки
 const filteredCenters = computed(() => {
-  // Берем данные из импортированного JSON файла
   let allCenters = db.centers || []
 
   let centersWithDistance = allCenters.map(c => {
@@ -136,7 +129,7 @@ const filteredCenters = computed(() => {
       <input type="text" v-model="searchQuery" placeholder="Введите ваш город..." class="search-input" />
       <button @click="findNearest" class="geo-btn" :disabled="isLocating" title="Найти ближайший ко мне">
         <span v-if="isLocating" class="spinner">⏳</span>
-        <span v-else>Рядом со мной</span>
+        <span v-else>📍 Рядом со мной</span>
       </button>
     </div>
     <div v-if="geoError" class="geo-error">{{ geoError }}</div>
@@ -154,7 +147,7 @@ const filteredCenters = computed(() => {
         <span class="badge" :class="{'badge-partner': center.type === 'Партнер'}">{{ center.type }}</span>
       </div>
       <div v-if="center.distance" class="distance-badge">
-        \~ {{ center.distance }} км от вас
+        ~ {{ center.distance }} км от вас
       </div>
       <h4 class="center-name">{{ center.name }}</h4>
       <div class="center-details">
@@ -179,12 +172,12 @@ const filteredCenters = computed(() => {
 
 .map-container {
   width: 100%;
-  height: 450px; /* Высота карты */
+  height: 450px;
   border-radius: 28px;
-  overflow: hidden; /* Чтобы углы карты не вылезали за рамку */
+  overflow: hidden;
   margin-bottom: 40px;
   animation: fadeSlideUp 0.7s ease forwards;
-  padding: 0; /* Убираем внутренние отступы, чтобы карта была на всю ширину блока */
+  padding: 0;
   position: relative;
   z-index: 5;
 }
@@ -194,7 +187,6 @@ const filteredCenters = computed(() => {
   height: 100%;
 }
 
-/* Приглушаем цвета карты в темной теме, чтобы не била по глазам */
 html.dark .yandex-map {
   filter: brightness(0.8) contrast(1.1);
 }
@@ -210,7 +202,6 @@ html.dark .yandex-map {
   border: none !important; margin: 0; padding: 0;
 }
 
-
 .echips-wrapper {
   --e-yellow: #FFB800;
   --e-orange: #FF4500;
@@ -223,14 +214,12 @@ html.dark .yandex-map {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
 .top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; }
 .bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; }
 
 html.dark .top-glow { opacity: 0.45; }
 html.dark .bottom-glow { opacity: 0.2; }
-
 
 .main-header { margin-bottom: 50px; text-align: center; animation: fadeSlideUp 0.6s ease forwards; }
 .back-link {
@@ -240,7 +229,6 @@ html.dark .bottom-glow { opacity: 0.2; }
 .back-link:hover { color: var(--e-yellow) !important; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; position: relative; z-index: 2; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
-
 
 .search-section { width: 100%; max-width: 600px; margin: 0 auto 40px; position: relative; z-index: 10; animation: fadeSlideUp 0.7s ease forwards; }
 .search-bar {
@@ -256,7 +244,6 @@ html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
 .search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
 
-/* ================= СЕТКА СЕРВИСОВ ================= \*/
 .centers-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
   animation: fadeSlideUp 0.8s ease forwards;
@@ -295,14 +282,12 @@ html.dark .center-card {
 }
 .center-card:hover .btn-yellow { background: var(--e-yellow) !important; color: #000 !important; }
 
-/* Нет результатов \*/
 .no-results { text-align: center; padding: 40px; border-radius: 24px; border: 1px solid rgba(128, 130, 133, 0.25) !important; }
 .no-results p { font-size: 18px; color: var(--e-desc); margin-bottom: 15px; }
 .contact-link { color: var(--e-yellow) !important; font-weight: 600; font-size: 16px; }
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= \*/
 html, body { overflow-x: hidden !important; }
 :deep(.VPNavBar) {
   background-color: transparent !important; backdrop-filter: blur(25px) !important;
@@ -312,7 +297,6 @@ html.dark :deep(.VPNavBar) {
   background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* КНОПКА ГЕОЛОКАЦИИ \*/
 .geo-btn {
   background: rgba(142, 142, 147, 0.15); color: var(--e-text);
   border-radius: 20px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif;
@@ -324,7 +308,6 @@ html.dark :deep(.VPNavBar) {
 .spinner { display: inline-block; animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ \*/
 .distance-badge {
   display: inline-block; margin-bottom: 15px; font-size: 13px; font-weight: 700; color: var(--e-orange);
   background: rgba(255, 69, 0, 0.1); padding: 4px 12px; border-radius: 10px;

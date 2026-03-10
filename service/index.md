@@ -33,8 +33,8 @@ centers:
     address: ул. Стофато, д. 5д
     phone: 8 (3902) 32-99-33
     map: https://yandex.ru/maps/-/CHX0zVl-
-    lat: null
-    lng: null
+    lat: 
+    lng: 
   - city: Ростов-на-Дону
     name: Антей-сервис
     type: Основной
@@ -74,16 +74,17 @@ const geoError = ref('')
 const isLocating = ref(false)
 
 // Формула расчета расстояния
+// Формула расчета расстояния
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (!lat1 || !lon1 || !lat2 || !lon2) return null;
-  const R = 6371;
-  const dLat = (lat2 - lat1) \* Math.PI / 180;
-  const dLon = (lon2 - lon1) \* Math.PI / 180;
-  const a = Math.sin(dLat/2) \* Math.sin(dLat/2) +
-            Math.cos(lat1 \* Math.PI / 180) \* Math.cos(lat2 \* Math.PI / 180) \*
-            Math.sin(dLon/2) \* Math.sin(dLon/2);
-  const c = 2 \* Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  return (R \* c).toFixed(1);
+  const R = 6371; 
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return (R * c).toFixed(1);
 }
 
 // Запрос координат у браузера

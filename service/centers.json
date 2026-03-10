@@ -29,6 +29,186 @@
       "map": "https://yandex.ru/maps/-/CDR45RIU",
       "lat": 55.738582,
       "lng": 37.623772
+    },
+    {
+      "city": "Ростов-на-Дону",
+      "name": "Антей",
+      "type": "Основной",
+      "address": "пр. Соколова, 85/33",
+      "phone": "8 (863) 318-00-20; 8 (863) 290-47-02",
+      "map": "https://yandex.ru/maps/-/CDR45Z66",
+      "lat": 39.715472,
+      "lng": 47.235107
+    },
+    {
+      "city": "Новосибирск",
+      "name": "Микротех",
+      "type": "Основной",
+      "address": "Дуси Ковальчук, 238",
+      "phone": "8 (383) 244-58-48",
+      "map": "https://yandex.ru/maps/-/CDVEbP1z",
+      "lat": 82.898042,
+      "lng": 55.052758
+    },
+    {
+      "city": "Екатеринбург",
+      "name": "ЕКЦ",
+      "type": "Основной",
+      "address": "8 марта, 158, оф. 103",
+      "phone": "8 (343) 383-08-08",
+      "map": "https://yandex.ru/maps/-/CDbHn8nA",
+      "lat": 60.609705,
+      "lng": 56.807527
+    },
+    {
+      "city": "Нижний Новгород",
+      "name": "PC Master",
+      "type": "Основной",
+      "address": "Рябцева, 15",
+      "phone": "8 (831) 262-19-89; 8 (967) 711-19-89",
+      "map": "https://yandex.ru/maps/-/CDvIBDji",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Воронеж",
+      "name": "RoKo",
+      "type": "Основной",
+      "address": "Куколкина, 33А",
+      "phone": "8 (473) 238-62-16; 8 (952) 952-62-16",
+      "map": "https://yandex.ru/maps/-/CDC0nLim",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Волгоград",
+      "name": "Электрон",
+      "type": "Основной",
+      "address": "Маршала Еременко, 44",
+      "phone": "8 (8442) 60-03-67; 8 (961) 693-47-67",
+      "map": "https://yandex.ru/maps/-/CHuB563r",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Краснодар",
+      "name": "IT-Core",
+      "type": "Основной",
+      "address": "Темрюкская, 135",
+      "phone": "8 (909) 443-39-15; 8 (861) 204-00-85",
+      "map": "https://yandex.ru/maps/-/CDgENA8T",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Владивосток",
+      "name": "КЦ Плюс",
+      "type": "Основной",
+      "address": "Океанский проспект, 13",
+      "phone": "8 (423) 243-28-51; 8 (423) 222-13-36",
+      "map": "https://yandex.ru/maps/-/CDwnz-5T",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Хабаровск",
+      "name": "Рестарт",
+      "type": "Основной",
+      "address": "Волочаевская, 123, офис 7",
+      "phone": "8 (4212) 68-02-28",
+      "map": "https://yandex.ru/profile/-/CDwrUL65",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Тюмень",
+      "name": "Reset",
+      "type": "Основной",
+      "address": "Дмитрия Менделеева, 18",
+      "phone": "8 (3452) 38-18-37; 8 (982) 903-69-51",
+      "map": "https://yandex.ru/maps/-/CDteFYo0",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Тула",
+      "name": "Jet-Сервис",
+      "type": "Основной",
+      "address": "пр. Ленина, 97",
+      "phone": "8 (4872) 33-54-88; 8 (4872) 33-73-83",
+      "map": "https://yandex.ru/maps/-/CHa7fGpH",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Красноярск",
+      "name": "Ремка",
+      "type": "Основной",
+      "address": "Парижской Коммуны, 3",
+      "phone": "8 (933) 327-35-35",
+      "map": "https://yandex.ru/maps/-/CHagjGi2",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Курск",
+      "name": "Alef Computers игровые компьютеры-сервис",
+      "type": "Основной",
+      "address": "ул. Радищева, 57",
+      "phone": "8 (906) 691-13-33",
+      "map": "https://yandex.com/maps/-/CLqYQXp3",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Пермь",
+      "name": "Игровые компьютеры-сервис",
+      "type": "Основной",
+      "address": "ул. Швецова, д. 41",
+      "phone": "7 (951) 948-31-51",
+      "map": "https://yandex.ru/maps/-/CLrqbHPI",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Санкт-Петербург",
+      "name": "Е-нотик",
+      "type": "Основной",
+      "address": "Проспект Маршала Жукова, 54 к1",
+      "phone": "7 (905) 250-42-22",
+      "map": "https://yandex.com/maps/-/CPu5ZX4P",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Самара",
+      "name": "Allo Service",
+      "type": "Основной",
+      "address": "ул. Победы, 105",
+      "phone": "7 (937) 664-42-22",
+      "map": "https://yandex.com/maps/-/CPu56B7m",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Самара",
+      "name": "Allo Service",
+      "type": "Основной",
+      "address": "ул. Георгия Димитрова, 45",
+      "phone": "7 (937) 664-42-22",
+      "map": "https://yandex.com/maps/-/CPu56Ils",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "city": "Казань",
+      "name": "Atlas",
+      "type": "Основной",
+      "address": "ул. Чистопольская, 25",
+      "phone": "7 (843) 505-01-15",
+      "map": "https://yandex.com/maps/-/CPu56O3D",
+      "lat": null,
+      "lng": null
     }
   ]
 }

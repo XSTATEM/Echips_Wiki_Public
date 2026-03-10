@@ -89,6 +89,7 @@ const filteredCenters = computed(() => {
 
   <div class="search-section">
     <div class="search-bar glass-effect">
+    <div class="mouse-glow"></div>
       <input type="text" v-model="searchQuery" placeholder="Введите ваш город..." class="search-input" />
       <button @click="findNearest" class="geo-btn" :disabled="isLocating" title="Найти ближайший ко мне">
         <span v-if="isLocating" class="spinner">⏳</span>
@@ -100,6 +101,7 @@ const filteredCenters = computed(() => {
 
   <div class="centers-grid" v-if="filteredCenters.length > 0">
     <div v-for="center in filteredCenters" :key="center.city + center.name" class="center-card glass-effect">
+    <div class="mouse-glow"></div>
       <div class="card-header">
         <h3 class="city-name">{{ center.city }}</h3>
         <span class="badge" :class="{'badge-partner': center.type === 'Партнер'}">{{ center.type }}</span>
@@ -119,6 +121,7 @@ const filteredCenters = computed(() => {
   </div>
 
   <div v-else class="no-results glass-effect">
+  <div class="mouse-glow"></div>
     <p>К сожалению, в этом городе пока нет нашего сервисного центра.</p>
     <a href="mailto:service@echips.ru" class="contact-link">Напишите нам: service@echips.ru</a>
   </div>

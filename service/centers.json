@@ -67,8 +67,8 @@
       "address": "Рябцева, 15",
       "phone": "8 (831) 262-19-89; 8 (967) 711-19-89",
       "map": "https://yandex.ru/maps/-/CDvIBDji",
-      "lat": null,
-      "lng": null
+      "lat": 43.866334,
+      "lng": 56.320104
     },
     {
       "city": "Воронеж",
@@ -77,8 +77,8 @@
       "address": "Куколкина, 33А",
       "phone": "8 (473) 238-62-16; 8 (952) 952-62-16",
       "map": "https://yandex.ru/maps/-/CDC0nLim",
-      "lat": null,
-      "lng": null
+      "lat": 39.188906,
+      "lng": 51.667574
     },
     {
       "city": "Волгоград",
@@ -87,8 +87,8 @@
       "address": "Маршала Еременко, 44",
       "phone": "8 (8442) 60-03-67; 8 (961) 693-47-67",
       "map": "https://yandex.ru/maps/-/CHuB563r",
-      "lat": null,
-      "lng": null
+      "lat": 44.536100,
+      "lng": 48.762240
     },
     {
       "city": "Краснодар",

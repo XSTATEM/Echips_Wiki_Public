@@ -14,6 +14,7 @@ const userLat = ref(null)
 const userLng = ref(null)
 const geoError = ref('')
 const isLocating = ref(false)
+let mapInstance = null
 
 // Формула расчета расстояния
 // Формула расчета расстояния
@@ -27,6 +28,40 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
             Math.sin(dLon/2) * Math.sin(dLon/2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   return (R * c).toFixed(1);
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const script = document.createElement('script');
+    // Загружаем API Яндекс.Карт
+    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    script.onload = () => {
+      ymaps.ready(initYandexMap);
+    };
+    document.head.appendChild(script);
+  }
+})
+
+const initYandexMap = () => {
+  // Создаем карту в блоке с id="ymap"
+  mapInstance = new ymaps.Map('ymap', {
+    center: [55.751574, 37.573856], // По умолчанию показываем Москву/Россию
+    zoom: 4, // Отдаление, чтобы было видно всю страну
+    controls: ['zoomControl', 'fullscreenControl']
+  });
+  const allCenters = db.centers || [];
+  allCenters.forEach(center => {
+    if (center.lat && center.lng) {
+      const placemark = new ymaps.Placemark([center.lat, center.lng], {
+        balloonContentHeader: `<strong>${center.name}</strong>`,
+        balloonContentBody: `${center.city}, ${center.address}<br><br>📞 ${center.phone}`,
+        hintContent: center.city
+      }, {
+        preset: 'islands#yellowDotIcon' // Желтая иконка под стиль Echips
+      });
+      mapInstance.geoObjects.add(placemark);
+    }
+  });
 }
 
 // Запрос координат у браузера
@@ -44,7 +79,15 @@ const findNearest = () => {
       userLat.value = position.coords.latitude;
       userLng.value = position.coords.longitude;
       isLocating.value = false;
+
+      if (mapInstance) {
+        mapInstance.setCenter([userLat.value, userLng.value], 11, {
+            checkZoomRange: true,
+            duration: 1000 // Анимация полета (1 секунда)
+        });
+      }
     },
+
     (error) => {
       isLocating.value = false;
       geoError.value = "Не удалось определить местоположение.";
@@ -99,6 +142,10 @@ const filteredCenters = computed(() => {
     <div v-if="geoError" class="geo-error">{{ geoError }}</div>
   </div>
 
+  <div class="map-container glass-effect">
+    <div id="ymap" class="yandex-map"></div>
+  </div>
+
   <div class="centers-grid" v-if="filteredCenters.length > 0">
     <div v-for="center in filteredCenters" :key="center.city + center.name" class="center-card glass-effect">
     <div class="mouse-glow"></div>
@@ -130,6 +177,27 @@ const filteredCenters = computed(() => {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
+.map-container {
+  width: 100%;
+  height: 450px; /* Высота карты */
+  border-radius: 28px;
+  overflow: hidden; /* Чтобы углы карты не вылезали за рамку */
+  margin-bottom: 40px;
+  animation: fadeSlideUp 0.7s ease forwards;
+  padding: 0; /* Убираем внутренние отступы, чтобы карта была на всю ширину блока */
+  position: relative;
+  z-index: 5;
+}
+
+.yandex-map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Приглушаем цвета карты в темной теме, чтобы не била по глазам */
+html.dark .yandex-map {
+  filter: brightness(0.8) contrast(1.1);
+}
 
 .echips-wrapper a.back-link,
 .echips-wrapper a.btn-yellow,

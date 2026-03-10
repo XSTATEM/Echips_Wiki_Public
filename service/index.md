@@ -32,7 +32,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 onMounted(() => {
   if (typeof window !== 'undefined') {
     const script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    script.src = 'https://api-maps.yandex.ru/2.1/?apikey=0d1f465f-0c07-4620-8b93-9fd07f82b29f&lang=ru_RU';
     script.onload = () => {
       ymaps.ready(initYandexMap);
     };

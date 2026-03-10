@@ -127,7 +127,7 @@ const filteredCenters = computed(() => {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/\* ================= ГЛОБАЛЬНЫЙ СБРОС ================= \*/
+
 .echips-wrapper a.back-link,
 .echips-wrapper a.btn-yellow,
 .echips-wrapper a.contact-link {
@@ -139,7 +139,7 @@ const filteredCenters = computed(() => {
   border: none !important; margin: 0; padding: 0;
 }
 
-/\* ================= БАЗА ================= \*/
+
 .echips-wrapper {
   --e-yellow: #FFB800;
   --e-orange: #FF4500;
@@ -152,7 +152,7 @@ const filteredCenters = computed(() => {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/\* ================= ФОН ================= \*/
+
 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
 .top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.45; }
 .bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; }
@@ -160,7 +160,7 @@ const filteredCenters = computed(() => {
 html.dark .top-glow { opacity: 0.45; }
 html.dark .bottom-glow { opacity: 0.2; }
 
-/\* ================= ШАПКА ================= \*/
+
 .main-header { margin-bottom: 50px; text-align: center; animation: fadeSlideUp 0.6s ease forwards; }
 .back-link {
   display: inline-block; margin-bottom: 24px; color: var(--e-gray);
@@ -170,7 +170,7 @@ html.dark .bottom-glow { opacity: 0.2; }
 .hero-title { font-size: 52px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; position: relative; z-index: 2; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 
-/\* ================= ПОИСК ================= \*/
+
 .search-section { width: 100%; max-width: 600px; margin: 0 auto 40px; position: relative; z-index: 10; animation: fadeSlideUp 0.7s ease forwards; }
 .search-bar {
   position: relative; overflow: hidden;
@@ -185,7 +185,7 @@ html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
 .search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
 
-/\* ================= СЕТКА СЕРВИСОВ ================= \*/
+/* ================= СЕТКА СЕРВИСОВ ================= \*/
 .centers-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
   animation: fadeSlideUp 0.8s ease forwards;
@@ -224,14 +224,14 @@ html.dark .center-card {
 }
 .center-card:hover .btn-yellow { background: var(--e-yellow) !important; color: #000 !important; }
 
-/\* Нет результатов \*/
+/* Нет результатов \*/
 .no-results { text-align: center; padding: 40px; border-radius: 24px; border: 1px solid rgba(128, 130, 133, 0.25) !important; }
 .no-results p { font-size: 18px; color: var(--e-desc); margin-bottom: 15px; }
 .contact-link { color: var(--e-yellow) !important; font-weight: 600; font-size: 16px; }
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-/\* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= \*/
+/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= \*/
 html, body { overflow-x: hidden !important; }
 :deep(.VPNavBar) {
   background-color: transparent !important; backdrop-filter: blur(25px) !important;
@@ -241,7 +241,7 @@ html.dark :deep(.VPNavBar) {
   background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/\* КНОПКА ГЕОЛОКАЦИИ \*/
+/* КНОПКА ГЕОЛОКАЦИИ \*/
 .geo-btn {
   background: rgba(142, 142, 147, 0.15); color: var(--e-text);
   border-radius: 20px; padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif;
@@ -253,7 +253,7 @@ html.dark :deep(.VPNavBar) {
 .spinner { display: inline-block; animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/\* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ \*/
+/* ПЛАШКА РАССТОЯНИЯ В КАРТОЧКЕ \*/
 .distance-badge {
   display: inline-block; margin-bottom: 15px; font-size: 13px; font-weight: 700; color: var(--e-orange);
   background: rgba(255, 69, 0, 0.1); padding: 4px 12px; border-radius: 10px;

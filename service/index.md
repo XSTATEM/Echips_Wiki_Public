@@ -53,10 +53,10 @@ onMounted(() => {
           hintContent: center.city
         }, {
           iconLayout: 'default#image',
-          // Вставляем красивый минималистичный пин (SVG) цвета Echips (#FFB800)
-          iconImageHref: 'data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFB800"%3E%3Cpath d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/%3E%3C/svg%3E',
-          iconImageSize: [40, 40], // Размер иконки
-          iconImageOffset: [-20, -40] // Смещаем так, чтобы острый конец указывал ровно в координаты
+          // Бронебойный Base64 формат (браузер его никогда не заблокирует)
+          iconImageHref: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI0ZGQjgwMCI+PHBhdGggZD0iTTEyIDJDOC4xMyAyIDUgNS4xMyA1IDljMCA1LjI1IDcgMTMgNyAxM3M3LTcuNzUgNy0xM2MwLTMuODctMy4xMy03LTctN3ptMCA5LjVjLTEuMzggMC0yLjUtMS4xMi0yLjUtMi41czEuMTItMi41IDIuNS0yLjUgMi41IDEuMTIgMi41IDIuNS0xLjEyIDIuNS0yLjUgMi41eiIvPjwvc3ZnPg==',
+          iconImageSize: [36, 36], // Чуть-чуть уменьшили для аккуратности
+          iconImageOffset: [-18, -36] // Точно центрируем острие капли
         });
         mapInstance.geoObjects.add(placemark);
       }
@@ -153,7 +153,7 @@ const filteredCenters = computed(() => {
       <input type="text" v-model="searchQuery" placeholder="Введите ваш город..." class="search-input" />
       <button @click="findNearest" class="geo-btn" :disabled="isLocating" title="Найти ближайший ко мне">
         <span v-if="isLocating" class="spinner">⏳</span>
-        <span v-else>📍 Рядом со мной</span>
+        <span v-else> Рядом со мной</span>
       </button>
     </div>
     <div v-if="geoError" class="geo-error">{{ geoError }}</div>
@@ -211,8 +211,10 @@ const filteredCenters = computed(() => {
   height: 100%;
 }
 
-html.dark .yandex-map {
-  filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(85%) saturate(70%);
+/* Возвращаем меткам и всплывающим окнам яркие цвета в темной теме */
+html.dark .yandex-map *[class*="placemark"],
+html.dark .yandex-map *[class*="balloon"] {
+  filter: invert(100%) hue-rotate(180deg) brightness(110%) saturate(150%) !important;
 }
 
 :deep(.ymaps-2-1-79-balloon) {

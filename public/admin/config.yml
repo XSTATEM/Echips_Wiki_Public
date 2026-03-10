@@ -4,13 +4,13 @@ backend:
   branch: main
   base_url: https://echips-auth.uzakovv41.workers.dev
 
-media_folder: "y/public/images"
+media_folder: "public/images"
 public_folder: "/images"
 
 collections:
   - name: "partner_docs"
     label: "Инструкции для АСЦ"
-    folder: "y/partner"
+    folder: "partner"
     create: true
     fields:
       - {label: "Заголовок статьи", name: "title", widget: "string"}
@@ -105,7 +105,7 @@ collections:
     files:
       - label: "Сервисные центры (АСЦ)"
         name: "service_centers"
-        file: "y/service/index.md" 
+        file: "service/index.md" 
         fields:
           - {label: "Системный (не трогать)", name: "layout", widget: "hidden", default: "page"}
           - {label: "Заголовок страницы", name: "title", widget: "string"}

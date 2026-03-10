@@ -33,8 +33,8 @@ centers:
     address: ул. Стофато, д. 5д
     phone: 8 (3902) 32-99-33
     map: https://yandex.ru/maps/-/CHX0zVl-
-    lat: 
-    lng: 
+    lat: 30.715472
+    lng: 42.235107
   - city: Ростов-на-Дону
     name: Антей-сервис
     type: Основной

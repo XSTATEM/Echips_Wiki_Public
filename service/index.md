@@ -5,7 +5,6 @@ sidebar: false
 ---
 
 <script setup>
-// ВОТ ЗДЕСЬ ДОБАВИЛИ onMounted, ЧТОБЫ КАРТА ЗАГРУЖАЛАСЬ
 import { ref, computed, onMounted } from 'vue'
 import db from './centers.json'
 
@@ -30,40 +29,60 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 }
 
 onMounted(() => {
-  if (typeof window !== 'undefined') {
+  // Защита от ошибок сервера при рендеринге
+  if (typeof window === 'undefined') return;
+
+  const initMap = () => {
+    // Если карта уже была нарисована (например, при возврате на страницу), очищаем ее
+    const mapContainer = document.getElementById('ymap');
+    if (!mapContainer) return;
+    mapContainer.innerHTML = ''; 
+
+    mapInstance = new window.ymaps.Map('ymap', {
+      center: [55.751574, 37.573856],
+      zoom: 4, 
+      controls: ['zoomControl', 'fullscreenControl']
+    });
+    
+    const allCenters = db.centers || [];
+    allCenters.forEach(center => {
+      if (center.lat && center.lng) {
+        const placemark = new window.ymaps.Placemark([center.lat, center.lng], {
+          balloonContentHeader: `<strong>${center.name}</strong>`,
+          balloonContentBody: `${center.city}, ${center.address}<br><br>📞 ${center.phone}`,
+          hintContent: center.city
+        }, {
+          preset: 'islands#yellowDotIcon'
+        });
+        mapInstance.geoObjects.add(placemark);
+      }
+    });
+
+    // Лекарство от серого квадрата: принудительно подгоняем карту под размер блока после окончания CSS анимации
+    setTimeout(() => {
+      if (mapInstance) mapInstance.container.fitToViewport();
+    }, 800);
+  };
+
+  // Проверяем, не загружен ли уже скрипт Яндекса
+  if (window.ymaps) {
+    window.ymaps.ready(initMap);
+  } else {
     const script = document.createElement('script');
     script.src = 'https://api-maps.yandex.ru/2.1/?apikey=0d1f465f-0c07-4620-8b93-9fd07f82b29f&lang=ru_RU';
     script.onload = () => {
-      ymaps.ready(initYandexMap);
+      window.ymaps.ready(initMap);
+    };
+    script.onerror = () => {
+      console.error("Ошибка API Яндекса. Возможно, ключ еще не активировался.");
     };
     document.head.appendChild(script);
   }
 })
 
-const initYandexMap = () => {
-  mapInstance = new ymaps.Map('ymap', {
-    center: [55.751574, 37.573856],
-    zoom: 4, 
-    controls: ['zoomControl', 'fullscreenControl']
-  });
-  const allCenters = db.centers || [];
-  allCenters.forEach(center => {
-    if (center.lat && center.lng) {
-      const placemark = new ymaps.Placemark([center.lat, center.lng], {
-        balloonContentHeader: `<strong>${center.name}</strong>`,
-        balloonContentBody: `${center.city}, ${center.address}<br><br>📞 ${center.phone}`,
-        hintContent: center.city
-      }, {
-        preset: 'islands#yellowDotIcon'
-      });
-      mapInstance.geoObjects.add(placemark);
-    }
-  });
-}
-
 const findNearest = () => {
   if (!navigator.geolocation) {
-    geoError.value = "Геолокация не поддерживается";
+    geoError.value = "Геолокация не поддерживается браузером";
     return;
   }
   isLocating.value = true;
@@ -76,16 +95,17 @@ const findNearest = () => {
       userLng.value = position.coords.longitude;
       isLocating.value = false;
 
+      // Плавный полет на карте к пользователю
       if (mapInstance) {
         mapInstance.setCenter([userLat.value, userLng.value], 11, {
             checkZoomRange: true,
-            duration: 1000
+            duration: 1000 
         });
       }
     },
     (error) => {
       isLocating.value = false;
-      geoError.value = "Не удалось определить местоположение.";
+      geoError.value = "Не удалось определить местоположение. Разрешите доступ в браузере.";
     }
   );
 }

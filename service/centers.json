@@ -1,0 +1,34 @@
+{
+  "centers": [
+    {
+      "city": "Уфа",
+      "name": "Меморек",
+      "type": "Основной",
+      "address": "Карла Маркса, 63",
+      "phone": "8 (347) 251-85-98",
+      "map": "https://yandex.ru/maps/-/CHcQ6DLK",
+      "lat": 54.737174,
+      "lng": 55.961765
+    },
+    {
+      "city": "Челябинск",
+      "name": "Ечипс",
+      "type": "Основной",
+      "address": "Северная, 56 (п. Шершни)",
+      "phone": "8 (951) 255 7555",
+      "map": "https://yandex.ru/maps/-/CDR45JO7",
+      "lat": 55.156801,
+      "lng": 61.300108
+    },
+    {
+      "city": "Москва",
+      "name": "Smart-service",
+      "type": "Основной",
+      "address": "Ткацкая, 5, стр.3",
+      "phone": "8 (495) 921-11-88",
+      "map": "https://yandex.ru/maps/-/CDR45RIU",
+      "lat": 55.738582,
+      "lng": 37.623772
+    }
+  ]
+}

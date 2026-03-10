@@ -2,71 +2,13 @@
 layout: page
 title: Сервисные центры (АСЦ)
 sidebar: false
-centers:
-  - city: Уфа
-    name: Меморек
-    type: Основной
-    address: Карла Маркса, 63
-    phone: 8 (347) 251-85-98
-    map: https://yandex.ru/maps/-/CHcQ6DLK
-    lat: 54.737174
-    lng: 55.961765
-  - city: Челябинск
-    name: Ечипс
-    type: Основной
-    address: Северная, 56 (п. Шершни)
-    phone: 8 (951) 255 7555
-    map: https://yandex.ru/maps/-/CDR45JO7
-    lat: 55.156801
-    lng: 61.300108
-  - city: Москва
-    name: Smart-service
-    type: Основной
-    address: Ткацкая, 5, стр.3
-    phone: 8 (495) 921-11-88
-    map: https://yandex.ru/maps/-/CDR45RIU
-    lat: 55.738582
-    lng: 37.623772
-  - city: Абакан
-    name: Notebook сервис+
-    type: Партнер
-    address: ул. Стофато, д. 5д
-    phone: 8 (3902) 32-99-33
-    map: https://yandex.ru/maps/-/CHX0zVl-
-    lat: 30.715472
-    lng: 42.235107
-  - city: Ростов-на-Дону
-    name: Антей-сервис
-    type: Основной
-    address: 344010, г. Ростов-на-Дону, пр. Соколова, 85/3, литер А
-    phone: 8 (863) 318-00-20; 8 (863) 290-47-02
-    map: https://yandex.ru/maps/-/CDR45Z66
-    lat: 39.715472
-    lng: 47.235107
-  - city: Новосибирск
-    name: Микротех
-    type: Основной
-    address: Дуси Ковальчук, 238
-    phone: 8 (383) 244-58-48
-    map: https://yandex.ru/maps/-/CDVEbP1z
-    lat: 82.898042
-    lng: 55.052758
-  - city: Екатеринбург
-    name: ЕКЦ
-    type: Основной
-    address: 8 марта, 158, оф. 103
-    phone: 8 (343) 383-08-08
-    map: https://yandex.ru/maps/-/CDbHn8nA
-    lat: 60.609705
-    lng: 56.807527
 ---
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useData } from 'vitepress'
+import db from './centers.json'
 
 // VitePress сам достает данные из шапки файла
-const { frontmatter } = useData()
 const searchQuery = ref('')
 const userLat = ref(null)
 const userLng = ref(null)
@@ -112,7 +54,8 @@ const findNearest = () => {
 
 // Умный поиск работает с данными из шапки
 const filteredCenters = computed(() => {
-  let allCenters = frontmatter.value.centers || []
+  // Берем данные из импортированного JSON файла
+  let allCenters = db.centers || []
 
   let centersWithDistance = allCenters.map(c => {
     return { ...c, distance: calculateDistance(userLat.value, userLng.value, c.lat, c.lng) }

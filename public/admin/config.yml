@@ -107,7 +107,7 @@ collections:
         name: "service_centers"
         # Укажи точный путь к файлу. Если у тебя все файлы лежат в папке y/, 
         # то путь будет "y/service/centers.md"
-        file: "service/centers.md" 
+        file: "y/service/centers.md" 
         fields:
           - {label: "Заголовок страницы", name: "title", widget: "string"}
           - {label: "Отключить боковую панель", name: "sidebar", widget: "boolean", default: false}

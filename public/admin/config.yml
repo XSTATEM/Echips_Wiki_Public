@@ -105,14 +105,14 @@ collections:
     files:
       - label: "Сервисные центры (АСЦ)"
         name: "service_centers"
-        # Укажи точный путь к файлу. Если у тебя все файлы лежат в папке y/, 
-        # то путь будет "y/service/centers.md"
-        file: "y/service/centers.md" 
+        # ВОТ ЗДЕСЬ МЫ ИСПРАВИЛИ ИМЯ ФАЙЛА НА index.md:
+        file: "y/service/index.md" 
         fields:
+          # Добавили скрытое поле, чтобы дизайн не ломался
+          - {label: "Системный (не трогать)", name: "layout", widget: "hidden", default: "page"}
           - {label: "Заголовок страницы", name: "title", widget: "string"}
           - {label: "Отключить боковую панель", name: "sidebar", widget: "boolean", default: false}
           
-          # Тот самый блок для добавления сервисов
           - label: "Список сервисных центров"
             name: "centers"
             widget: "list"
@@ -129,6 +129,3 @@ collections:
               - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
               - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
               - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
-          
-          # Скрываем код самой страницы, чтобы случайно его не стереть в редакторе
-          - {label: "Системный код (не трогать)", name: "body", widget: "markdown", required: false}  

@@ -102,7 +102,7 @@ onUnmounted(() => {
         </div>
         <a href="tel:+79226981304" class="p-number">8 (922) 698-13-04</a>
         <div class="p-details">
-          <p><strong>Валерий / Макс</strong> — Технические специалисты</p>
+          <p><strong>Валерий</strong> - Технический специалисты</p>
           <p class="time">с 10:00 до 18:00 (МСК)</p>
           <p class="note">Пишите в мессенджеры в любое время, мы ответим в рабочие часы.</p>
         </div>
@@ -113,11 +113,11 @@ onUnmounted(() => {
       <div class="card-stack">
         <div class="p-header">
           <span class="p-badge partner-badge">ДЛЯ СЕРВИСОВ (АСЦ)</span>
-          <span class="p-status">Ежедневно</span>
+          <span class="p-status">Онлайн Пн-Пт</span>
         </div>
         <a href="tel:+79512557555" class="p-number">8 (951) 255-75-55</a>
         <div class="p-details">
-          <p><strong>Старший инженер</strong> — Поддержка по ремонту</p>
+          <p><strong>Старший инженер</strong> - Поддержка по ремонту</p>
           <p class="time">с 07:00 до 15:00 (МСК)</p>
           <p class="note">Выделенная линия только для авторизованных партнеров.</p>
         </div>

@@ -70,7 +70,7 @@ onMounted(() => {
         <div v-if="calcResult">
           <div class="result-block">
             <span class="res-label">Основная гарантия истекает:</span>
-            <span class="res-value" :class="{'expired': calcResult.isExpired}">{{ calcResult.basic }}</span>
+            <span class="res-value text-green" :class="{'expired': calcResult.isExpired}">{{ calcResult.basic }}</span>
           </div>
           <div class="result-block max-warranty">
             <span class="res-label">Максимальная расширенная гарантия:</span>
@@ -92,7 +92,7 @@ onMounted(() => {
       <h3>Основная гарантия</h3>
       <ul>
         <li>Действует с момента покупки (по чеку).</li>
-        <li>При отсутствии чека — с даты производства (по серийному номеру).</li>
+        <li>При отсутствии чека - с даты производства (по серийному номеру).</li>
         <li>Включает бесплатное обслуживание, ремонт и замену деталей в рамках гарантии.</li>
       </ul>
     </div>

@@ -73,7 +73,7 @@ onMounted(() => {
         <span class="btn-yellow">Выбрать модель &rarr;</span>
       </div>
     </a>
-    <a href="/guide/windows" class="big-card glass-effect">
+    <a href="/guide" class="big-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <img src="/images/icon-faq.png" alt="FAQ" class="img-large" />

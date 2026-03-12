@@ -81,7 +81,7 @@ onUnmounted(() => {
   <div class="bg-glow bottom-glow"></div>
   <div class="main-header">
     <a href="/" class="back-link">← На главную</a>
-    <h1 class="hero-title">База знаний ECHIPS</h1>
+    <h1 class="hero-title">FAQ ECHIPS</h1>
     <p class="hero-subtitle">Инструкции по настройке, установке ОС и ответы на частые вопросы.</p>
   </div>
   <div class="category-grid">

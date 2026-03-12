@@ -66,7 +66,6 @@ onMounted(() => {
         <p class="calc-desc">Укажите дату покупки из чека (или дату производства по серийному номеру):</p>
         <input type="date" v-model="purchaseDate" class="date-input" />
       </div>
-      
       <div class="calc-result-area" :class="{ 'active': calcResult }">
         <div v-if="calcResult">
           <div class="result-block">
@@ -80,7 +79,6 @@ onMounted(() => {
           </div>
         </div>
         <div v-else class="calc-placeholder">
-          <span class="icon-calendar">📅</span>
           <p>Выберите дату слева, чтобы увидеть расчет</p>
         </div>
       </div>
@@ -98,7 +96,6 @@ onMounted(() => {
         <li>Включает бесплатное обслуживание, ремонт и замену деталей в рамках гарантии.</li>
       </ul>
     </div>
-
     <div class="w-card glass-effect border-yellow">
       <div class="mouse-glow"></div>
       <div class="w-badge bg-yellow">ДО 3 ЛЕТ</div>
@@ -114,7 +111,6 @@ onMounted(() => {
 
   <div class="alert-box glass-effect">
     <div class="mouse-glow"></div>
-    <div class="alert-icon">⚠️</div>
     <div class="alert-text">
       <strong>Ремонт только в АСЦ!</strong> 
       Обслуживание и ремонт устройств ECHIPS в неавторизованных центрах, а также самостоятельное вскрытие влечет за собой полное прекращение гарантии. <a href="/service" class="text-yellow">Найти ближайший АСЦ &rarr;</a>
@@ -134,7 +130,6 @@ onMounted(() => {
       </ol>
       <p class="small-text text-gray">* Сроки возврата зависят от правил конкретного маркетплейса.</p>
     </div>
-    
     <div class="return-card glass-effect">
       <div class="mouse-glow"></div>
       <h4>Памятка потребителя</h4>

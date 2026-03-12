@@ -94,8 +94,7 @@ onUnmounted(() => {
         <h3>Установка Windows</h3>
         <p>Пошаговое руководство по созданию флешки и установке ОС.</p>
       </div>
-    </a>
-    
+    </a>   
     <a href="/laptops" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
@@ -104,7 +103,6 @@ onUnmounted(() => {
         <p>Как правильно скачать и установить драйверы для вашей модели.</p>
       </div>
     </a>
-
     <a href="/guide/battery" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
@@ -113,7 +111,6 @@ onUnmounted(() => {
         <p>Рекомендации по калибровке и продлению срока службы АКБ.</p>
       </div>
     </a>
-
     <a href="/service" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
@@ -129,7 +126,6 @@ onUnmounted(() => {
   <div class="faq-container glass-effect">
     <div class="mouse-glow"></div>
     <div class="faq-list">
-      
       <div 
         v-for="(faq, index) in faqs" 
         :key="index"
@@ -143,7 +139,6 @@ onUnmounted(() => {
             <span class="cross-line horizontal"></span>
           </div>
         </button>
-        
         <div class="faq-answer-wrapper" :style="{ maxHeight: activeFaq === index ? '300px' : '0' }">
           <div class="faq-answer">
             <p>{{ faq.answer }}</p>

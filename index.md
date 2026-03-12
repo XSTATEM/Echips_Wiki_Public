@@ -5,7 +5,7 @@ title: Поддержка Echips
 
 <script setup>
 import { onMounted } from 'vue'
-import TiltCard from '../components/TiltCard.vue'
+import TiltCard from './components/TiltCard.vue'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {

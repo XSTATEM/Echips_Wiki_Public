@@ -111,7 +111,6 @@ onUnmounted(() => {
           <input type="date" v-model="purchaseDate" class="date-input" />
         </div>
       </div>
-      
       <div class="calc-result-area" :class="{ 'active': calcResult }">
         <div v-if="calcResult">
           <div class="result-block">
@@ -145,7 +144,6 @@ onUnmounted(() => {
         </ul>
       </div>
     </div>
-
     <div class="w-card glass-effect border-yellow tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
@@ -184,7 +182,6 @@ onUnmounted(() => {
         <p class="small-text text-gray">* Сроки зависят от правил маркетплейса.</p>
       </div>
     </div>
-    
     <div class="return-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">

@@ -205,7 +205,7 @@ html.dark .mouse-glow { background: radial-gradient(circle 250px at var(--mouse-
 .main-header { margin-bottom: 60px; text-align: center; perspective: none; }
 .back-link { display: inline-block; margin-bottom: 24px; color: var(--e-gray); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 .back-link:hover { color: var(--e-yellow) !important; }
-.hero-title { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1 !important; margin-bottom: 20px !important; }
+.hero-title { font-size: 85px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1 !important; margin-bottom: 20px !important; }
 .hero-subtitle { font-size: 20px; color: var(--e-desc); font-weight: 500; line-height: 1.5 !important; margin: 0 !important; }
 .section-title { font-size: 32px; font-weight: 800; margin: 60px 0 30px !important; text-align: center; }
 

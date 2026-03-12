@@ -145,7 +145,7 @@ html.dark .bottom-glow { opacity: 0.2; }
 /* ================= ШАПКА ================= */
 .main-header { margin-bottom: 50px; }
 .hero-logo { width: 180px; margin: 0 auto 20px; display: block; }
-.hero-title { font-size: 98px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; margin-bottom 20 px}
+.hero-title { font-size: 98px; font-weight: 800; color: var(--e-text); letter-spacing: -0.03em; margin-bottom: 20px !important;}
 .hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
 html.dark .hero-logo { filter: invert(1); opacity: 0.9; }
 

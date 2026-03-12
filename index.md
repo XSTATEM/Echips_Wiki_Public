@@ -130,6 +130,7 @@ onMounted(() => {
   position: relative; 
   text-align: center; 
   font-family: 'Montserrat', sans-serif !important;
+  padding: 120px 20px 60px;
 }
 
 /* ================= ФОН (ОЧЕНЬ МЯГКИЙ) ================= */

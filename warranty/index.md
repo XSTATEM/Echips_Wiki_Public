@@ -229,9 +229,10 @@ onUnmounted(() => {
 .echips-wrapper {
   --e-yellow: #FFB800; --e-orange: #FF4500; --e-gray: #8E8E93;
   --e-text: var(--vp-c-text-1); --e-desc: var(--vp-c-text-2);
-  max-width: 1100px; margin: 0 auto; padding: 60px 20px;
+  max-width: 1100px; margin: 0 auto; 
+  /* Вот наш новый отступ: 140px сверху, 20px по бокам, 60px снизу */
+  padding: 140px 20px 60px;
   position: relative; font-family: 'Montserrat', sans-serif !important;
-  /* Добавляем перспективу всему контейнеру, чтобы 3D работало */
   perspective: 1000px;
 }
 

@@ -34,12 +34,10 @@ onMounted(() => {
   </div>
 
   <div class="search-container">
-    <TiltCard class="return-card">
     <div class="search-bar glass-effect">
       <div class="mouse-glow"></div>
       <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
     </div>
-    </TiltCard>
   </div>
 
   <div class="icon-row">

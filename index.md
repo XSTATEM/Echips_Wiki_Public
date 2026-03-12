@@ -43,7 +43,6 @@ onMounted(() => {
   </div>
 
   <div class="icon-row">
-    <TiltCard class="return-card">
     <a href="/laptops/" class="icon-card-link">
       <div class="icon-box glass-effect">
         <div class="mouse-glow"></div>
@@ -65,7 +64,6 @@ onMounted(() => {
       </div>
       <span class="label">Гарантия</span>
     </a>
-    </TiltCard>
   </div>
 
   <div class="action-grid">

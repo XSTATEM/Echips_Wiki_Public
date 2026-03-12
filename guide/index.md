@@ -79,13 +79,11 @@ onUnmounted(() => {
 <div class="echips-wrapper">
   <div class="bg-glow top-glow"></div>
   <div class="bg-glow bottom-glow"></div>
-
   <div class="main-header">
     <a href="/" class="back-link">← На главную</a>
     <h1 class="hero-title">База знаний ECHIPS</h1>
     <p class="hero-subtitle">Инструкции по настройке, установке ОС и ответы на частые вопросы.</p>
   </div>
-
   <div class="category-grid">
     <a href="/guide/windows-install" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
@@ -120,9 +118,7 @@ onUnmounted(() => {
       </div>
     </a>
   </div>
-
-  <h2 class="section-title">Частые вопросы (FAQ)</h2>
-  
+  <h2 class="section-title">Частые вопросы (FAQ)</h2> 
   <div class="faq-container glass-effect">
     <div class="mouse-glow"></div>
     <div class="faq-list">
@@ -145,10 +141,8 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
   <div class="support-banner glass-effect tilt-card">
     <div class="mouse-glow"></div>
     <div class="card-stack banner-content">
@@ -159,7 +153,6 @@ onUnmounted(() => {
       <a href="https://wa.me/79226981304" target="_blank" class="btn-yellow">Написать в WhatsApp &rarr;</a>
     </div>
   </div>
-
 </div>
 
 <style scoped>

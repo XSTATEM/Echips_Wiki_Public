@@ -289,8 +289,23 @@ html.dark .mouse-glow { background: radial-gradient(circle 250px at var(--mouse-
 .main-header { margin-bottom: 50px; text-align: center; perspective: none; /* Шапка не наклоняется */ }
 .back-link { display: inline-block; margin-bottom: 24px; color: var(--e-gray); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 .back-link:hover { color: var(--e-yellow) !important; }
-.hero-title { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; }
-.hero-subtitle { font-size: 20px; color: var(--e-desc); margin-top: 10px; font-weight: 500; }
+
+.hero-title { 
+  font-size: 52px; 
+  font-weight: 800; 
+  letter-spacing: -0.03em; 
+  line-height: 1.1 !important; /* Задаем правильную высоту для огромных букв */
+  margin-bottom: 20px !important; /* Жестко отодвигаем подзаголовок вниз */
+}
+
+.hero-subtitle { 
+  font-size: 20px; 
+  color: var(--e-desc); 
+  font-weight: 500; 
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
 .section-title { font-size: 32px; font-weight: 800; margin: 60px 0 30px !important; text-align: center; perspective: none; }
 
 /* Калькулятор */
@@ -376,6 +391,9 @@ html.dark .support-item:hover { background: rgba(255,255,255,0.03); border-color
 /* Системные исправления */
 :deep(.VPNavBar) { background-color: transparent !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; perspective: none; }
 html.dark :deep(.VPNavBar) { background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
+:deep(h1:not(.hero-title)) { 
+  display: none !important; 
+}
 html, body { overflow-x: hidden !important; }
 
 /* Адаптив */

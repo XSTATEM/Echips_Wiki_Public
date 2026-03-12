@@ -5,6 +5,7 @@ title: Поддержка Echips
 
 <script setup>
 import { onMounted } from 'vue'
+import TiltCard from '../components/TiltCard.vue'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
@@ -34,8 +35,10 @@ onMounted(() => {
 
   <div class="search-container">
     <div class="search-bar glass-effect">
+      <TiltCard class="return-card">
       <div class="mouse-glow"></div>
       <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
+      </TiltCard>
     </div>
   </div>
 

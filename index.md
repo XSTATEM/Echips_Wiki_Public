@@ -126,11 +126,13 @@ onMounted(() => {
   --e-text: var(--vp-c-text-1);
   --e-desc: var(--vp-c-text-2);
   
-  max-width: 1100px; margin: 0 auto; padding: 60px 20px;
+  max-width: 1100px; 
+  margin: 0 auto; 
   position: relative; 
   text-align: center; 
   font-family: 'Montserrat', sans-serif !important;
-  padding: 120px 20px 60px;
+  /* Оставляем только один, правильный отступ: 120px сверху, 20px по бокам, 60px снизу */
+  padding: 120px 20px 60px; 
 }
 
 /* ================= ФОН (ОЧЕНЬ МЯГКИЙ) ================= */

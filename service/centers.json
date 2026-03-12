@@ -177,8 +177,8 @@
       "address": "Проспект Маршала Жукова, 54 к1",
       "phone": "7 (905) 250-42-22",
       "map": "https://yandex.com/maps/-/CPu5ZX4P",
-      "lat": null,
-      "lng": null
+      "lat": 59.8413074,
+      "lng": 30.2046565
     },
     {
       "city": "Самара",
@@ -187,8 +187,8 @@
       "address": "ул. Победы, 105",
       "phone": "7 (937) 664-42-22",
       "map": "https://yandex.com/maps/-/CPu56B7m",
-      "lat": null,
-      "lng": null
+      "lat": 53.2167433,
+      "lng": 50.2551641
     },
     {
       "city": "Самара",
@@ -197,8 +197,8 @@
       "address": "ул. Георгия Димитрова, 45",
       "phone": "7 (937) 664-42-22",
       "map": "https://yandex.com/maps/-/CPu56Ils",
-      "lat": null,
-      "lng": null
+      "lat": 53.2536807,
+      "lng": 50.2321604
     },
     {
       "city": "Казань",
@@ -207,8 +207,8 @@
       "address": "ул. Чистопольская, 25",
       "phone": "7 (843) 505-01-15",
       "map": "https://yandex.com/maps/-/CPu56O3D",
-      "lat": null,
-      "lng": null
+      "lat": 55.8199212,
+      "lng": 49.1164543
     }
   ]
 }

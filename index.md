@@ -131,7 +131,6 @@ onMounted(() => {
   position: relative; 
   text-align: center; 
   font-family: 'Montserrat', sans-serif !important;
-  /* Оставляем только один, правильный отступ: 120px сверху, 20px по бокам, 60px снизу */
   padding: 120px 20px 60px; 
 }
 

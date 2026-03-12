@@ -291,11 +291,11 @@ html.dark .mouse-glow { background: radial-gradient(circle 250px at var(--mouse-
 .back-link:hover { color: var(--e-yellow) !important; }
 
 .hero-title { 
-  font-size: 52px; 
+  font-size: 95px; 
   font-weight: 800; 
   letter-spacing: -0.03em; 
-  line-height: 1.1 !important; /* Задаем правильную высоту для огромных букв */
-  margin-bottom: 20px !important; /* Жестко отодвигаем подзаголовок вниз */
+  line-height: 1.1 !important; 
+  margin-bottom: 10px !important;
 }
 
 .hero-subtitle { 

@@ -50,11 +50,9 @@ const handleTilt = (e) => {
   
   // Угол наклона (чем больше делитель, тем мягче наклон)
   // Увеличила силу наклона для заметности
-  const rotateX = ((y - centerY) / centerY) * -10; // Наклон по вертикали
-  const rotateY = ((x - centerX) / centerX) * 10;  // Наклон по горизонтали
-  
-  // Применяем трансформацию и обновляем координаты для свечения
-  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+  const rotateX = ((y - centerY) / centerY) * -3; // Уменьшили угол наклона с 10 до 3 градусов
+  const rotateY = ((x - centerX) / centerX) * 3;  
+  card.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`; // Сделали перспективу глубже, а "всплытие" минимальным
   card.style.setProperty('--mouse-x', `${x}px`);
   card.style.setProperty('--mouse-y', `${y}px`);
 }

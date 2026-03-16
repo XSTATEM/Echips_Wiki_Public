@@ -126,3 +126,17 @@ collections:
               - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
               - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
               - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
+      - label: "Линейки ноутбуков"
+        name: "laptops_db"
+        file: "laptops/laptops.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Список серий ноутбуков"
+            name: "laptops"
+            widget: "list"
+            fields:
+              - {label: "ID (английскими буквами, например arctic)", name: "id", widget: "string"}
+              - {label: "Название", name: "name", widget: "string"}
+              - {label: "Картинка", name: "image", widget: "image"}
+              - {label: "Ссылка", name: "link", widget: "string"}

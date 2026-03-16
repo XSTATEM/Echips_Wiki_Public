@@ -35,7 +35,7 @@ onMounted(() => {
 
   <div class="laptop-grid">  
     <a 
-      v-for="laptop in laptopsData" 
+      v-for="laptop in laptopsData.laptops" 
       :key="laptop.id" 
       :href="laptop.link" 
       class="laptop-card glass-effect"

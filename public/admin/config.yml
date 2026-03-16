@@ -207,6 +207,8 @@ collections:
           - {label: "Вопрос", name: "q", widget: "string"}
           - {label: "Ответ", name: "a", widget: "text"}
 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      
       - label: "Скрывать сайдбар"
         name: "sidebar"
         widget: "hidden"
@@ -217,6 +219,6 @@ collections:
         widget: "markdown"
         default: |
           <script setup>
-          import SkuTemplate from '../components/LineTemplate.vue'
+          import SkuTemplate from '../../components/SkuTemplate.vue'
           </script>
           <SkuTemplate />

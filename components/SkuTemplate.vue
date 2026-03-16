@@ -30,11 +30,20 @@
             <h3>Спецификации модели</h3>
             <table class="apple-table" v-if="frontmatter.specs">
               <tbody>
-                <tr><th>Процессор</th><td>{{ frontmatter.specs.cpu }}</td></tr>
-                <tr><th>Оперативная память</th><td>{{ frontmatter.specs.ram }}</td></tr>
-                <tr><th>Накопитель</th><td>{{ frontmatter.specs.storage }}</td></tr>
-                <tr><th>Экран</th><td>{{ frontmatter.specs.screen }}</td></tr>
-                <tr><th>ОС</th><td>{{ frontmatter.specs.os }}</td></tr>
+                <tr v-if="frontmatter.specs.cpu"><th>Процессор</th><td>{{ frontmatter.specs.cpu }}</td></tr>
+                <tr v-if="frontmatter.specs.ram"><th>Оперативная память</th><td>{{ frontmatter.specs.ram }}</td></tr>
+                <tr v-if="frontmatter.specs.ram_upgrade"><th>Апгрейд ОЗУ</th><td>{{ frontmatter.specs.ram_upgrade }}</td></tr>
+                <tr v-if="frontmatter.specs.gpu"><th>Видеокарта</th><td>{{ frontmatter.specs.gpu }}</td></tr>
+                <tr v-if="frontmatter.specs.storage"><th>Накопитель</th><td>{{ frontmatter.specs.storage }}</td></tr>
+                <tr v-if="frontmatter.specs.storage_slots"><th>Слоты накопителя</th><td>{{ frontmatter.specs.storage_slots }}</td></tr>
+                <tr v-if="frontmatter.specs.screen"><th>Экран</th><td>{{ frontmatter.specs.screen }}</td></tr>
+                <tr v-if="frontmatter.specs.webcam"><th>Веб-камера</th><td>{{ frontmatter.specs.webcam }}</td></tr>
+                <tr v-if="frontmatter.specs.type_c"><th>Порт Type-C</th><td>{{ frontmatter.specs.type_c }}</td></tr>
+                <tr v-if="frontmatter.specs.video_out"><th>Видеовыходы</th><td>{{ frontmatter.specs.video_out }}</td></tr>
+                <tr v-if="frontmatter.specs.battery"><th>Батарея</th><td>{{ frontmatter.specs.battery }}</td></tr>
+                <tr v-if="frontmatter.specs.power"><th>Блок питания</th><td>{{ frontmatter.specs.power }}</td></tr>
+                <tr v-if="frontmatter.specs.extra"><th>Особенности</th><td>{{ frontmatter.specs.extra }}</td></tr>
+                <tr v-if="frontmatter.specs.os"><th>ОС</th><td>{{ frontmatter.specs.os }}</td></tr>
               </tbody>
             </table>
             <p v-else class="pane-desc">Характеристики для этой модели пока не заполнены.</p>

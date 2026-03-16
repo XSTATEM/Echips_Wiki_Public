@@ -217,6 +217,6 @@ collections:
         widget: "markdown"
         default: |
           <script setup>
-          import SkuTemplate from '../../components/SkuTemplate.vue'
+          import SkuTemplate from '../components/LineTemplate.vue'
           </script>
           <SkuTemplate />

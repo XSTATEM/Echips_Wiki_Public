@@ -6,7 +6,7 @@ sidebar: false
 
 <script setup>
 import { onMounted } from 'vue'
-import { data as laptopsData } from './laptops.data.js'
+import { data as laptopsData } from './laptops.data.mjs'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {

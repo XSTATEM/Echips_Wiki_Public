@@ -1,7 +1,8 @@
 ---
-layout: page
 title: Arctic
+image: /images/laptop-arctic.png
 sidebar: false
+layout: page
 ---
 
 <script setup>

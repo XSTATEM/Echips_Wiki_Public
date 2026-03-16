@@ -126,17 +126,42 @@ collections:
               - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
               - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
               - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
-      - label: "Линейки ноутбуков"
-        name: "laptops_db"
-        file: "laptops/laptops.json"
-        extension: "json"
-        format: "json"
-        fields:
-          - label: "Список серий ноутбуков"
-            name: "laptops"
-            widget: "list"
-            fields:
-              - {label: "ID (английскими буквами, например arctic)", name: "id", widget: "string"}
-              - {label: "Название", name: "name", widget: "string"}
-              - {label: "Картинка", name: "image", widget: "image"}
-              - {label: "Ссылка", name: "link", widget: "string"}
+  - name: "laptops"
+    label: "Линейки ноутбуков"
+    folder: "laptops" # Админка будет создавать .md файлы прямо в эту папку
+    create: true
+    fields:
+      - {label: "Название линейки (например, Hot)", name: "title", widget: "string"}
+      - {label: "Картинка ноутбука", name: "image", widget: "image"}
+      - {label: "Скрывать сайдбар", name: "sidebar", widget: "hidden", default: false}
+      - label: "Шаблон страницы (доредактируйте таблицы)"
+        name: "body"
+        widget: "markdown"
+        default: |
+          <script setup>
+          import { ref } from 'vue'
+          const activeTab = ref('drivers')
+          </script>
+
+          <div class="tabs-container glass-effect tilt-card">
+            <div class="tabs-header">
+              <button class="tab-btn" :class="{ active: activeTab === 'drivers' }" @click="activeTab = 'drivers'">Драйверы и BIOS</button>
+              <button class="tab-btn" :class="{ active: activeTab === 'manuals' }" @click="activeTab = 'manuals'">Инструкции</button>
+            </div>
+
+            <div class="tabs-content"> 
+              <div v-show="activeTab === 'drivers'" class="tab-pane fade-in">
+                <h3>Загрузка драйверов</h3>
+                <table class="apple-table">
+                  <thead><tr><th>Артикул</th><th>Драйверы</th></tr></thead>
+                  <tbody>
+                    <tr><td>Ваш Артикул</td><td><a href="#">Скачать архив ↓</a></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div v-show="activeTab === 'manuals'" class="tab-pane fade-in">
+                <h3>Инструкции</h3>
+                <p>Здесь будут руководства.</p>
+              </div>
+            </div>
+          </div>

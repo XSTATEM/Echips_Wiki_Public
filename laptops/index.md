@@ -6,8 +6,7 @@ sidebar: false
 
 <script setup>
 import { onMounted } from 'vue'
-// Подключаем наш JSON-файл! 
-import laptopsData from './laptops.json'
+import { data as laptopsData } from './laptops.data.js'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
@@ -35,17 +34,17 @@ onMounted(() => {
 
   <div class="laptop-grid">  
     <a 
-      v-for="laptop in laptopsData.laptops" 
-      :key="laptop.id" 
-      :href="laptop.link" 
+      v-for="laptop in laptopsData" 
+      :key="laptop.url" 
+      :href="laptop.url" 
       class="laptop-card glass-effect"
     >
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <div class="laptop-image-container">
-          <img :src="laptop.image" :alt="'Echips ' + laptop.name" class="laptop-img" onerror="this.style.display='none'">
+          <img :src="laptop.image" :alt="'Echips ' + laptop.title" class="laptop-img" onerror="this.style.display='none'">
         </div>
-        <h2 class="card-h">{{ laptop.name }}</h2>
+        <h2 class="card-h">{{ laptop.title }}</h2>
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>

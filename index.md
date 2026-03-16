@@ -4,9 +4,35 @@ title: Поддержка Echips
 ---
 
 <script setup>
-import { onMounted } from 'vue'
-import TiltCard from './components/TiltCard.vue'
+import { ref, computed, onMounted } from 'vue'
 
+// 1. Подключаем наши "радары" (базы всех артикулов)
+import { data as laptopSkus } from './laptops/skus.data.mjs'
+import { data as monoblockSkus } from './monoblocks/skus.data.mjs'
+
+// 2. Объединяем ноутбуки и моноблоки в один большой список
+const allDevices = [...laptopSkus, ...monoblockSkus]
+
+// 3. Переменные для поиска
+const searchQuery = ref('')
+const isFocused = ref(false)
+
+// 4. Умный фильтр: ищет совпадения в названиях, пока ты печатаешь
+const searchResults = computed(() => {
+  if (!searchQuery.value) return []
+  const query = searchQuery.value.toLowerCase().trim()
+  
+  return allDevices.filter(device => 
+    device.title.toLowerCase().includes(query)
+  ).slice(0, 6) // Показываем максимум 6 результатов, чтобы не перегружать экран
+})
+
+// Задержка при клике (чтобы успеть перейти по ссылке до того, как меню исчезнет)
+const handleBlur = () => {
+  setTimeout(() => { isFocused.value = false }, 200)
+}
+
+// 3D Эффекты мыши
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('mousemove', (e) => {
@@ -34,9 +60,30 @@ onMounted(() => {
   </div>
 
   <div class="search-container">
-    <div class="search-bar glass-effect">
+    <div class="search-bar glass-effect" :class="{ 'search-active': isFocused && searchQuery }">
       <div class="mouse-glow"></div>
-      <input type="text" placeholder="Введите название модели или артикул..." class="search-input" />
+      <input 
+        type="text" 
+        placeholder="Введите название модели или артикул (например: NB16A)..." 
+        class="search-input" 
+        v-model="searchQuery"
+        @focus="isFocused = true"
+        @blur="handleBlur"
+      />
+    </div>
+    <div class="search-dropdown glass-effect" v-if="isFocused && searchQuery">
+      <a 
+        v-for="item in searchResults" 
+        :key="item.url" 
+        :href="item.url" 
+        class="search-result-item"
+      >
+        <span class="res-title">{{ item.title }}</span>
+        <span class="res-line">Линейка {{ item.line }}</span>
+      </a>
+      <div v-if="searchResults.length === 0" class="search-empty">
+        Модель «{{ searchQuery }}» не найдена. Проверьте артикул.
+      </div>
     </div>
   </div>
 
@@ -165,6 +212,43 @@ html.dark .search-bar { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
 .search-icon { font-size: 18px; margin-right: 12px; opacity: 0.5; }
 .search-input { background: transparent; border: none; outline: none; width: 100%; color: var(--e-text); font-size: 16px; font-family: 'Montserrat', sans-serif; }
 .search-input::placeholder { color: var(--e-desc); opacity: 0.6; }
+
+/* ================= ВЫПАДАЮЩЕЕ МЕНЮ ПОИСКА ================= */
+.search-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto 60px; z-index: 50; }
+
+/* Убираем закругление снизу, когда поиск открыт */
+.search-bar.search-active { border-radius: 28px 28px 0 0; border-bottom-color: transparent !important; }
+
+.search-dropdown {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: var(--vp-c-bg-soft);
+  border-radius: 0 0 28px 28px;
+  border-top: none !important;
+  max-height: 350px; overflow-y: auto;
+  display: flex; flex-direction: column;
+  backdrop-filter: blur(25px);
+  animation: slideDown 0.2s ease-out forwards;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+html.dark .search-dropdown { box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important; }
+
+.search-result-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 24px; border-bottom: 1px solid var(--vp-c-divider);
+  transition: background 0.2s ease; text-decoration: none !important;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: rgba(255, 184, 0, 0.1) !important; }
+
+.res-title { font-weight: 700; color: var(--e-text); font-size: 16px; }
+.res-line { font-size: 12px; color: var(--e-gray); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; background: rgba(128,130,133,0.1); padding: 4px 10px; border-radius: 12px; }
+
+.search-empty { padding: 24px; color: var(--e-desc); font-size: 14px; font-weight: 500; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* ================= ВЕРХНИЕ ИКОНКИ ================= */
 .icon-row { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; margin-top: 50px !important; }

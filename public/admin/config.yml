@@ -126,7 +126,7 @@ collections:
               - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
               - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
               - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
-- name: "laptops"
+  - name: "laptops"
     label: "Линейки ноутбуков"
     folder: "laptops" # Админка будет создавать .md файлы прямо в эту папку
     create: true

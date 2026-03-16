@@ -6,6 +6,8 @@ sidebar: false
 
 <script setup>
 import { onMounted } from 'vue'
+// Подключаем наш JSON-файл! 
+import laptopsData from './laptops.json'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
@@ -32,63 +34,18 @@ onMounted(() => {
   </div>
 
   <div class="laptop-grid">  
-    <a href="/laptops/arctic/" class="laptop-card glass-effect">
+    <a 
+      v-for="laptop in laptopsData" 
+      :key="laptop.id" 
+      :href="laptop.link" 
+      class="laptop-card glass-effect"
+    >
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <div class="laptop-image-container">
-          <img src="/images/laptop-arctic.png" alt="Echips Arctic" class="laptop-img" onerror="this.style.display='none'">
+          <img :src="laptop.image" :alt="'Echips ' + laptop.name" class="laptop-img" onerror="this.style.display='none'">
         </div>
-        <h2 class="card-h">Arctic</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/hot/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-hot.png" alt="Echips Hot" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Hot</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/taganay/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-taganay.png" alt="Echips Taganay" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Taganay</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/fusion/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-fusion.png" alt="Echips Fusion" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Fusion</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/atlant/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-atlant.png" alt="Echips Atlant" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Atlant</h2>
-        <span class="btn-yellow">Смотреть модели &rarr;</span>
-      </div>
-    </a>
-    <a href="/laptops/rush/" class="laptop-card glass-effect">
-      <div class="mouse-glow"></div>
-      <div class="card-inner">
-        <div class="laptop-image-container">
-          <img src="/images/laptop-rush.png" alt="Echips Rush" class="laptop-img" onerror="this.style.display='none'">
-        </div>
-        <h2 class="card-h">Rush</h2>
+        <h2 class="card-h">{{ laptop.name }}</h2>
         <span class="btn-yellow">Смотреть модели &rarr;</span>
       </div>
     </a>
@@ -158,7 +115,6 @@ html.dark .bottom-glow { opacity: 0.2; }
   padding: 40px 24px; border-radius: 28px;
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   background: var(--vp-c-bg-soft); 
-  /* Рамка и тень для светлой темы */
   border: 1px solid rgba(128, 130, 133, 0.25) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); overflow: hidden;
@@ -171,7 +127,6 @@ html.dark .laptop-card {
 
 .card-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: space-between; pointer-events: none; }
 
-/* Картинка ноутбука (НЕ инвертируем в темной теме) */
 .laptop-image-container { height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
 .laptop-img { 
   max-width: 90%; max-height: 100%; object-fit: contain; 
@@ -180,7 +135,6 @@ html.dark .laptop-card {
 }
 .card-h { font-size: 24px; font-weight: 800; color: var(--e-text); margin: 0 0 20px 0 !important; text-align: center; }
 
-/* КНОПКА */
 .btn-yellow {
   font-size: 14px; font-weight: 600; color: var(--e-text);
   background: var(--vp-c-default-soft); padding: 10px 24px; border-radius: 20px;
@@ -188,17 +142,12 @@ html.dark .laptop-card {
 }
 
 /* ================= ЭФФЕКТЫ ПРИ НАВЕДЕНИИ ================= */
-/* 1. Карточка приподнимается */
 .laptop-card:hover { transform: translateY(-8px); border-color: rgba(255, 184, 0, 0.3) !important; box-shadow: 0 16px 40px rgba(0,0,0,0.06) !important; }
 html.dark .laptop-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.2) !important; }
 
-/* 2. Ноутбук слегка всплывает */
 .laptop-card:hover .laptop-img { transform: scale(1.08) translateY(-6px); }
-
-/* 3. Кнопка загорается */
 .laptop-card:hover .btn-yellow { background: var(--e-yellow); color: #000 !important; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3); }
 
-/* 4. УСПОКОЕННОЕ СВЕЧЕНИЕ МЫШИ */
 .mouse-glow {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0;
   transition: opacity 0.5s ease; pointer-events: none; z-index: 0;
@@ -215,7 +164,7 @@ html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-
   .laptop-grid { grid-template-columns: 1fr; }
 }
 
-/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ (Из главной страницы) ================= */
+/* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= */
 html, body { overflow-x: hidden !important; }
 
 :deep(.VPNavBar) {

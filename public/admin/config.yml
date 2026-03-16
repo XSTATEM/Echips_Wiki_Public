@@ -231,3 +231,82 @@ collections:
           import SkuTemplate from '../../components/SkuTemplate.vue'
           </script>
           <SkuTemplate />
+  - name: "monoblocks"
+    label: "Линейки моноблоков"
+    folder: "monoblocks"
+    create: true
+    fields:
+      - {label: "Название линейки (например, Серия 24)", name: "title", widget: "string"}
+      - {label: "Картинка", name: "image", widget: "image"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Скрывать сайдбар", name: "sidebar", widget: "hidden", default: false}
+      - label: "Шаблон страницы (не трогать)"
+        name: "body"
+        widget: "markdown"
+        default: |
+          <script setup>
+          import MonoblockLineTemplate from '../components/MonoblockLineTemplate.vue'
+          </script>
+          <MonoblockLineTemplate />
+
+  - name: "monoblock_skus"
+    label: "Артикулы (Моноблоки)"
+    folder: "monoblocks"
+    path: "{{line}}/{{slug}}"
+    create: true
+    fields:
+      - {label: "Артикул (например, M24A)", name: "title", widget: "string"}
+      - label: "Относится к линейке"
+        name: "line"
+        widget: "relation"
+        collection: "monoblocks" 
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+      - {label: "Изображение модели", name: "image", widget: "image", required: false}
+      
+      - label: "Характеристики"
+        name: "specs"
+        widget: "object"
+        fields:
+          - {label: "Процессор", name: "cpu", widget: "string"}
+          - {label: "Оперативная память", name: "ram", widget: "string"}
+          - {label: "Возможность расширения ОЗУ", name: "ram_upgrade", widget: "string", required: false}
+          - {label: "Видеокарта", name: "gpu", widget: "string"}
+          - {label: "Накопитель", name: "storage", widget: "string"}
+          - {label: "Слоты накопителя", name: "storage_slots", widget: "string", required: false}
+          - {label: "Экран", name: "screen", widget: "string"}
+          - {label: "Веб-камера", name: "webcam", widget: "string", required: false}
+          - {label: "Type-C", name: "type_c", widget: "string", required: false}
+          - {label: "Видеовыходы", name: "video_out", widget: "string", required: false}
+          - {label: "Дополнительно", name: "extra", widget: "string", required: false}
+          - {label: "Блок питания", name: "power", widget: "string", required: false}
+          - {label: "Поддерживаемые ОС", name: "os", widget: "string", default: "Windows 11"}
+
+      - label: "Драйверы и BIOS"
+        name: "drivers"
+        widget: "list"
+        fields:
+          - {label: "Название файла", name: "name", widget: "string", default: "Полный пакет драйверов"}
+          - {label: "Ссылка на скачивание", name: "url", widget: "string"}
+          - {label: "Версия / Дата", name: "version", widget: "string", required: false}
+
+      - label: "Частые вопросы (FAQ)"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Вопрос", name: "q", widget: "string"}
+          - {label: "Ответ", name: "a", widget: "text"}
+
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Скрывать сайдбар", name: "sidebar", widget: "hidden", default: false}
+
+      - label: "Шаблон страницы (не трогать)"
+        name: "body"
+        widget: "markdown"
+        default: |
+          <script setup>
+          import SkuTemplate from '../../components/SkuTemplate.vue'
+          </script>
+          <SkuTemplate />

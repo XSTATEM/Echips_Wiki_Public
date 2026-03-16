@@ -165,3 +165,58 @@ collections:
               </div>
             </div>
           </div>
+  - name: "skus"
+    label: "Артикулы (Модели)"
+    folder: "laptops/models"
+    create: true
+    fields:
+      - {label: "Артикул (например, XPS15U57-1)", name: "title", widget: "string"}
+      - label: "Относится к линейке"
+        name: "line"
+        widget: "relation"
+        collection: "laptops" 
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+      
+      - {label: "Изображение модели", name: "image", widget: "image", required: false}
+      
+      - label: "Характеристики"
+        name: "specs"
+        widget: "object"
+        fields:
+          - {label: "Процессор", name: "cpu", widget: "string"}
+          - {label: "Оперативная память", name: "ram", widget: "string", help: "Укажите объем и тип (например, 8GB DDR4 распаяна)"}
+          - {label: "Накопитель", name: "storage", widget: "string"}
+          - {label: "Экран", name: "screen", widget: "string"}
+          - {label: "Поддерживаемые ОС", name: "os", widget: "string", default: "Windows 11"}
+
+      - label: "Драйверы и BIOS"
+        name: "drivers"
+        widget: "list"
+        fields:
+          - {label: "Название файла", name: "name", widget: "string", default: "Полный пакет драйверов"}
+          - {label: "Ссылка на скачивание", name: "url", widget: "string"}
+          - {label: "Версия / Дата (опционально)", name: "version", widget: "string", required: false}
+
+      - label: "Частые вопросы (FAQ) для этой модели"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Вопрос", name: "q", widget: "string"}
+          - {label: "Ответ", name: "a", widget: "text"}
+
+      - label: "Скрывать сайдбар"
+        name: "sidebar"
+        widget: "hidden"
+        default: false
+
+      - label: "Шаблон страницы (не трогать)"
+        name: "body"
+        widget: "markdown"
+        default: |
+          <script setup>
+          import SkuTemplate from '../../components/SkuTemplate.vue'
+          </script>
+          <SkuTemplate />

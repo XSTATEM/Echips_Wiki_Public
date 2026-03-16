@@ -1,0 +1,34 @@
+---
+title: F156UL-H
+line: Arctic
+image: ''
+specs:
+  cpu: Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)
+  ram: 16GB  / LPDDR5
+  ram_upgrade: нет
+  gpu: Intel UHD Graphics (Интегрированная)
+  storage: SSD 512GB (M.2 SATA)
+  storage_slots: '1'
+  screen: 15.6" 1920x1080 60 Гц IPS 16:9
+  webcam: 2 Мп (1080p)
+  type_c: 1 (только передача данных)
+  video_out: HDMI
+  extra: ''
+  battery: 5000мАч (7.6В)
+  power: 12В 3А / 3,5х1,35 мм
+  os: Windows 11
+drivers:
+  - name: Полный пакет драйверов
+    url: Test
+    version: '0.2'
+faq:
+  - q: Как включить?
+    a: никак
+layout: page
+sidebar: false
+---
+
+<script setup>
+import SkuTemplate from '../../components/SkuTemplate.vue'
+</script>
+<SkuTemplate />

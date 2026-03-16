@@ -186,9 +186,18 @@ collections:
         widget: "object"
         fields:
           - {label: "Процессор", name: "cpu", widget: "string"}
-          - {label: "Оперативная память", name: "ram", widget: "string", help: "Укажите объем и тип (например, 8GB DDR4 распаяна)"}
-          - {label: "Накопитель", name: "storage", widget: "string"}
-          - {label: "Экран", name: "screen", widget: "string"}
+          - {label: "Оперативная память", name: "ram", widget: "string", help: "Например: 16GB / LPDDR4"}
+          - {label: "Возможность расширения ОЗУ", name: "ram_upgrade", widget: "string", required: false, help: "Например: нет"}
+          - {label: "Видеокарта", name: "gpu", widget: "string", help: "Например: Интегрированная Intel UHD"}
+          - {label: "Накопитель", name: "storage", widget: "string", help: "Например: SSD 512GB (M.2 SATA)"}
+          - {label: "Слоты накопителя", name: "storage_slots", widget: "string", required: false, help: "Например: 2"}
+          - {label: "Экран", name: "screen", widget: "string", help: "Например: 15.6\" 1920x1080 60 Гц IPS"}
+          - {label: "Веб-камера", name: "webcam", widget: "string", required: false, help: "Например: 2 Мп (1080p)"}
+          - {label: "Type-C", name: "type_c", widget: "string", required: false, help: "Например: 1 (только передача данных)"}
+          - {label: "Видеовыходы", name: "video_out", widget: "string", required: false, help: "Например: HDMI"}
+          - {label: "Дополнительно", name: "extra", widget: "string", required: false, help: "Подсветка, сканер отпечатка (например: Подсветка - да, Отпечаток - нет)"}
+          - {label: "Батарея", name: "battery", widget: "string", required: false, help: "Например: 4000 мА*ч"}
+          - {label: "Блок питания", name: "power", widget: "string", required: false, help: "Например: 19В 3.42А / 3,5х1,35 мм"}
           - {label: "Поддерживаемые ОС", name: "os", widget: "string", default: "Windows 11"}
 
       - label: "Драйверы и BIOS"

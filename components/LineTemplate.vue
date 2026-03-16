@@ -26,17 +26,17 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { computed, onMounted } from 'vue'
+import { useData } from 'vitepress'
 import { data as allSkus } from '../laptops/skus.data.mjs'
 
 const { frontmatter } = useData()
-const route = useRoute()
 
-// МАГИЯ: Фильтруем артикулы. Оставляем только те, чей URL начинается с URL текущей линейки
+// МАГИЯ: Ищем только те ноутбуки, у которых поле "Относится к линейке"
+// в точности совпадает с заголовком этой страницы (например, "Arctic")
 const filteredSkus = computed(() => {
-  const currentPath = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  return allSkus.filter(sku => sku.url.startsWith(currentPath + '/'))
+  if (!frontmatter.value || !frontmatter.value.title) return []
+  return allSkus.filter(sku => sku.line === frontmatter.value.title)
 })
 
 // 3D Наклон для карточек

@@ -1,10 +1,13 @@
 import { createContentLoader } from 'vitepress'
 
-export default createContentLoader('laptops/*/*.md', {
+export default createContentLoader('laptops/**/*.md', {
   transform(rawData) {
-    return rawData.map(page => ({
-      title: page.frontmatter.title,
-      url: page.url
-    }))
+    return rawData
+      .filter(page => page.frontmatter.line) 
+      .map(page => ({
+        title: page.frontmatter.title,
+        line: page.frontmatter.line, 
+        url: page.url
+      }))
   }
 })

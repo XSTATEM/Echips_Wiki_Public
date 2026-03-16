@@ -1,0 +1,11 @@
+---
+title: Booster
+image: /images/photos/Готовые/Booster.png
+layout: page
+sidebar: false
+---
+
+<script setup>
+import LineTemplate from '../components/LineTemplate.vue'
+</script>
+<LineTemplate />

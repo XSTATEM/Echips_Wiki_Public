@@ -1,10 +1,10 @@
 {
   "laptops": [
-    { "id": "arctic", "name": "Arctic", "image": "/images/laptop-arctic.png", "link": "/laptops/arctic/" },
-    { "id": "hot", "name": "Hot", "image": "/images/laptop-hot.png", "link": "/laptops/hot/" },
-    { "id": "taganay", "name": "Taganay", "image": "/images/laptop-taganay.png", "link": "/laptops/taganay/" },
-    { "id": "fusion", "name": "Fusion", "image": "/images/laptop-fusion.png", "link": "/laptops/fusion/" },
-    { "id": "atlant", "name": "Atlant", "image": "/images/laptop-atlant.png", "link": "/laptops/atlant/" },
-    { "id": "rush", "name": "Rush", "image": "/images/laptop-rush.png", "link": "/laptops/rush/" }
+    {
+      "id": "test",
+      "name": "test",
+      "image": "/images/aio-23.png",
+      "link": "smhgdfzksbdfknj"
+    }
   ]
 }

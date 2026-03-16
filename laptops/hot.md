@@ -1,7 +1,8 @@
 ---
-layout: doc
-title: Серия Echips Hot
+title: Hot
+image: /images/laptop-hot.png
 sidebar: false
+layout: doc
 ---
 
 <script setup>
@@ -23,29 +24,29 @@ const activeTab = ref('drivers')
 </div>
 
 <div class="tabs-container glass-effect">
-  
+
   <div class="tabs-header">
-    <button 
-      class="tab-btn" 
-      :class="{ active: activeTab === 'drivers' }" 
+    <button
+      class="tab-btn"
+      :class="{ active: activeTab === 'drivers' }"
       @click="activeTab = 'drivers'">
       Драйверы и BIOS
     </button>
-    <button 
-      class="tab-btn" 
-      :class="{ active: activeTab === 'manuals' }" 
+    <button
+      class="tab-btn"
+      :class="{ active: activeTab === 'manuals' }"
       @click="activeTab = 'manuals'">
       Инструкции (FAQ)
     </button>
-    <button 
-      class="tab-btn" 
-      :class="{ active: activeTab === 'service' }" 
+    <button
+      class="tab-btn"
+      :class="{ active: activeTab === 'service' }"
       @click="activeTab = 'service'">
       Сервисная документация
     </button>
   </div>
 
-  <div class="tabs-content"> 
+  <div class="tabs-content">
     <div v-show="activeTab === 'drivers'" class="tab-pane fade-in">
       <h3>Загрузка драйверов (Windows 11)</h3>
       <p class="pane-desc">Выберите артикул вашего ноутбука (указан на нижней крышке устройства).</p>
@@ -150,7 +151,7 @@ const activeTab = ref('drivers')
 </div>
 
 <style>
-/* ================= БАЗОВЫЕ СТИЛИ ================= */
+/\* ================= БАЗОВЫЕ СТИЛИ ================= \*/
 :root {
   --echips-coral: #f07f65;
   --echips-blue: #5cbbf0;
@@ -166,7 +167,7 @@ const activeTab = ref('drivers')
 .series-header h1 { font-size: 40px; font-weight: 800; margin: 0 0 8px 0; border: none; padding: 0; line-height: 1.2; }
 .subtitle { font-size: 18px; color: var(--vp-c-text-2); margin: 0; }
 
-/* ================= СТЕКЛЯННЫЙ КОНТЕЙНЕР ================= */
+/\* ================= СТЕКЛЯННЫЙ КОНТЕЙНЕР ================= \*/
 .glass-effect {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--border-color);
@@ -175,7 +176,7 @@ const activeTab = ref('drivers')
   box-shadow: 0 12px 32px rgba(0,0,0,0.05);
 }
 
-/* ================= ВКЛАДКИ ================= */
+/\* ================= ВКЛАДКИ ================= \*/
 .tabs-header {
   display: flex;
   background: rgba(0, 0, 0, 0.02);
@@ -206,7 +207,7 @@ const activeTab = ref('drivers')
 .tab-pane h3 { margin: 0 0 8px 0; border: none; padding: 0; font-size: 24px; }
 .pane-desc { color: var(--vp-c-text-2); margin-bottom: 24px; font-size: 15px; }
 
-/* ================= ТАБЛИЦЫ APPLE СТАЙЛ ================= */
+/\* ================= ТАБЛИЦЫ APPLE СТАЙЛ ================= \*/
 .apple-table {
   width: 100%; border-collapse: collapse; text-align: left; margin: 0;
 }
@@ -227,7 +228,7 @@ const activeTab = ref('drivers')
 .download-link.locked { color: var(--vp-c-text-3); pointer-events: none; }
 .na-text { color: var(--vp-c-text-3); font-style: italic; }
 
-/* ================= СПИСКИ И АЛЕРТЫ ================= */
+/\* ================= СПИСКИ И АЛЕРТЫ ================= \*/
 .manual-list { list-style: none; padding: 0; margin: 0; }
 .manual-list li {
   display: flex; gap: 16px; align-items: flex-start; padding: 16px;
@@ -246,7 +247,7 @@ const activeTab = ref('drivers')
 .service-warning p { margin: 4px 0 0 0; font-size: 14px; color: var(--vp-c-text-2); }
 .warning-icon { font-size: 24px; }
 
-/* ================= АНИМАЦИИ ================= */
+/\* ================= АНИМАЦИИ ================= \*/
 .fade-in { animation: fadeIn 0.4s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 

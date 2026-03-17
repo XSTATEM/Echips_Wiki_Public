@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: EnvyPro
+image: /images/photos/Готовые/EnvyPro.png
+layout: page
 sidebar: false
 ---
 

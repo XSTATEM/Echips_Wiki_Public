@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Easy
+image: /images/photos/Готовые/Easy.png
+layout: page
 sidebar: false
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Joy
+image: /images/photos/Готовые/Next-Photoroom.png
+layout: page
 sidebar: false
 ---
 

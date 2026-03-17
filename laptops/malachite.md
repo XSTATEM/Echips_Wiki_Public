@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Malachite
+image: /images/photos/Готовые/EchipsMalachiteImage-Photoroom.png
+layout: page
 sidebar: false
 ---
 

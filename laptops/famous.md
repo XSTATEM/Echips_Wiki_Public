@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Famous
+image: /images/photos/Готовые/Echips_Famous_1.png
+layout: page
 sidebar: false
 ---
 

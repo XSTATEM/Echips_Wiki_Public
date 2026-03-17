@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Taganay
+image: /images/photos/Готовые/taganay156-Photoroom.png
+layout: page
 sidebar: false
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Max
+image: /images/photos/Готовые/max173.png
+layout: page
 sidebar: false
 ---
 

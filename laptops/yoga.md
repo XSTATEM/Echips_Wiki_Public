@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Yoga
+image: /images/photos/Готовые/Yoga.png
+layout: page
 sidebar: false
 ---
 

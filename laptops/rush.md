@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Rush
+image: /images/laptop-rush.png
+layout: page
 sidebar: false
 ---
 

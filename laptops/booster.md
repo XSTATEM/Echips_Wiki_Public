@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Booster
+image: /images/photos/Готовые/Booster.png
+layout: page
 sidebar: false
 ---
 

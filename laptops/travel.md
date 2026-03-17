@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Travel
+image: /images/photos/Готовые/Travel.png
+layout: page
 sidebar: false
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Fresh
+image: /images/photos/Готовые/Fresh-Photoroom.png
+layout: page
 sidebar: false
 ---
 

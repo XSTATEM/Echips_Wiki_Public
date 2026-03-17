@@ -1,6 +1,7 @@
 ---
-title: Ace
-image: /images/ACE 16-Photoroom.png
+title: Fusion
+image: /images/photos/Готовые/Fusion14_1-Photoroom.png
+layout: page
 sidebar: false
 ---
 

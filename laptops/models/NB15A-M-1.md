@@ -1,0 +1,25 @@
+---
+title: "NB15A-M-1"
+line: "Next"
+specs:
+  cpu: "Intel Celeron N5095 (4 ядра/4 потока, 2.0 - 2.9 ГГц)"
+  ram: "16GB  / LPDDR4"
+  ram_upgrade: "нет"
+  gpu: "Intel UHD Graphics (Интегрированная)"
+  storage: "SSD 512GB (SATA-III / M.2 SATA)"
+  storage_slots: "2"
+  screen: "15.6 1920x1080 60 Гц IPS 16:9"
+  webcam: "2 Мп (1080p)"
+  type_c: "-"
+  video_out: "mini HDMI"
+  extra: "Сенсорный экран: Нет, Подсветка: да, Отпечаток: есть"
+  battery: "5000 мА*ч"
+  power: "19В 3.42А / 3,5х1,35 мм"
+  os: "Windows 11"
+layout: page
+sidebar: false
+---
+<script setup>
+import SkuTemplate from '../../components/SkuTemplate.vue'
+</script>
+<SkuTemplate />

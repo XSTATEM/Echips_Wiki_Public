@@ -2,6 +2,7 @@
 title: Atlant
 image: /images/laptop-atlant.png
 sidebar: false
+layout: page
 ---
 
 <script setup>

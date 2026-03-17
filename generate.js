@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Твоя база данных (я вставила её сюда целиком)
+
 const csvData = `Название,Модель,Процессор,Оперативная память,Возможность расширения оперативной памяти,Форм-фактор оперативной памяти,Количество слотов оперативной памяти,Видеокарта,Накопитель,Количество слотов накопителя,Экран,Сенсорный экран,Подсветка клавиатуры,Сканер отпечатка пальца,Разрешение Web-камеры,Порты Type-C,Разъем HDMI,Емкость аккумулятора,Адаптер питания
 Ace,NB160A,"Intel Core i3-N305 (8 ядер/8 потоков, 1.1 - 3.8 ГГц)",8GB  / DDR5 4800МГц,16 ГБ,SO-DIMM,1,Intel UHD Graphics (Интегрированная),SSD 256GB (M.2 SATA),1,"16"" 1920x1200 60 Гц IPS 16:10",Нет,нет,нет,2 Мп (1080p),1 (полнофункциональный),HDMI,6000мАч (7.6В),"19В 2.7А / 3,5х1,35 мм"
 Ace,BM160UL,"Intel Core i3-N305 (8 ядер/8 потоков, 1.1 - 3.8 ГГц)",16GB  / DDR5 4800МГц,16 ГБ,SO-DIMM,1,Intel UHD Graphics (Интегрированная),SSD 512GB (M.2 SATA),1,"16"" 1920x1200 60 Гц IPS 16:10",Нет,нет,нет,2 Мп (1080p),1 (полнофункциональный),HDMI,6000мАч (7.6В),"19В 2.7А / 3,5х1,35 мм"
@@ -76,7 +76,7 @@ Teen,F160UL,"Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)"
 Yoga,NB142D,"Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)",8GB  / DDR4 2666МГц,64 ГБ,SO-DIMM,1,Intel UHD Graphics (Интегрированная),SSD 256GB (M.2 SATA),1,"14.0"" 1920x1080 60 Гц IPS 16:9",Да,да,есть,2 Мп (1080p),1 (полнофункциональный),-,5000мАч (7.7В),"12В 3А / 3,5х1,35 мм"
 Yoga,NB142A,"Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)",16GB  / DDR4 2666МГц,64 ГБ,SO-DIMM,1,Intel UHD Graphics (Интегрированная),SSD 512GB (M.2 SATA),1,"14.0"" 1920x1080 60 Гц IPS 16:9",Да,да,есть,2 Мп (1080p),1 (полнофункциональный),-,5000мАч (7.7В),"12В 3А / 3,5х1,35 мм"`;
 
-// Умная функция парсинга CSV, которая понимает кавычки
+
 function parseCSV(str) {
   const result = [];
   let row = [];
@@ -104,9 +104,9 @@ function parseCSV(str) {
 }
 
 const rows = parseCSV(csvData);
-const dataRows = rows.slice(1); // Пропускаем строку с заголовками
+const dataRows = rows.slice(1); 
 
-// Создаем папку, если её вдруг нет
+
 const outDir = path.join(process.cwd(), 'laptops', 'models');
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
@@ -116,11 +116,11 @@ console.log('Начинаю магию генерации... ✨\n');
 let count = 0;
 
 dataRows.forEach(cols => {
-  if (cols.length < 18) return; // Защита от пустых строк
+  if (cols.length < 18) return; 
 
   const line = cols[0];
   const title = cols[1];
-  const cpu = cols[2].replace(/"/g, ''); // Убираем кавычки, чтобы не сломать файл
+  const cpu = cols[2].replace(/"/g, ''); 
   const ram = cols[3];
   const ram_upgrade = cols[4];
   const gpu = cols[7];
@@ -136,10 +136,9 @@ dataRows.forEach(cols => {
   const battery = cols[17];
   const power = cols[18] ? cols[18].replace(/"/g, '') : '';
 
-  // Склеиваем дополнительные параметры в одну красивую строку
   const extra = `Сенсорный экран: ${touch}, Подсветка: ${backlight}, Отпечаток: ${fingerprint}`;
 
-  // Формируем идеальный Markdown файл
+ 
   const mdContent = `---
 title: "${title}"
 line: "${line}"
@@ -167,13 +166,11 @@ import SkuTemplate from '../../components/SkuTemplate.vue'
 <SkuTemplate />
 `;
 
-  // Очищаем имя файла от лишних символов
+  
   const filename = `${title.replace(/[^a-zA-Z0-9-]/g, '_')}.md`;
   
-  // Сохраняем файл!
+ 
   fs.writeFileSync(path.join(outDir, filename), mdContent);
   console.log(`✅ Создана модель: ${line} -> ${title}`);
   count++;
 });
-
-console.log(`\n🎉 Готово, Влада! Все ${count} моделей успешно сгенерированы за 1 секунду!`);

@@ -15,9 +15,7 @@ collections:
     fields:
       - {label: "Заголовок статьи", name: "title", widget: "string"}
       - {label: "Описание для поиска", name: "description", widget: "text", required: false}
-      # Скрытое поле, чтобы комментарии всегда были включены
       - {label: "Комментарии", name: "show_comments", widget: "hidden", default: true}
-      
       - label: "Конструктор контента"
         name: "blocks"
         widget: "list"
@@ -27,7 +25,6 @@ collections:
             widget: "object"
             fields:
               - {label: "Текст", name: "content", widget: "markdown"}
-
           - label: "🚀 Шаг инструкции"
             name: "step_block"
             widget: "object"
@@ -35,46 +32,40 @@ collections:
               - {label: "Заголовок шага", name: "h", widget: "string"}
               - {label: "Текст шага", name: "text", widget: "markdown"}
               - {label: "Картинка", name: "image", widget: "image", required: false}
-
           - label: "⚠️ Важное / Совет"
             name: "callout_block"
             widget: "object"
             fields:
-            - label: "Тип уведомления"
-              name: "type"
-              widget: "select"
-              # Это заставит админку показать меню, а не кнопки
-              display: "select" 
-              options: 
-                - { label: "💡 Совет", value: "tip" }
-                - { label: "ℹ️ Инфо", value: "info" }
-                - { label: "⚠️ Предупреждение", value: "warning" }
-                - { label: "🔥 Опасно", value: "danger" }
-              default: "tip"
-            - {label: "Заголовок (необязательно)", name: "title", widget: "string", required: false}
-            - {label: "Текст совета", name: "content", widget: "markdown"}
-
+              - label: "Тип уведомления"
+                name: "type"
+                widget: "select"
+                display: "select" 
+                options: 
+                  - { label: "💡 Совет", value: "tip" }
+                  - { label: "ℹ️ Инфо", value: "info" }
+                  - { label: "⚠️ Предупреждение", value: "warning" }
+                  - { label: "🔥 Опасно", value: "danger" }
+                default: "tip"
+              - {label: "Заголовок (необязательно)", name: "title", widget: "string", required: false}
+              - {label: "Текст совета", name: "content", widget: "markdown"}
           - label: "🎥 Видео (YouTube/Ссылка)"
             name: "video_block"
             widget: "object"
             fields:
               - {label: "Ссылка на видео", name: "url", widget: "string"}
               - {label: "Подпись", name: "caption", widget: "string", required: false}
-
           - label: "📎 Файл для скачивания"
             name: "file_block"
             widget: "object"
             fields:
               - {label: "Название файла", name: "label", widget: "string"}
               - {label: "Ссылка или файл", name: "file", widget: "file"}
-
           - label: "📊 Таблица"
             name: "table_block"
             widget: "object"
             fields:
               - {label: "Заголовок таблицы", name: "caption", widget: "string", required: false}
               - {label: "Данные (Markdown формат)", name: "table_data", widget: "markdown", help: "Создайте таблицу здесь или скопируйте из Excel"}
-
           - label: "🖼️ Галерея изображений"
             name: "gallery_block"
             widget: "object"
@@ -85,7 +76,6 @@ collections:
                 fields:
                   - {label: "Изображение", name: "url", widget: "image"}
                   - {label: "Подпись", name: "alt", widget: "string", required: false}
-
           - label: "🔘 Кнопка-ссылка"
             name: "button_block"
             widget: "object"
@@ -97,7 +87,6 @@ collections:
                 widget: "select"
                 options: ["brand", "alt", "sponsor"]
                 default: "brand"
-
       - {label: "Весь текст (Markdown)", name: "body", widget: "markdown", required: false}
 
   - name: "database"
@@ -106,7 +95,6 @@ collections:
       - label: "Сервисные центры (АСЦ)"
         name: "service_centers"
         file: "service/centers.json"
-        # Эти две строчки говорят админке, что это чистые данные, а не Markdown!
         extension: "json"
         format: "json"
         fields:
@@ -126,9 +114,10 @@ collections:
               - {label: "Ссылка на карту", name: "map", widget: "string", required: false}
               - {label: "Широта (lat)", name: "lat", widget: "number", value_type: "float", required: false}
               - {label: "Долгота (lng)", name: "lng", widget: "number", value_type: "float", required: false}
+
   - name: "laptops"
     label: "Линейки ноутбуков"
-    folder: "laptops" # Админка будет создавать .md файлы прямо в эту папку
+    folder: "laptops"
     create: true
     fields:
       - {label: "Название линейки (например, Hot)", name: "title", widget: "string"}
@@ -143,6 +132,7 @@ collections:
           import LineTemplate from '../components/LineTemplate.vue'
           </script>
           <LineTemplate />
+
   - name: "skus"
     label: "Артикулы (Модели)"
     folder: "laptops/models"
@@ -156,9 +146,7 @@ collections:
         search_fields: ["title"]
         value_field: "title"
         display_fields: ["title"]
-      
       - {label: "Изображение модели", name: "image", widget: "image", required: false}
-      
       - label: "Характеристики"
         name: "specs"
         widget: "object"
@@ -177,7 +165,6 @@ collections:
           - {label: "Батарея", name: "battery", widget: "string", required: false, help: "Например: 4000 мА*ч"}
           - {label: "Блок питания", name: "power", widget: "string", required: false, help: "Например: 19В 3.42А / 3,5х1,35 мм"}
           - {label: "Поддерживаемые ОС", name: "os", widget: "string", default: "Windows 11"}
-
       - label: "Драйверы и BIOS"
         name: "drivers"
         widget: "list"
@@ -185,7 +172,6 @@ collections:
           - {label: "Название файла", name: "name", widget: "string", default: "Полный пакет драйверов"}
           - {label: "Ссылка на скачивание", name: "url", widget: "string"}
           - {label: "Версия / Дата (опционально)", name: "version", widget: "string", required: false}
-
       - label: "Частые вопросы (FAQ) для этой модели"
         name: "faq"
         widget: "list"
@@ -193,14 +179,8 @@ collections:
         fields:
           - {label: "Вопрос", name: "q", widget: "string"}
           - {label: "Ответ", name: "a", widget: "text"}
-
       - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
-      
-      - label: "Скрывать сайдбар"
-        name: "sidebar"
-        widget: "hidden"
-        default: false
-
+      - {label: "Скрывать сайдбар", name: "sidebar", widget: "hidden", default: false}
       - label: "Шаблон страницы (не трогать)"
         name: "body"
         widget: "markdown"
@@ -209,6 +189,7 @@ collections:
           import SkuTemplate from '../../components/SkuTemplate.vue'
           </script>
           <SkuTemplate />
+
   - name: "monoblocks"
     label: "Линейки моноблоков"
     folder: "monoblocks"
@@ -242,7 +223,6 @@ collections:
         value_field: "title"
         display_fields: ["title"]
       - {label: "Изображение модели", name: "image", widget: "image", required: false}
-      
       - label: "Характеристики"
         name: "specs"
         widget: "object"
@@ -260,7 +240,6 @@ collections:
           - {label: "Дополнительно", name: "extra", widget: "string", required: false}
           - {label: "Блок питания", name: "power", widget: "string", required: false}
           - {label: "Поддерживаемые ОС", name: "os", widget: "string", default: "Windows 11"}
-
       - label: "Драйверы и BIOS"
         name: "drivers"
         widget: "list"
@@ -268,7 +247,6 @@ collections:
           - {label: "Название файла", name: "name", widget: "string", default: "Полный пакет драйверов"}
           - {label: "Ссылка на скачивание", name: "url", widget: "string"}
           - {label: "Версия / Дата", name: "version", widget: "string", required: false}
-
       - label: "Частые вопросы (FAQ)"
         name: "faq"
         widget: "list"
@@ -276,10 +254,8 @@ collections:
         fields:
           - {label: "Вопрос", name: "q", widget: "string"}
           - {label: "Ответ", name: "a", widget: "text"}
-
       - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
       - {label: "Скрывать сайдбар", name: "sidebar", widget: "hidden", default: false}
-
       - label: "Шаблон страницы (не трогать)"
         name: "body"
         widget: "markdown"

@@ -1,5 +1,6 @@
 ---
 title: Ace
+layout: page
 image: /images/ACE 16-Photoroom.png
 sidebar: false
 ---

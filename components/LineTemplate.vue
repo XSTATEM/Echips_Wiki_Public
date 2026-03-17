@@ -75,20 +75,63 @@ onMounted(() => {
 .hero-title { font-size: 42px; font-weight: 800; margin: 0 0 10px 0 !important; color: var(--vp-c-text-1); }
 .subtitle { font-size: 18px; color: var(--vp-c-text-2); margin: 0; }
 
-.sku-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-.sku-card { padding: 35px 25px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.sku-card h3 { font-size: 24px; font-weight: 800; color: var(--vp-c-text-1); margin-bottom: 20px !important; border: none; padding: 0; }
+.sku-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Чуть сузили для красоты */
+  gap: 24px; 
+}
+.sku-card { 
+  padding: 30px 20px; 
+  border-radius: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; /* Заставляем все карточки в ряду быть одной высоты */
+}
+.sku-card h3 { 
+  font-size: 22px; 
+  font-weight: 800; 
+  color: var(--vp-c-text-1); 
+  margin: 0 0 20px 0 !important; 
+  border: none; 
+  padding: 0; 
+  text-align: center;
+}
 
-.btn-yellow { font-size: 14px; font-weight: 600; color: var(--vp-c-text-1); background: var(--vp-c-default-soft); padding: 12px 24px; border-radius: 20px; transition: all 0.3s; }
-.sku-card:hover .btn-yellow { background: var(--echips-blue); color: #000; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3); }
+.btn-yellow { 
+  font-size: 13px; /* Чуть уменьшили шрифт, чтобы влезло элегантно */
+  line-height: 1.4;
+  font-weight: 600; 
+  color: var(--vp-c-text-1); 
+  background: var(--vp-c-default-soft); 
+  padding: 12px 16px; 
+  border-radius: 20px; 
+  transition: all 0.3s; 
+  width: 100%; /* Делаем кнопку широкой на всю карточку */
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal; /* Если экран телефона узкий - текст красиво перенесется */
+}
+.sku-card:hover .btn-yellow { 
+  background: var(--echips-blue); 
+  color: #000 !important; 
+  box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3); 
+}
 
 .glass-effect { background: var(--vp-c-bg-soft); border: 1px solid rgba(128, 130, 133, 0.25); box-shadow: 0 12px 32px rgba(0,0,0,0.08); overflow: hidden; position: relative; }
 html.dark .glass-effect { border-color: rgba(255, 255, 255, 0.12); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
 
 .tilt-card { transition: transform 0.2s, box-shadow 0.3s, border-color 0.3s; }
 .tilt-card:hover { transform: translateY(-5px); border-color: rgba(255, 184, 0, 0.4); }
-.card-stack { position: relative; z-index: 1; }
-
+.card-stack { 
+  position: relative; 
+  z-index: 1; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: space-between; /* Магия: расталкивает заголовок вверх, а кнопку вниз! */
+  height: 100%; 
+  width: 100%;
+}
 .mouse-glow { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; transition: opacity 0.5s; pointer-events: none; z-index: 0; background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 184, 0, 0.6), transparent 100%); }
 .sku-card:hover .mouse-glow { opacity: 1; }
 

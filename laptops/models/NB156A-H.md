@@ -3,7 +3,7 @@ title: NB156A-H
 line: Envy
 specs:
   cpu: Intel Celeron J4125 (4 ядра/4 потока, 2.0 - 2.7 ГГц)
-  ram: 8GB  / LPDDR4
+  ram: 12GB  / LPDDR4
   ram_upgrade: нет
   gpu: Intel UHD Graphics (Интегрированная)
   storage: SSD 256GB (M.2 SATA)
@@ -18,7 +18,7 @@ specs:
   os: Windows 11
 drivers:
   - name: Полный пакет драйверов
-    url: https://disk.360.yandex.ru/d/KJb2p8d4olScBg
+    url: https://disk.360.yandex.ru/d/u_tpWrRfaVUJxQ
     version: ''
 layout: page
 sidebar: false

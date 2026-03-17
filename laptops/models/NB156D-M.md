@@ -16,6 +16,10 @@ specs:
   battery: 5000мАч (7.6В)
   power: 12В 2.5А / 3,5х1,35 мм
   os: Windows 11
+drivers:
+  - name: Полный пакет драйверов
+    url: https://disk.360.yandex.ru/d/1TfsnC6vkI5aLg
+    version: ''
 layout: page
 sidebar: false
 ---

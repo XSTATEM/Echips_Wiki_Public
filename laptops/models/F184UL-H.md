@@ -3,7 +3,7 @@ title: F184UL-H
 line: Max
 specs:
   cpu: Intel Processor N150 (4 ядра/4 потока, 0.8 - 3.6 ГГц)
-  ram: 12GB  / DDR4 2666МГц
+  ram: 16GB  / DDR4 2666МГц
   ram_upgrade: 32 ГБ
   gpu: Intel UHD Graphics (Интегрированная)
   storage: SSD 512GB (M.2 NVME / M.2 SATA)

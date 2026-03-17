@@ -1,24 +1,29 @@
 ---
-title: "NQ15E"
-line: "Malachite"
+title: NQ15E
+line: Malachite
 specs:
-  cpu: "Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)"
-  ram: "8GB  / DDR4 2666МГц"
-  ram_upgrade: "16 ГБ"
-  gpu: "Intel UHD Graphics (Интегрированная)"
-  storage: "SSD 256GB (M.2 SATA)"
-  storage_slots: "1"
-  screen: "15.6 1920x1080 60 Гц IPS 16:9"
-  webcam: "2 Мп (1080p)"
-  type_c: "1 (только передача данных)"
-  video_out: "HDMI"
-  extra: "Сенсорный экран: Нет, Подсветка: нет, Отпечаток: нет"
-  battery: "5000мАч (7.6В)"
-  power: "19В 3.42А / 3,5х1,35 мм"
-  os: "Windows 11"
+  cpu: Intel Processor N100 (4 ядра/4 потока, 0.8 - 3.4 ГГц)
+  ram: 8GB  / DDR4 2666МГц
+  ram_upgrade: 16 ГБ
+  gpu: Intel UHD Graphics (Интегрированная)
+  storage: SSD 256GB (M.2 SATA)
+  storage_slots: '1'
+  screen: 15.6 1920x1080 60 Гц IPS 16:9
+  webcam: 2 Мп (1080p)
+  type_c: 1 (только передача данных)
+  video_out: HDMI
+  extra: 'Сенсорный экран: Нет, Подсветка: нет, Отпечаток: нет'
+  battery: 5000мАч (7.6В)
+  power: 19В 3.42А / 3,5х1,35 мм
+  os: Windows 11
+drivers:
+  - name: Полный пакет драйверов
+    url: https://disk.360.yandex.ru/d/Sp_3A-clnr2Yug
+    version: ''
 layout: page
 sidebar: false
 ---
+
 <script setup>
 import SkuTemplate from '../../components/SkuTemplate.vue'
 </script>

@@ -170,7 +170,7 @@ html.dark .tilt-card:hover { box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5) !importa
 .tilt-card:hover .mouse-glow { opacity: 1; }
 
 /* ================= ВКЛАДКИ ================= */
-.tabs-header { display: flex; background: rgba(0, 0, 0, 0.02); border-bottom: 1px solid var(--border-color); padding: 0 16px; overflow-x: auto; }
+.tabs-header { display: flex; background: rgba(0, 0, 0, 0.02); border-bottom: 1px solid var(--border-color); padding: 0 16px; overflow-x: hidden; }
 html.dark .tabs-header { background: rgba(0,0,0,0.2); }
 .tab-btn {
   padding: 20px 24px; background: transparent; border: none; font-size: 15px; font-weight: 600; color: var(--vp-c-text-2);

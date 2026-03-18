@@ -1,24 +1,29 @@
 ---
-title: "BM160UL"
-line: "Ace"
+title: BM160UL
+line: Ace
 specs:
-  cpu: "Intel Core i3-N305 (8 ядер/8 потоков, 1.1 - 3.8 ГГц)"
-  ram: "16GB  / DDR5 4800МГц"
-  ram_upgrade: "16 ГБ"
-  gpu: "Intel UHD Graphics (Интегрированная)"
-  storage: "SSD 512GB (M.2 SATA)"
-  storage_slots: "1"
-  screen: "16 1920x1200 60 Гц IPS 16:10"
-  webcam: "2 Мп (1080p)"
-  type_c: "1 (полнофункциональный)"
-  video_out: "HDMI"
-  extra: "Сенсорный экран: Нет, Подсветка: нет, Отпечаток: нет"
-  battery: "6000мАч (7.6В)"
-  power: "19В 2.7А / 3,5х1,35 мм"
-  os: "Windows 11"
+  cpu: Intel Core i3-N305 (8 ядер/8 потоков, 1.1 - 3.8 ГГц)
+  ram: 16GB  / DDR5 4800МГц
+  ram_upgrade: 16 ГБ
+  gpu: Intel UHD Graphics (Интегрированная)
+  storage: SSD 512GB (M.2 SATA)
+  storage_slots: '1'
+  screen: 16 1920x1200 60 Гц IPS 16:10
+  webcam: 2 Мп (1080p)
+  type_c: 1 (полнофункциональный)
+  video_out: HDMI
+  extra: 'Сенсорный экран: Нет, Подсветка: нет, Отпечаток: нет'
+  battery: 6000мАч (7.6В)
+  power: 19В 2.7А / 3,5х1,35 мм
+  os: Windows 11
+drivers:
+  - name: Полный пакет драйверов
+    url: https://disk.360.yandex.ru/d/ohtYzvtWdSoUnw
+    version: ''
 layout: page
 sidebar: false
 ---
+
 <script setup>
 import SkuTemplate from '../../components/SkuTemplate.vue'
 </script>

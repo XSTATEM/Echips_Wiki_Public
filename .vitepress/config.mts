@@ -4,6 +4,18 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Echips Wiki",
   description: "Найдите нужную информацию тут",
+  head: [
+    [
+      'script',
+      {
+        src: 'https://storage1.suvvy.ai/widget/loader.js',
+        'data-widget-id': '69984b81dc65a0f917134eb469ba7988608bd676ec3ab70e',
+        'data-lang': 'ru',
+        async: ''
+      }
+    ]
+  ],
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     search: {

@@ -15,7 +15,6 @@
     </div>
 
     <div class="tabs-container glass-effect tilt-card" ref="cardRef" @mousemove="handleTilt" @mouseleave="resetTilt">
-      <div class="mouse-glow"></div>
       <div class="card-stack">
         
         <div class="tabs-header">

@@ -212,12 +212,6 @@ html.dark .mouse-glow { background: radial-gradient(circle 250px at var(--mouse-
 .p-details .time { color: var(--e-yellow); font-weight: 600; margin-bottom: 16px; }
 .p-details .note { font-size: 13px; color: var(--e-desc); line-height: 1.5; border-top: 1px solid rgba(128, 130, 133, 0.2); padding-top: 16px; margin-top: 16px; }
 
-/* Адаптив */
-@media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .phone-grid { grid-template-columns: 1fr; }
-  .p-number { font-size: 28px; }
-}
 
 /* Системные исправления шапки */
 :deep(.VPNavBar) { background-color: transparent !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; perspective: none; }

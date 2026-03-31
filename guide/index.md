@@ -104,7 +104,7 @@ onUnmounted(() => {
     <a href="/guide/battery" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
-        <div class="cat-icon bg-green">🔋</div>
+        <img src="/images/main-logo.png" alt="Echips" class="hero-logo" />
         <h3>Батарея и питание</h3>
         <p>Рекомендации по калибровке и продлению срока службы АКБ.</p>
       </div>

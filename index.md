@@ -370,4 +370,46 @@ html.dark :deep(.VPNavBar) {
   z-index: 2;
 }
 
+/* ================= АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ================= */
+@media (max-width: 768px) {
+  /* Общие отступы страницы */
+  .echips-wrapper { padding: 80px 16px 40px; }
+
+  /* Шапка и логотип */
+  .hero-logo { width: 140px; margin-bottom: 16px; }
+  .hero-title { font-size: 42px !important; line-height: 1.1 !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+
+  /* Сжимаем фоновые свечения, чтобы не пересвечивали экран */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Строка поиска */
+  .search-section, .search-container { margin-bottom: 40px; }
+  .search-bar { padding: 0 16px; height: 50px; }
+  .search-input { font-size: 14px; }
+  
+  /* Выпадающее меню поиска (делаем в 2 строки для узких экранов) */
+  .search-result-item { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px 16px; }
+  .res-line { align-self: flex-start; font-size: 10px; }
+
+  /* Три иконки (Ноутбуки, Моноблоки, Гарантия) */
+  .icon-row { gap: 12px; margin-top: 30px !important; margin-bottom: 40px; }
+  .icon-box { width: 70px; height: 70px; border-radius: 18px; margin-bottom: 8px; }
+  .img-icon { width: 30px; height: 30px; }
+  .label { font-size: 12px; text-align: center; }
+
+  /* Крупные плашки-кнопки */
+  .action-grid { flex-direction: column; gap: 16px; align-items: center; }
+  .big-card { width: 100%; min-height: 200px; padding: 30px 20px; border-radius: 24px; }
+  .img-large { height: 50px; margin-top: 0; }
+  .card-h { font-size: 18px; margin: 16px 0 !important; }
+
+  /* Футер с контактами */
+  .footer-contacts { margin-top: 50px; padding-top: 30px; }
+  .f-title { font-size: 20px; line-height: 1.3; }
+  .f-desc { font-size: 14px; margin-bottom: 24px; }
+  .f-grid { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+}
+
 </style>

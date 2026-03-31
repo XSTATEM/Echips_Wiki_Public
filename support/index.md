@@ -86,7 +86,7 @@ onUnmounted(() => {
       <div class="card-stack">
         <div class="c-icon bg-email">✉️</div>
         <h3>Email</h3>
-        <p>Для развернутых вопросов и документов.</p>
+        <p>Для развернутых вопросов и документов</p>
         <span class="c-action text-yellow">help@echips.ru &rarr;</span>
       </div>
     </a>

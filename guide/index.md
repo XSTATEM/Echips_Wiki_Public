@@ -85,7 +85,7 @@ onUnmounted(() => {
     <p class="hero-subtitle">Инструкции по настройке, установке ОС и ответы на частые вопросы.</p>
   </div>
   <div class="category-grid">
-    <a href="/guide/windows" class="cat-card glass-effect tilt-card">
+    <a href="/guide/windows.md" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <img src="/images/windows_icon.png" class="cat-icon bg-white" />
@@ -93,7 +93,7 @@ onUnmounted(() => {
         <p>Пошаговое руководство по созданию флешки и установке ОС.</p>
       </div>
     </a>   
-    <a href="guide/laptops" class="cat-card glass-effect tilt-card">
+    <a href="guide/laptops.md" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <img src="/images/setting_icon.png" class="cat-icon bg-white" />
@@ -109,7 +109,7 @@ onUnmounted(() => {
         <p>Рекомендации по калибровке и продлению срока службы АКБ.</p>
       </div>
     </a>
-    <a href="guide/service" class="cat-card glass-effect tilt-card">
+    <a href="guide/service.md" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <div class="cat-icon bg-purple">🛠</div>
@@ -268,4 +268,33 @@ html.dark .faq-item { border-bottom-color: rgba(255, 255, 255, 0.05); }
 /* Системные исправления шапки */
 :deep(.VPNavBar) { background-color: transparent !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; perspective: none; }
 html.dark :deep(.VPNavBar) { background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
+
+/* ================= АДАПТИВ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ ================= */
+@media (max-width: 768px) {
+  /* Уменьшаем отступы по краям экрана */
+  .echips-wrapper { padding: 80px 16px 40px; }
+  
+  /* Сжимаем гигантские фоновые пятна, чтобы не было горизонтального скролла */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Уменьшаем шрифты в шапке */
+  .hero-title { font-size: 42px !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+
+  /* Сетка категорий в 1 колонку */
+  .category-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 30px; }
+  .cat-card { padding: 24px; }
+  .cat-icon { width: 40px; height: 40px; font-size: 20px; margin-bottom: 16px; }
+
+  /* Аккордеон FAQ делаем компактнее */
+  .faq-container { padding: 10px 20px; border-radius: 20px; }
+  .faq-question { font-size: 16px; padding: 18px 0; }
+  .faq-icon { margin-left: 12px; }
+
+  /* Баннер внизу складываем в столбик */
+  .support-banner { padding: 30px 20px; margin-top: 40px; border-radius: 20px; }
+  .banner-content { flex-direction: column; text-align: center; gap: 20px; }
+  .banner-text h3 { font-size: 20px !important; }
+}
 </style>

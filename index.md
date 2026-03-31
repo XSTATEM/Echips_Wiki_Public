@@ -120,12 +120,12 @@ onMounted(() => {
         <span class="btn-yellow">Выбрать модель &rarr;</span>
       </div>
     </a>
-    <a href="/guide" class="big-card glass-effect">
+    <a href="/support" class="big-card glass-effect">
       <div class="mouse-glow"></div>
       <div class="card-inner">
         <img src="/images/icon-faq.png" alt="FAQ" class="img-large" />
-        <h3 class="card-h">Инструкции и FAQ</h3>
-        <span class="btn-yellow">Найти ответ &rarr;</span>
+        <h3 class="card-h">Поддержка клиентов</h3>
+        <span class="btn-yellow">Связаться с нами &rarr;</span>
       </div>
     </a>
     <a href="/service" class="big-card glass-effect">

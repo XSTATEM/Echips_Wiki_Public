@@ -1,26 +1,132 @@
-# Чистая установка Windows 10/11
+---
+layout: page
+title: Установка Windows
+sidebar: false
+---
 
-Пошаговое руководство по самостоятельной установке операционной системы на ноутбуки ECHIPS.
+<div class="echips-wrapper">
+  <div class="bg-glow top-glow"></div>
+  <div class="bg-glow bottom-glow"></div>
+  
+  <div class="main-header">
+    <a href="/" class="back-link">← Назад к списку</a>
+    <h1 class="hero-title" style="font-size: 48px; margin-bottom: 10px !important;">Установка Windows</h1>
+    <p class="hero-subtitle">Пошаговое руководство по созданию флешки и установке ОС</p>
+  </div>
 
-::: info Важно
-Самостоятельная установка ОС **не лишает** вас гарантии на устройство, если в процессе не был физически поврежден корпус или внутренние компоненты.
-:::
+  <div class="faq-container glass-effect article-content">
+    <div class="mouse-glow"></div>
+    
+    <h2>1. Подготовка загрузочной флешки</h2>
+    <p>Современные ноутбуки ECHIPS работают исключительно в режиме <b>UEFI</b>. Установка системы в устаревшем режиме (Legacy/CSM) не поддерживается.</p>
+    
+    <ul>
+      <li>Возьмите пустую USB-флешку объемом не менее 8 ГБ.</li>
+      <li>Скачайте официальную утилиту <b>Media Creation Tool</b> с сайта Microsoft (или используйте программу <b>Rufus</b>).</li>
+      <li>При записи образа через Rufus обязательно выберите схему раздела <b>GPT</b> и целевую систему <b>UEFI (non CSM)</b>.</li>
+    </ul>
 
-## 1. Подготовка загрузочной флешки
+    <h2>2. Настройка BIOS и Установка</h2>
+    <ul>
+      <li>Вставьте подготовленную флешку в USB-порт.</li>
+      <li>Включите ноутбук и сразу начните прерывисто нажимать клавишу <b>F7</b> (или <b>F11</b>, <b>Esc</b> в зависимости от модели), чтобы вызвать Boot Menu.</li>
+      <li>Выберите вашу флешку в списке загрузочных устройств.</li>
+      <li>Следуйте стандартным шагам установщика Windows.</li>
+    </ul>
 
-Современные ноутбуки ECHIPS работают исключительно в режиме **UEFI**. Установка системы в устаревшем режиме (Legacy/CSM) не поддерживается.
+    <div class="alert-box">
+      <strong>Внимание при выборе диска:</strong> На этапе выбора диска удалите все старые разделы на системном накопителе, пока не останется только «Незанятое пространство» (Unallocated Space). Выберите его и нажмите «Далее» — установщик сам создаст правильную структуру разделов.
+    </div>
+  </div>
+</div>
 
-1. Возьмите пустую USB-флешку объемом не менее 8 ГБ.
-2. Скачайте официальную утилиту **Media Creation Tool** с сайта Microsoft (или используйте программу **Rufus**).
-3. При записи образа через Rufus обязательно выберите схему раздела **GPT** и целевую систему **UEFI (non CSM)**.
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-## 2. Настройка BIOS и Установка
+/* Скрываем дефолтный заголовок VitePress */
+:deep(h1:not(.hero-title)) { display: none !important; }
 
-1. Вставьте подготовленную флешку в USB-порт.
-2. Включите ноутбук и сразу начните прерывисто нажимать клавишу **F7** (или **F11**, **Esc** в зависимости от модели), чтобы вызвать `Boot Menu`.
-3. Выберите вашу флешку в списке загрузочных устройств (обычно она начинается со слова *UEFI:*).
-4. Следуйте стандартным шагам установщика Windows.
+/* Общие параметры (те же, что на главной) */
+.echips-wrapper {
+  --e-yellow: #FFB800; --e-orange: #FF4500; --e-gray: #8E8E93;
+  --e-text: var(--vp-c-text-1); --e-desc: var(--vp-c-text-2);
+  max-width: 900px;
+  margin: 0 auto; padding: 100px 20px 60px;
+  position: relative; font-family: 'Montserrat', sans-serif !important;
+}
+.echips-wrapper a { text-decoration: none !important; border-bottom: none !important; box-shadow: none !important; }
 
-::: warning Внимание при выборе диска
-На этапе выбора диска удалите все старые разделы на системном накопителе, пока не останется только «Незанятое пространство» (Unallocated Space). Выберите его и нажмите «Далее» — установщик сам создаст правильную структуру разделов.
-:::
+/* Фоновые свечения */
+.bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none; }
+.top-glow { width: 450px; height: 450px; background: var(--e-orange); top: -10%; left: 5%; opacity: 0.25; } 
+.bottom-glow { width: 550px; height: 550px; background: var(--e-yellow); bottom: 10%; right: -5%; opacity: 0.15; } 
+html.dark .top-glow { opacity: 0.3; } html.dark .bottom-glow { opacity: 0.2; }
+
+/* Эффект стекла */
+.glass-effect {
+  background: var(--vp-c-bg-soft); border: 1px solid rgba(128, 130, 133, 0.25) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important; position: relative; overflow: hidden;
+  border-radius: 28px;
+}
+html.dark .glass-effect { border: 1px solid rgba(255, 255, 255, 0.12) !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3) !important; }
+
+/* Шапка */
+.main-header { margin-bottom: 50px; text-align: center; }
+.back-link { display: inline-block; margin-bottom: 24px; color: var(--e-gray); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+.back-link:hover { color: var(--e-yellow) !important; }
+.hero-title { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1 !important; color: var(--e-text); }
+.hero-subtitle { font-size: 18px; color: var(--e-desc); font-weight: 500; margin: 0 !important; }
+
+/* ================= СТИЛИ САМОЙ ИНСТРУКЦИИ ================= */
+.article-content {
+  padding: 40px 50px;
+  text-align: left;
+}
+.article-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--e-text);
+  margin: 40px 0 20px;
+  border-bottom: 1px solid rgba(128, 130, 133, 0.15);
+  padding-bottom: 12px;
+  border-top: none !important;
+}
+.article-content h2:first-child { margin-top: 0; }
+.article-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--e-desc);
+  margin-bottom: 16px;
+}
+.article-content ul {
+  padding-left: 24px;
+  margin-bottom: 24px;
+  color: var(--e-desc);
+}
+.article-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.article-content b, .article-content strong { color: var(--e-text); }
+
+/* Красивый блок с предупреждением */
+.alert-box {
+  background: rgba(255, 184, 0, 0.1);
+  border-left: 4px solid var(--e-yellow);
+  padding: 18px 24px;
+  border-radius: 0 12px 12px 0;
+  margin-top: 30px;
+  color: var(--e-desc);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .article-content { padding: 30px 20px; }
+  .hero-title { font-size: 36px !important; }
+}
+
+/* Фикс прозрачной шапки меню VitePress */
+:deep(.VPNavBar) { background-color: transparent !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; }
+html.dark :deep(.VPNavBar) { background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
+</style>

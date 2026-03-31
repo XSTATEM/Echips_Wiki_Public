@@ -401,4 +401,52 @@ html, body { overflow-x: hidden !important; }
   .calc-input-area { margin-bottom: 25px; text-align: center; align-items: center; }
   .support-item { padding: 20px; }
 }
+
+/* ================= АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ================= */
+@media (max-width: 768px) {
+  /* Общие отступы страницы */
+  .echips-wrapper { padding: 80px 16px 40px; }
+
+  /* Шапка */
+  .hero-title { font-size: 42px !important; line-height: 1.1 !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+  .section-title { font-size: 26px !important; margin: 40px 0 20px !important; }
+
+  /* Сжимаем фоновые свечения */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Калькулятор гарантии */
+  .calculator-section { padding: 24px 16px; margin-bottom: 30px; }
+  .calc-content { flex-direction: column; gap: 20px; }
+  .calc-input-area { transform: none; text-align: center; align-items: center; margin-bottom: 10px; }
+  .calc-title { font-size: 20px; }
+  .calc-desc { font-size: 14px; margin-bottom: 16px; }
+  .input-wrapper { width: 100%; }
+  .date-input { max-width: 100%; font-size: 15px; padding: 12px; }
+  
+  .calc-result-area { transform: none; padding: 20px 16px; text-align: center; }
+  .res-value { font-size: 18px; }
+
+  /* Сетки карточек (Гарантия и Возврат) */
+  .warranty-grid, .returns-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+  .w-card, .return-card { padding: 24px 20px; }
+  .w-card h3, .return-card h4 { font-size: 20px !important; margin-bottom: 12px !important; }
+  .w-card p, .w-card li, .return-card p, .return-card li { font-size: 14px; }
+  .w-badge { margin-bottom: 16px; font-size: 11px; padding: 4px 10px; }
+
+  /* Желтый алерт */
+  .alert-box { flex-direction: column; text-align: center; gap: 12px; padding: 20px; margin-bottom: 40px; border-radius: 20px; }
+  .alert-icon { margin: 0; font-size: 28px; }
+  .alert-text { font-size: 14px; }
+
+  /* Блок поддержки (контакты) */
+  .support-contacts { padding: 30px 20px; }
+  .support-contacts h3 { font-size: 22px !important; margin-bottom: 24px !important; line-height: 1.3; }
+  .support-grid { flex-direction: column; gap: 16px; transform: none; }
+  .support-item { flex-direction: column; text-align: center; align-items: center; padding: 20px; gap: 12px; }
+  .s-icon { font-size: 26px; }
+  .s-info p { font-size: 18px; margin: 6px 0 !important; }
+  .s-info span { font-size: 13px; }
+}
 </style>

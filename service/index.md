@@ -187,7 +187,7 @@ const filteredCenters = computed(() => {
   <div v-else class="no-results glass-effect">
   <div class="mouse-glow"></div>
     <p>К сожалению, в этом городе пока нет нашего сервисного центра.</p>
-    <a href="mailto:service@echips.ru" class="contact-link">Напишите нам: service@echips.ru</a>
+    <a href="mailto:help@echips.ru" class="contact-link">Напишите нам: help@echips.ru</a>
   </div>
 </div>
 

@@ -7,7 +7,7 @@ sidebar: false
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 
-// ================= МАГИЯ 3D НАКЛОНА =================
+// ================= 3D НАКЛОНА =================
 const handleTilt = (e) => {
   const card = e.currentTarget;
   const rect = card.getBoundingClientRect();
@@ -59,14 +59,14 @@ onUnmounted(() => {
     <p class="hero-subtitle">Мы всегда на связи, чтобы помочь решить любой вопрос с вашим устройством ECHIPS.</p>
   </div>
   <div class="contact-grid">    
-    <a href="https://t.me/ECHIPS_Support" target="_blank" class="contact-card glass-effect tilt-card">
+    <a href="https://t.me/echips_help_bot" target="_blank" class="contact-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <div class="c-icon bg-telegram">
           <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.96 1.25-5.54 3.67-.52.36-.99.54-1.41.53-.46-.01-1.35-.26-2.01-.48-.81-.27-1.46-.42-1.4-.88.03-.24.38-.48 1.03-.74 4.04-1.76 6.74-2.92 8.09-3.48 3.85-1.6 4.64-1.88 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.42.02.11.04.31.02.47z"/></svg>
         </div>
         <h3>Telegram</h3>
-        <p>Быстрые ответы в мессенджере.</p>
+        <p>Быстрые ответы в мессенджере</p>
         <span class="c-action text-blue">Написать в Telegram &rarr;</span>
       </div>
     </a>
@@ -77,17 +77,17 @@ onUnmounted(() => {
           <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M16.75 13.96c-.25-.13-1.5-.74-1.73-.82-.23-.08-.4-.13-.57.13-.17.25-.65.82-.8 1-.15.17-.3.2-.55.08-.25-.13-1.07-.39-2.04-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.57-1.37-.78-1.87-.2-.5-.41-.43-.57-.44-.15-.01-.32-.01-.5-.01-.18 0-.46.07-.71.34-.25.27-.96.94-.96 2.3 0 1.36.98 2.68 1.12 2.85.14.17 1.94 2.96 4.7 4.12 2.76 1.16 2.76.77 3.26.72.5-.05 1.5-.61 1.71-1.21.21-.6.21-1.11.15-1.21-.06-.1-.23-.15-.48-.28zM12 21.82c-1.82 0-3.59-.49-5.15-1.41l-.37-.22-3.83 1.01 1.02-3.74-.24-.39C2.45 15.42 1.9 13.74 1.9 12 1.9 6.43 6.43 1.9 12 1.9s10.1 4.53 10.1 10.1-4.53 10.1-10.1 10.1zM12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.16 1.59 5.95L.08 24l6.19-1.63C8.01 23.4 10.03 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
         </div>
         <h3>WhatsApp</h3>
-        <p>Поддержка по фото и видео.</p>
+        <p>Быстрые ответы в мессенджере</p>
         <span class="c-action text-green">Открыть чат &rarr;</span>
       </div>
     </a>
-    <a href="mailto:support@echips.ru" class="contact-card glass-effect tilt-card">
+    <a href="mailto:help@echips.ru" class="contact-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <div class="c-icon bg-email">✉️</div>
         <h3>Email</h3>
         <p>Для развернутых вопросов и документов.</p>
-        <span class="c-action text-yellow">support@echips.ru &rarr;</span>
+        <span class="c-action text-yellow">help@echips.ru &rarr;</span>
       </div>
     </a>
   </div>

@@ -222,4 +222,42 @@ html.dark .mouse-glow { background: radial-gradient(circle 250px at var(--mouse-
 /* Системные исправления шапки */
 :deep(.VPNavBar) { background-color: transparent !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border-bottom: 1px solid var(--vp-c-divider) !important; perspective: none; }
 html.dark :deep(.VPNavBar) { background-color: rgba(30, 30, 30, 0.4) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
+
+/* ================= АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ================= */
+@media (max-width: 768px) {
+  /* Общие отступы страницы */
+  .echips-wrapper { padding: 80px 16px 40px; }
+
+  /* Сжимаем фоновые свечения */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Шапка */
+  .hero-title { font-size: 38px !important; line-height: 1.1 !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+  .section-title { font-size: 26px !important; margin: 40px 0 20px !important; }
+
+  /* Сетка карточек связи (Telegram, WA, Email) */
+  .contact-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-card { padding: 24px 20px; }
+  .c-icon { width: 50px; height: 50px; font-size: 24px !important; margin-bottom: 16px; }
+  .c-icon svg { width: 24px; height: 24px; }
+  .contact-card h3 { font-size: 20px !important; margin-bottom: 8px !important; }
+  .contact-card p { font-size: 14px; margin-bottom: 16px; }
+
+  /* Сетка телефонов (Валерий и Инженер) */
+  .phone-grid { grid-template-columns: 1fr; gap: 16px; }
+  .phone-card { padding: 24px 20px; }
+  
+  /* Верхняя плашка в карточке телефона */
+  .p-header { margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+  .p-badge { font-size: 10px; padding: 4px 10px; }
+  .p-status { font-size: 12px; }
+
+  /* Номера и детали */
+  .p-number { font-size: 26px; margin-bottom: 16px; }
+  .p-details p { font-size: 14px; margin-bottom: 4px; }
+  .p-details .time { font-size: 14px; margin-bottom: 12px; }
+  .p-details .note { font-size: 12px; padding-top: 12px; margin-top: 12px; }
+}
 </style>

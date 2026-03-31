@@ -347,4 +347,69 @@ html.dark :deep(.VPNavBar) {
   display: inline-block; margin-bottom: 15px; font-size: 13px; font-weight: 700; color: var(--e-orange);
   background: rgba(255, 69, 0, 0.1); padding: 4px 12px; border-radius: 10px;
 }
+
+/* ================= АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ================= */
+@media (max-width: 768px) {
+  /* Общие отступы */
+  .echips-wrapper { padding: 80px 16px 40px; }
+
+  /* Сжимаем фоновые свечения */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Шапка */
+  .hero-title { font-size: 38px !important; line-height: 1.1 !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+
+  /* Поиск и кнопка геолокации */
+  .search-section { margin-bottom: 30px; }
+  .search-bar { 
+    height: auto; 
+    min-height: 56px; 
+    padding: 6px 6px 6px 16px; /* Меньше отступ справа для кнопки */
+  }
+  .search-input { font-size: 14px; }
+  .geo-btn { 
+    padding: 10px 12px; 
+    font-size: 12px; 
+    margin-left: 8px; 
+    white-space: nowrap;
+  }
+
+  /* Карта (делаем ниже, чтобы было удобно скроллить страницу) */
+  .map-container { 
+    height: 300px; 
+    margin-bottom: 30px; 
+    border-radius: 20px; 
+  }
+
+  /* Сетка карточек АСЦ */
+  .centers-grid { 
+    grid-template-columns: 1fr; /* Строго в один столбик */
+    gap: 16px; 
+  }
+  .center-card { padding: 24px 20px; border-radius: 20px; }
+  
+  /* Внутренности карточки */
+  .card-header { flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .city-name { font-size: 20px; }
+  .badge { font-size: 10px; padding: 4px 10px; }
+  
+  .center-name { font-size: 16px; margin-bottom: 12px !important; }
+  .center-details p { font-size: 14px; margin-bottom: 6px; }
+  .distance-badge { font-size: 12px; margin-bottom: 12px; }
+  
+  /* Кнопка "На карте" на всю ширину для удобного нажатия пальцем */
+  .card-footer { padding-top: 16px; }
+  .btn-yellow { 
+    width: 100%; 
+    text-align: center; 
+    padding: 12px 20px; 
+  }
+
+  /* Блок если ничего не найдено */
+  .no-results { padding: 24px 16px; }
+  .no-results p { font-size: 15px; }
+  .contact-link { font-size: 14px; }
+}
 </style>

@@ -96,7 +96,7 @@ onUnmounted(() => {
     <a href="/laptops" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
-        <img src="/images/windows_icon.png" class="cat-icon bg-white" />
+        <img src="/images/setting_icon.png" class="cat-icon bg-white" />
         <h3>Установка драйверов</h3>
         <p>Как правильно скачать и установить драйверы для вашей модели.</p>
       </div>

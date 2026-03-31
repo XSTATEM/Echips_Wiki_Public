@@ -158,9 +158,31 @@ html.dark .mouse-glow { background: radial-gradient(circle 200px at var(--mouse-
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-@media (max-width: 800px) {
-  .hero-title { font-size: 38px; }
-  .laptop-grid { grid-template-columns: 1fr; }
+/* ================= АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ================= */
+@media (max-width: 768px) {
+  /* Общие отступы страницы */
+  .echips-wrapper { padding: 80px 16px 40px; }
+
+  /* Сжимаем фоновые свечения */
+  .top-glow { width: 300px; height: 300px; top: 0; }
+  .bottom-glow { width: 300px; height: 300px; bottom: 0; }
+
+  /* Шапка */
+  .hero-title { font-size: 38px !important; line-height: 1.1 !important; margin-bottom: 12px !important; }
+  .hero-subtitle { font-size: 16px !important; }
+  .back-link { margin-bottom: 16px; font-size: 12px; }
+
+  /* Сетка ноутбуков */
+  .laptop-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 30px; }
+  
+  /* Карточка ноутбука */
+  .laptop-card { padding: 24px 20px; border-radius: 20px; min-height: 250px; }
+  .laptop-image-container { height: 120px; margin-bottom: 16px; }
+  .laptop-img { max-width: 80%; }
+  
+  /* Заголовок и кнопка в карточке */
+  .card-h { font-size: 20px !important; margin-bottom: 16px !important; }
+  .btn-yellow { width: 100%; text-align: center; padding: 12px 20px; font-size: 14px; }
 }
 
 /* ================= ГЛОБАЛЬНЫЕ ИСПРАВЛЕНИЯ ================= */

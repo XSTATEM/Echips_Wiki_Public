@@ -6,17 +6,14 @@ sidebar: false
 
 <div class="echips-wrapper">
   <div class="bg-glow top-glow"></div>
-  <div class="bg-glow bottom-glow"></div>
-  
+  <div class="bg-glow bottom-glow"></div> 
   <div class="main-header">
     <a href="/" class="back-link">← Назад к списку</a>
     <h1 class="hero-title" style="font-size: 48px; margin-bottom: 10px !important;">Батарея и питание</h1>
     <p class="hero-subtitle">Рекомендации по калибровке и продлению срока службы АКБ</p>
   </div>
-
   <div class="faq-container glass-effect article-content">
     <div class="mouse-glow"></div>
-    
     <h2>1. Первичная калибровка</h2>
     <p>Новому устройству требуется калибровка контроллера питания, чтобы система корректно отображала процент заряда.</p>
     <ul>
@@ -24,11 +21,9 @@ sidebar: false
       <li>Отключите блок питания и пользуйтесь ноутбуком до тех пор, пока он сам не выключится (0%).</li>
       <li>Подключите зарядное устройство и, <b>не включая ноутбук</b>, дайте ему зарядиться до 100% (около 3-4 часов).</li>
     </ul>
-
     <div class="alert-box" style="border-left-color: #34C759; background: rgba(52, 199, 89, 0.1);">
       <strong>Совет:</strong> Проведите такую процедуру 1-2 раза в первые дни использования устройства. В дальнейшем полностью разряжать ноутбук в "ноль" не рекомендуется.
     </div>
-
     <h2>2. Повседневное использование</h2>
     <ul>
       <li><b>Избегайте глубокого разряда.</b> Подключайте зарядное устройство, когда уровень падает до 15-20%.</li>

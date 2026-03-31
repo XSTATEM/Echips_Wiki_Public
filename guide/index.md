@@ -85,7 +85,7 @@ onUnmounted(() => {
     <p class="hero-subtitle">Инструкции по настройке, установке ОС и ответы на частые вопросы.</p>
   </div>
   <div class="category-grid">
-    <a href="/guide/windows-install" class="cat-card glass-effect tilt-card">
+    <a href="/guide/windows" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <img src="/images/windows_icon.png" class="cat-icon bg-white" />
@@ -93,7 +93,7 @@ onUnmounted(() => {
         <p>Пошаговое руководство по созданию флешки и установке ОС.</p>
       </div>
     </a>   
-    <a href="/laptops" class="cat-card glass-effect tilt-card">
+    <a href="guide/laptops" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <img src="/images/setting_icon.png" class="cat-icon bg-white" />
@@ -109,7 +109,7 @@ onUnmounted(() => {
         <p>Рекомендации по калибровке и продлению срока службы АКБ.</p>
       </div>
     </a>
-    <a href="/service" class="cat-card glass-effect tilt-card">
+    <a href="guide/service" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
         <div class="cat-icon bg-purple">🛠</div>

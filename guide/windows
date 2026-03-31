@@ -7,13 +7,11 @@ sidebar: false
 <div class="echips-wrapper">
   <div class="bg-glow top-glow"></div>
   <div class="bg-glow bottom-glow"></div>
-  
   <div class="main-header">
     <a href="/" class="back-link">← Назад к списку</a>
     <h1 class="hero-title" style="font-size: 48px; margin-bottom: 10px !important;">Установка Windows</h1>
     <p class="hero-subtitle">Пошаговое руководство по созданию флешки и установке ОС</p>
   </div>
-
   <div class="faq-container glass-effect article-content">
     <div class="mouse-glow"></div>  
     <h2>1. Подготовка загрузочной флешки</h2>

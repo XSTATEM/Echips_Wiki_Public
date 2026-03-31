@@ -88,7 +88,7 @@ onUnmounted(() => {
     <a href="/guide/windows-install" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
-        <img src="/images/windows_icon.png" class="cat-icon bg-purple" />
+        <img src="/images/battery_icon.webp" class="cat-icon bg-white" />
         <h3>Установка Windows</h3>
         <p>Пошаговое руководство по созданию флешки и установке ОС.</p>
       </div>
@@ -96,7 +96,7 @@ onUnmounted(() => {
     <a href="/laptops" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
-        <img src="/images/setting_icon.png" class="cat-icon bg-purple" />
+        <img src="/images/battery_icon.webp" class="cat-icon bg-white" />
         <h3>Установка драйверов</h3>
         <p>Как правильно скачать и установить драйверы для вашей модели.</p>
       </div>
@@ -104,7 +104,7 @@ onUnmounted(() => {
     <a href="/guide/battery" class="cat-card glass-effect tilt-card">
       <div class="mouse-glow"></div>
       <div class="card-stack">
-        <img src="/images/battery_icon.webp" class="cat-icon bg-purple" />
+        <img src="/images/battery_icon.webp" class="cat-icon bg-white" />
         <h3>Батарея и питание</h3>
         <p>Рекомендации по калибровке и продлению срока службы АКБ.</p>
       </div>
